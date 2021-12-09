@@ -3,7 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
+import SignupPageBusiness from "./pages/SignupPageBusiness";
 import LoginPage from "./pages/LoginPage";
+import LoginPageBusiness from "./pages/LoginPageBusiness";
 import AnonRoute from "./components/AnonRoute";   
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
+        <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
+        <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
 
       </Switch>
     </div>
