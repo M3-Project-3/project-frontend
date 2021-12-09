@@ -9,6 +9,12 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
+  const [businessIsLoggedIn, businessSetIsLoggedIn] = useState(false);
+  const [businessIsLoading, businessSetIsLoading] = useState(true);
+  const [business, setBusiness] = useState(null);
+  
+
+
   const verifyToken = () => {
     const localJWTToken = localStorage.getItem("authToken");
 
@@ -53,9 +59,55 @@ function AuthProviderWrapper(props) {
     verifyToken();
   }, []);
 
+//****** BUSINESS AUTH ********/
+
+const verifyBusinessToken = () => {
+  const localJWTToken = localStorage.getItem("authToken");
+
+  if (localJWTToken) {
+    axios
+      .get(`${API_URI}/auth/verify`, {
+        headers: { Authorization: `Bearer ${localJWTToken}` },
+      })
+      .then((response) => {
+        const userJWT = response.data;
+        setBusiness(userJWT); // this is essential to create the context for auth
+        businessSetIsLoading(false);
+        businessSetIsLoggedIn(true);
+      })
+      .catch((error) => {
+        setBusiness(null);
+        businessSetIsLoggedIn(false);
+        businessSetIsLoading(false);
+      });
+  } else {
+    // The token is not in the localStorage
+    businessSetIsLoading(false);
+  }
+};
+
+const logInBusiness = (JWTToken) => {
+  localStorage.setItem("authToken", JWTToken);
+  verifyBusinessToken(); // I do not pass it her because verify will read for localStorage.
+  // This way I save subsequent requests to the back
+};
+
+const logOutBusiness = () => {
+  // Upon logout, remove the token from the localStorage
+  localStorage.removeItem("authToken");
+
+  // Update the state variables
+  businessSetIsLoggedIn(false);
+  setBusiness(null);
+};
+
+useEffect(() => {
+  verifyBusinessToken();
+}, []);
+
   return (
     <AuthContext.Provider
-      value={{ logInUser, logOutUser, user, isLoggedIn, isLoading }}
+      value={{ logInUser, logOutUser, user, isLoggedIn, isLoading, logInBusiness, logOutBusiness, business, businessIsLoggedIn, businessIsLoading }}
     >
       {props.children}
     </AuthContext.Provider>
