@@ -6,7 +6,7 @@ const randomIdNumber = ()=> Math.floor(Math.random()*10000)
 restaurants.forEach(restaurant =>(restaurant._id = randomIdNumber()))
 
 function HomePage() {
-  const [restaurantsList, setrestaurantsList] = useState(restaurants)
+  const [restaurantsList, setRestaurantsList] = useState(restaurants)
   const [searchList, setSearchList] = useState(restaurants)
 
   function searchRestaurants(searchSpace){
