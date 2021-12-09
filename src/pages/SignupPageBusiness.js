@@ -38,7 +38,7 @@ function SignupPageBusiness(props) {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <h1> Business Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Name:</label>
