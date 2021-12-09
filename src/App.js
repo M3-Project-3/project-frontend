@@ -1,10 +1,13 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/General/HomePage";
+import SignupPage from "./pages/Users/SignupPage";
+import SignupPageBusiness from "./pages/Business/SignupPageBusiness";
+import LoginPage from "./pages/Users/LoginPage";
+import LoginPageBusiness from "./pages/Business/LoginPageBusiness";
 import AnonRoute from "./components/AnonRoute";   
+import EditPageBusiness from "./pages/Business/EditPageBusiness"
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
         
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
+        <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
+        <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
+        <AnonRoute exact path="/business/:id/edit" component={EditPageBusiness} />
 
       </Switch>
     </div>

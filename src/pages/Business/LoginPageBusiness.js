@@ -1,16 +1,16 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./../context/auth.context";
+import { AuthContext } from "../../context/auth.context";
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-function LoginPage(props) {
+function LoginPageBusiness(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const { logInUser } = useContext(AuthContext);
+  const { logInBusiness } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -20,12 +20,12 @@ function LoginPage(props) {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URI}/auth/login`, requestBody)
+      .post(`${API_URI}/auth/business/login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
 
         const JWTToken = response.data.authToken;
-        logInUser(JWTToken);
+        logInBusiness(JWTToken);
         props.history.push("/");
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ function LoginPage(props) {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h1>Business Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -55,9 +55,9 @@ function LoginPage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/business/signup"}> Sign Up</Link>
     </div>
   );
 }
 
-export default LoginPage;
+export default LoginPageBusiness;

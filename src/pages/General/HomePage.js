@@ -1,6 +1,6 @@
-import SearchBar from '../components/SearchBar'
+import SearchBar from '../../components/SearchBar'
 import {useState} from "react";
-import restaurants from "../restaurants.json"
+import restaurants from "../../restaurants.json"
 
 const randomIdNumber = ()=> Math.floor(Math.random()*10000)
 restaurants.forEach(restaurant =>(restaurant._id = randomIdNumber()))
