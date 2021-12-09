@@ -17,6 +17,7 @@ function Navbar() {
         ? (<>
             <button onClick={logOutUser}>Logout</button>
             <span>{user.name}</span>
+            <Link to="/business/edit">Business Edit</Link>
           </>)
         : 
         (<>
