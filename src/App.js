@@ -21,7 +21,7 @@ function App() {
         <AnonRoute exact path="/login" component={LoginPage} />
         <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
         <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
-        <Route exact path={"/business/:id/edit"} component={EditPageBusiness} />
+        <AnonRoute exact path="/business/:id/edit" component={EditPageBusiness} />
 
       </Switch>
     </div>

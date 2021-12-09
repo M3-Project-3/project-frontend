@@ -1,69 +1,71 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useParams } from "react-router-dom";
 
-export default function EditPageBusiness(){
+export default function EditPageBusiness() {
+  const { id } = useParams();
+  console.log("id: ", id);
 
-    const {id} = useParams();
-    console.log(id)
+  //make this dynamic
 
-    const [formState, setFormState] = useState({})
-    console.log(formState)
+  const [formState, setFormState] = useState({name:"david", address:"nassa"});
+  console.log(formState);
 
-    const history = useHistory()
+  const history = useHistory();
 
-    function handleSubmit(e){
-        e.preventDefault();
-        axios
-        .post(
-            `localhost:5005/business/${id}/create`,
-            formState)
-        .then(response=>{
-            setFormState({})
-            history.push("/")
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .put(`http://localhost:5005/business/${id}/edit`, formState)
+      .then((response) => {
+        setFormState({})
+        history.push("/") //path where to go when you click submit
+        console.log("response: ", response);
+      })
+      .catch(console.log);
+  }
+
+  function handleInput(e) {
+      console.log(e.target.type)
+    if (e.target.type === "select-multiple"){
+        console.log("-------------",e.target)
+        let options = e.target.options
+        let value = []
+        for(let i=0; i < options.length ; i++){
+            if(options[i].selected) value.push(options[i].value)
         }
-        )
-        .catch(console.log)
+        setFormState({...formState, [e.target.name] : value} );
+        console.log(e.target.value)
     }
+    //setFormState({ ...formState, [e.target.name]: e.target.value });
+  }
 
-    function handleInput(e){
-        setFormState({...formState, [e.target.name]: e.target.value})
-    }
-    
-return (
+  return (
     <div>
-        <h2>Edit Restaurant Profile</h2>
+      <h2>Edit Restaurant Profile</h2>
 
-    <form onSubmit={handleSubmit}>
-      
+      <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
-            type="text"
-            name="name"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.name}
+          type="text"
+          name="name"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.name}
         />
 
-        <label>Email</label>
-        <input
-            type="text"
-            name="email"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.email}
-        />
 
         <label>Address</label>
         <input
-            type="text"
-            name="address"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.address}
+          type="text"
+          name="address"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.address}
         />
 
         <label>Restaurant Type</label>
         <div>
-            <select name="resType" value={formState.value} onChange={handleInput} >
+          <select name="resType" value={formState.value} onChange={handleInput} multiple>
             <option value="fineDining">Fine Dining</option>
             <option value="casual">Casual</option>
             <option value="familyFriendly">Family Friendly</option>
@@ -76,12 +78,17 @@ return (
             <option value="Bistro">Bistro</option>
             <option value="diner">Diner</option>
             <option value="themeRestaurant">Themed Restaurant</option>
-            </select> 
+          </select>
         </div>
 
         <label>Food Type</label>
         <div>
-            <select name="FoodType" value={formState.value} onChange={handleInput} >
+          <select
+            name="foodType"
+            value={formState.value}
+            onChange={handleInput}
+            multiple
+          >
             <option value="American">American</option>
             <option value="Argentinian">Argentinian</option>
             <option value="British">British</option>
@@ -106,61 +113,59 @@ return (
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vegan">Vegan</option>
             <option value="Vietnamese">Vietnamese</option>
-            </select>
-            
+          </select>
         </div>
 
         <label>Starters</label>
         <input
-            type="text"
-            name="menuStarters"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.menuStarters}
+          type="text"
+          name="menuStarters"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.menuStarters}
         />
 
         <label>Main Course</label>
         <input
-            type="text"
-            name="menuMain"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.menuMain}
+          type="text"
+          name="menuMain"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.menuMain}
         />
 
         <label>Desert</label>
         <input
-            type="text"
-            name="desert"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.desert}
+          type="text"
+          name="desert"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.desert}
         />
 
         <label>Price Range</label>
         <input
-            type="text"
-            name="priceRange"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.priceRange}
-        />  
+          type="text"
+          name="priceRange"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.priceRange}
+        />
 
         <label>Timetable</label>
         <input
-            type="text"
-            name="timetable"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.timetable}
+          type="text"
+          name="timetable"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.timetable}
         />
 
         <label>Tables</label>
         <input
-            type="text"
-            name="tables"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.tables}
+          type="text"
+          name="tables"
+          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.tables}
         />
 
         <button type="submit">Submit</button>
-
-        </form>
+      </form>
     </div>
-)
+  );
 }
