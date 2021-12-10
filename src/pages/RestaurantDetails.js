@@ -22,7 +22,7 @@ export default function RestaurantDetails(props){
     return(
         <div>
             <header>
-                {/* <Link to='/'></Link> */}
+                {/* <Link to='/'></Link> */} 
             </header>
             {isLoading === false &&
                 <div>
