@@ -9,7 +9,7 @@ export default function EditPageBusiness() {
 
   //make this dynamic
 
-  const [formState, setFormState] = useState({name:"david", address:"nassa"});
+  const [formState, setFormState] = useState({});
   console.log(formState);
 
   const history = useHistory();

@@ -10,6 +10,8 @@ import LoginPageBusiness from "./pages/Business/LoginPageBusiness";
 import ReservationForm from "./pages/ReservationForm"  
 import AnonRoute from "./components/AnonRoute"; 
 import EditPageBusiness from "./pages/Business/EditPageBusiness";
+import FilterRestaurantsPage from "./pages/General/FilterRestaurantsPage";
+import SingleRestaurantPage from "./pages/General/SingleRestaurantPage";
 
 
 
@@ -20,7 +22,9 @@ function App() {
 
       <Switch>      
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/restaurants" component={FilterRestaurantsPage} />
         <Route exact path="/reservation/new" component={ReservationForm} />
+        <Route exact path="/restaurants/:id" component={SingleRestaurantPage} />
       
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
