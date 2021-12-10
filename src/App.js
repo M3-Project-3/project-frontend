@@ -12,13 +12,14 @@ import EditPageBusiness from "./pages/Business/EditPageBusiness";
 import FilterRestaurantsPage from "./pages/General/FilterRestaurantsPage";
 import SingleRestaurantPage from "./pages/General/SingleRestaurantPage";
 import {useContext} from "react"
+import ReservationListPage from "./pages/ReservationListPage";
 
 
 function App() {
 
   return (
     <div className="App">
-      <Navbar/>
+       <Navbar/>
       
       <Switch>      
         <Route exact path="/" component={HomePage} />
@@ -31,6 +32,7 @@ function App() {
         <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
         <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
         <AnonRoute exact path="/business/:id/edit" component={EditPageBusiness} />
+        <Route exact path="/business/:id/reservation" component={ReservationListPage} />
 
       </Switch>
     </div>
