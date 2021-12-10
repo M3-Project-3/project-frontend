@@ -1,7 +1,6 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import NavbarUser from "./components/NavbarUser";
-import NavbarBusiness from "./components/NavbarBusiness";
+import Navbar from "./components/Nabvar";
 import HomePage from "./pages/General/HomePage";
 import SignupPage from "./pages/Users/SignupPage"
 import SignupPageBusiness from "./pages/Business/SignupPageBusiness";
@@ -12,14 +11,15 @@ import AnonRoute from "./components/AnonRoute";
 import EditPageBusiness from "./pages/Business/EditPageBusiness";
 import FilterRestaurantsPage from "./pages/General/FilterRestaurantsPage";
 import SingleRestaurantPage from "./pages/General/SingleRestaurantPage";
-
+import {useContext} from "react"
 
 
 function App() {
+
   return (
     <div className="App">
-      <NavbarUser />
-      <NavbarBusiness />
+      <Navbar/>
+      
       <Switch>      
         <Route exact path="/" component={HomePage} />
         <Route exact path="/restaurants" component={FilterRestaurantsPage} />
