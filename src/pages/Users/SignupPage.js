@@ -58,8 +58,6 @@ function SignupPage(props) {
           onChange={handlePassword}
         />
 
-       
-
         <button type="submit">Sign Up</button>
       </form>
 
@@ -67,6 +65,11 @@ function SignupPage(props) {
 
       <p>Already have account?</p>
       <Link to={"/login"}> Login</Link>
+
+      <p>Are you a business?</p>
+      <Link to={"/business/signup"}>Sign Up Your Business Here</Link>
+
+      
     </div>
   );
 }
