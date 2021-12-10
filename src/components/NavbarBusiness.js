@@ -7,10 +7,10 @@ function NavbarBusiness() {
   // the values from AuthContext.Provider `value` prop
   const {
     businessIsLoggedIn,
-    user: logInBusiness,
+    logInBusiness,
     logOutBusiness,
   } = useContext(AuthContext);
-
+ console.log('loginbuss',logInBusiness)
   return (
     <nav>
       <Link to="/">

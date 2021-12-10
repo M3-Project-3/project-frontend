@@ -42,6 +42,9 @@ export default function EditPageBusiness() {
   }
 
   return (
+    <>
+   
+   
     <div>
       <h2>Edit Restaurant Profile</h2>
 
@@ -167,5 +170,6 @@ export default function EditPageBusiness() {
         <button type="submit">Submit</button>
       </form>
     </div>
+    </>
   );
 }
