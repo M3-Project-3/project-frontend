@@ -10,9 +10,9 @@ const Calendar = (props) => {
 
   if(date) {
     //const dia = "on Dec 13 2021 12:00:00 GMT+0100 (hora estándar de Europa central)"
-    const dia = toString(date._d)
-    const arr = dia.split(" ")
-    console.log(arr)
+    const dia = date
+    //const arr = dia.split(" ")
+    console.log(dia)
 }
   
   return (

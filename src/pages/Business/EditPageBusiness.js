@@ -29,7 +29,7 @@ export default function EditPageBusiness() {
   function handleInput(e) {
       console.log(e.target.type)
     if (e.target.type === "select-multiple"){
-        console.log("-------------",e.target)
+     
         let options = e.target.options
         let value = []
         for(let i=0; i < options.length ; i++){
