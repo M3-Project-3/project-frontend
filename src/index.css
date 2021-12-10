@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
 }
@@ -113,8 +115,7 @@ nav li {
   flex-direction: column;
   border: #608dd5;
   border-style: solid;
-  margin-bottom: 20px;
-  margin-left: 200px;
-  margin-right: 200px;
-  
+  width: 100%;
+  border-radius: 25px;
+  margin-bottom: 50px;
 }
