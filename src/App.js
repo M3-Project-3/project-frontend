@@ -6,7 +6,9 @@ import SignupPage from "./pages/SignupPage";
 import SignupPageBusiness from "./pages/SignupPageBusiness";
 import LoginPage from "./pages/LoginPage";
 import LoginPageBusiness from "./pages/LoginPageBusiness";
-import AnonRoute from "./components/AnonRoute";   
+import ReservationForm from "./pages/ReservationForm"  
+import AnonRoute from "./components/AnonRoute"; 
+
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
 
       <Switch>      
         <Route exact path="/" component={HomePage} />
-        
+        <Route exact path="/reservation/create" component={ReservationForm} />
+      
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
         <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
