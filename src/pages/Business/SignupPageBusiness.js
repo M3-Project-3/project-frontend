@@ -37,6 +37,9 @@ function SignupPageBusiness(props) {
   };
 
   return (
+    <>
+    
+   
     <div className="SignupPage">
       <h1> Business Sign Up</h1>
 
@@ -70,6 +73,7 @@ function SignupPageBusiness(props) {
       <p>Already have account?</p>
       <Link to={"/business/login"}> Login</Link>
     </div>
+    </>
   );
 }
 

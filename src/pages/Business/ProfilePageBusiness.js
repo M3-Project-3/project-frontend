@@ -8,7 +8,7 @@ function ProfilePageBusiness(props) {
 
 return (
     <div>
-        
+       
     </div>
 )
 }
