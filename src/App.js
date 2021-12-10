@@ -13,6 +13,7 @@ import EditPageBusiness from "./pages/Business/EditPageBusiness";
 import FilterRestaurantsPage from "./pages/General/FilterRestaurantsPage";
 
 
+
 function App() {
   return (
     <div className="App">
@@ -20,8 +21,8 @@ function App() {
 
       <Switch>      
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/reservation/create" component={ReservationForm} />
         <Route exact path="/restaurants" component={FilterRestaurantsPage} />
+        <Route exact path="/reservation/new" component={ReservationForm} />
       
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />

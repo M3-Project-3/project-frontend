@@ -30,6 +30,12 @@ function handleInput(event){
         <div>
 
         <form onSubmit={handleSubmit}>
+            <label>Name:</label>
+            <input type="text" name="name" value={formState.name} onChange={handleInput} />
+
+            <label>Surname:</label>
+            <input type="text" name="surname" value={formState.surname} onChange={handleInput} />
+
             <label>Day:</label>
             <input type="date" name="day" value={formState.day} onChange={handleInput} />
 
