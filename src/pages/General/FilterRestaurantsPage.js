@@ -16,7 +16,7 @@ export default function FilterRestaurantsPage() {
             console.log('response.data', response.data.data);
             setRestaurants(response.data.data)
         });
-    }, [] );
+    }, [query] );
 
     const handleFilterByQuery = (e) => setQuery(e.target.value)
 
