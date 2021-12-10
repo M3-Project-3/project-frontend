@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -8,11 +9,19 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 export default function ReservationForm() {
     const history = useHistory()
     const [formState, setFormState] = useState({})
+    
+    const { user } = useContext(AuthContext);
+
+    const localJWTToken = localStorage.getItem("authToken");
+    console.log("user", user._id)
+    
+
     const [errorMessage, setErrorMessage] = useState(undefined);
 
   function handleSubmit(event){
     event.preventDefault()
     axios.post(
+        //HAS TO BE CHANGED
         "https://ironbnb-m3.herokuapp.com/apartments",
         formState
     ).then((response)=>{
@@ -49,6 +58,10 @@ function handleInput(event){
 
             <label>People:</label>
             <input type="number" name="people" value={formState.people} onChange={handleInput} />
+
+          
+            <input hidden type="text" name="user" value={user} onChange={handleInput} />
+            <input hidden type="text" name="owner" value={"owner"} onChange={handleInput} />
 
   
 
