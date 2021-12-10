@@ -1,6 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import SignupPageBusiness from "./pages/SignupPageBusiness";
@@ -23,6 +24,7 @@ function App() {
         <AnonRoute exact path="/login" component={LoginPage} />
         <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
         <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
+        <AnonRoute exact path="/business/:id/edit" component={EditPageBusiness} />
 
       </Switch>
     </div>
