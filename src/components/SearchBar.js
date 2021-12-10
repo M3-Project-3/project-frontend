@@ -1,27 +1,24 @@
 import { useState } from 'react';
-//import { Input } from 'antd';
 
-export default function SearchBar(props) {
+export default function SearchBar({ query, filterByQuery}) {
     
     const [search, setSearch] = useState("")
 
     function handleInput(event){
 
         setSearch(event.target.value)
-        props.search(event.target.value)
+        search(event.target.value)
     }
     return(
         <div>
 
         <form className="Search">
-
-                <input placeholder="Search" type="text" value={search || ""}  onChange={handleInput} />
-                 <button type="submit">search</button>
-
+                <input
+                    value={query}
+                    onChange={filterByQuery}
+                    placeholder="Search for a restaurant here"
+                />
         </form>
-
       </div>
     )
-
-
 }
