@@ -1,22 +1,41 @@
 import React from 'react'
 import axios from "axios"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Calendar from '../components/Calendar'
+import {AuthContext} from '../context/auth.context'
+import { AuthProviderWrapper } from '../context/auth.context';
+import { useParams } from 'react-router';
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-export default function ReservationForm() {
+export default function ReservationForm(props) {
+    const businessId = useParams()
     const history = useHistory()
     const [formState, setFormState] = useState({})
     const [errorMessage, setErrorMessage] = useState(undefined);
+    const [date, setDate] = useState(null)
 
-  function handleSubmit(event){
-    event.preventDefault()
+    const {user} = useContext(AuthContext)
+    
+    function handleSubmit(event){
+        console.log(date._d)
+        event.preventDefault()
+    const objToSend = {
+        name: formState.name,
+        surname: formState.surname,
+        date: date._d,
+        hour: null,
+        people: formState.people,
+        userId: user._id,
+        businessId : businessId
+    }
+
     axios.post(
-        "https://ironbnb-m3.herokuapp.com/apartments",
-        formState
+        `http://localhost:5005/reservations/61b370afc352c83cdbdf1ac4/new`,
+        objToSend
     ).then((response)=>{
+        console.log(objToSend)
         setFormState({})
         history.push("/")
     }
@@ -27,6 +46,7 @@ export default function ReservationForm() {
 function handleInput(event){
     setFormState({...formState, [event.target.name]: event.target.value })// setFormState(Object.assign({}, formState, {[ecen.name]: event.value}))
 }
+   
     return (
         <div>
 
@@ -38,20 +58,19 @@ function handleInput(event){
             <input type="text" name="surname" value={formState.surname} onChange={handleInput} />
 
             <label>Day:</label>
-            <Calendar />
-
+            <Calendar date={date} setDate={setDate}/>
             <label>Hour:</label>
             <input
-            type="time"
+            type="string"
             name="hour"
-            value={formState.hour}
+            value="hora"
             onChange={handleInput}
             />
 
             <label>People:</label>
             <input type="number" name="people" value={formState.people} onChange={handleInput} />
 
-  
+           
 
             <button type="submit">Book!</button>
       </form>

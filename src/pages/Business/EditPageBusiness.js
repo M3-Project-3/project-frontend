@@ -1,19 +1,40 @@
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import AddHourRange from '../../components/AddHourRange'
 
 export default function EditPageBusiness() {
   const { id } = useParams();
-  console.log("id: ", id);
+  const [count, setCount] = useState([" "])
+  const hoursRange = ["12-13", "13-14"]
+  const [formState, setFormState] = useState({});
+  const history = useHistory();
+  
+  
+  
+  useEffect(()=>{
+    axios.get("http://localhost:5005/business")
+    .then(allBusiness => {
+      const oneRest = allBusiness.data.data.find(el=> el._id===id)
+      
+    })
+    .catch(err=>console.log(err))
+  },[])
 
   //make this dynamic
 
-  const [formState, setFormState] = useState({});
-  console.log(formState);
 
-  const history = useHistory();
 
+  
+  function increment(e){
+    e.preventDefault()
+    console.log("count", count)
+    const newArr = count.push(" ")
+    console.log("---------a",newArr)
+    setCount(newArr)
+  }
+  
   function handleSubmit(e) {
     e.preventDefault();
     axios
@@ -21,22 +42,18 @@ export default function EditPageBusiness() {
       .then((response) => {
         setFormState({})
         history.push("/") //path where to go when you click submit
-        console.log("response: ", response);
       })
       .catch(console.log);
   }
 
   function handleInput(e) {
-      console.log(e.target.type)
     if (e.target.type === "select-multiple"){
-        console.log("-------------",e.target)
         let options = e.target.options
         let value = []
         for(let i=0; i < options.length ; i++){
             if(options[i].selected) value.push(options[i].value)
         }
         setFormState({...formState, [e.target.name] : value} );
-        console.log(e.target.value)
     }
     //setFormState({ ...formState, [e.target.name]: e.target.value });
   }
@@ -149,13 +166,17 @@ export default function EditPageBusiness() {
         />
 
         <label>Timetable</label>
-        <input
-          type="text"
-          name="timetable"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.timetable}
-        />
-
+        <select
+            name="timeTable"
+            value={formState.value}
+            onChange={handleInput}
+            multiple
+          >
+          {count.map((el, index)=>{
+            return <AddHourRange data={hoursRange[index]}/>
+          })}
+          </select>
+        <button onClick={increment}>Add one</button>
         <label>Tables</label>
         <input
           type="text"
