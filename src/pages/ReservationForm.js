@@ -1,15 +1,18 @@
 import React from 'react'
 import axios from "axios"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Calendar from '../components/Calendar'
-
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { AuthContext, user } from '../context/auth.context';
 
 
 export default function ReservationForm() {
     const history = useHistory()
     const [formState, setFormState] = useState({})
     const [errorMessage, setErrorMessage] = useState(undefined);
+
+    const {user} = useContext(AuthContext)
+    console.log(user._id)
 
   function handleSubmit(event){
     event.preventDefault()
