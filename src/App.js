@@ -1,7 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-
+import NavbarUser from "./components/NavbarUser";
+import NavbarBusiness from "./components/NavbarBusiness";
 import HomePage from "./pages/General/HomePage";
 import SignupPage from "./pages/Users/SignupPage"
 import SignupPageBusiness from "./pages/Business/SignupPageBusiness";
@@ -16,8 +16,8 @@ import EditPageBusiness from "./pages/Business/EditPageBusiness";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
+      <NavbarUser />
+      <NavbarBusiness />
       <Switch>      
         <Route exact path="/" component={HomePage} />
         <Route exact path="/reservation/new" component={ReservationForm} />
