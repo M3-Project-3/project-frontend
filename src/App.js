@@ -2,13 +2,14 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
-import HomePage from "./pages/HomePage";
-import SignupPage from "./pages/SignupPage";
-import SignupPageBusiness from "./pages/SignupPageBusiness";
-import LoginPage from "./pages/LoginPage";
-import LoginPageBusiness from "./pages/LoginPageBusiness";
+import HomePage from "./pages/General/HomePage";
+import SignupPage from "./pages/Users/SignupPage"
+import SignupPageBusiness from "./pages/Business/SignupPageBusiness";
+import LoginPage from "./pages/Users/LoginPage";
+import LoginPageBusiness from "./pages/Business/LoginPageBusiness";
 import ReservationForm from "./pages/ReservationForm"  
 import AnonRoute from "./components/AnonRoute"; 
+import EditPageBusiness from "./pages/Business/EditPageBusiness";
 
 
 
