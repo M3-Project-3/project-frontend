@@ -64,6 +64,9 @@ function SignupPageBusiness(props) {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
+      <p>Don't have a business?</p>
+      <Link to={"/signup"}>User sign up</Link>
+      
       <p>Already have account?</p>
       <Link to={"/business/login"}> Login</Link>
     </div>
