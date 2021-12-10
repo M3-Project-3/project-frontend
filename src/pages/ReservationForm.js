@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios"
 import { useState, useEffect } from "react";
+import Calendar from '../components/Calendar'
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -37,7 +38,7 @@ function handleInput(event){
             <input type="text" name="surname" value={formState.surname} onChange={handleInput} />
 
             <label>Day:</label>
-            <input type="date" name="day" value={formState.day} onChange={handleInput} />
+            <Calendar />
 
             <label>Hour:</label>
             <input

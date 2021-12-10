@@ -1,7 +1,7 @@
 import SearchBar from '../../components/SearchBar'
 import {useState} from "react";
 import restaurants from "../../restaurants.json"
-
+import Calendar from '../../components/Calendar'
 const randomIdNumber = ()=> Math.floor(Math.random()*10000)
 restaurants.forEach(restaurant =>(restaurant._id = randomIdNumber()))
 
@@ -21,7 +21,7 @@ function HomePage() {
       <h1>Home Page</h1>
 
       <SearchBar search={searchRestaurants} />
-
+      
     </div>
   );
 }
