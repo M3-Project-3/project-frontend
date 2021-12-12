@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 
-const restaurantsData =  [{data}]  // restaurants data from the seed js
+const restaurantsData =  [{data}]  // need to import restaurants data from the seed js
 
-export default function Favotites(){
-    const [favotites, setFavorites] = useState([]);
+export default function Favorites(){
+    const [favorites, setFavorites] = useState([]);
 
     useEffect(()=>{
         setFavorites(restaurantsData)
