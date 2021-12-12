@@ -18,6 +18,7 @@ export default function ReservationForm(props) {
     const [date, setDate] = useState(null)
 
     const {user} = useContext(AuthContext)
+    console.log(user._id)
     
     function handleSubmit(event){
         console.log(date._d)
@@ -32,8 +33,8 @@ export default function ReservationForm(props) {
         businessId : businessId
     }
 
-    const {user} = useContext(AuthContext)
-    console.log(user._id)
+
+    
 
   function handleSubmit(event){
     event.preventDefault()
