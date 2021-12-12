@@ -22,7 +22,7 @@ export default function FilterRestaurantsPage() {
 
     return (
         <div>
-            <h3>List of Restaurants</h3>
+            <h1>List of Restaurants</h1>
             <SearchBar query={query} filterByQuery={handleFilterByQuery} />
             {isLoading}
             {restaurants.map((restaurant => {
