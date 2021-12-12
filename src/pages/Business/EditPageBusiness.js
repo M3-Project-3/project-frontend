@@ -4,59 +4,102 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import AddHourRange from '../../components/AddHourRange'
 
+
 export default function EditPageBusiness() {
   const { id } = useParams();
   const [count, setCount] = useState([" "])
-  const hoursRange = ["12-13", "13-14"]
   const [formState, setFormState] = useState({});
   const history = useHistory();
+  const [selected, setSelected] = useState()
+  const [isLoading, setIsLoading] = useState(true)
+  
   
   
   
   useEffect(()=>{
     axios.get("http://localhost:5005/business")
     .then(allBusiness => {
-      const oneRest = allBusiness.data.data.find(el=> el._id===id)
-      
+      setFormState(allBusiness.data.data.find(el=> el._id===id))
+      setIsLoading(false)
     })
     .catch(err=>console.log(err))
   },[])
-
   //make this dynamic
-
-
-
   
   function increment(e){
     e.preventDefault()
-    console.log("count", count)
-    const newArr = count.push(" ")
-    console.log("---------a",newArr)
+    const newArr = count.slice()
+    newArr.push(" ")
     setCount(newArr)
   }
-  
+
   function handleSubmit(e) {
     e.preventDefault();
+    
+    let hourRanges = []
+    for(let el of selected) hourRanges.push(el.value)
     axios
-      .put(`http://localhost:5005/business/${id}/edit`, formState)
+      .put(`http://localhost:5005/business/${id}/edit`, {formState, hourRanges})
       .then((response) => {
-        setFormState({})
         history.push("/") //path where to go when you click submit
       })
       .catch(console.log);
   }
 
   function handleInput(e) {
+    
     if (e.target.type === "select-multiple"){
-        let options = e.target.options
+      let options = e.target.options
         let value = []
         for(let i=0; i < options.length ; i++){
-            if(options[i].selected) value.push(options[i].value)
-        }
-        setFormState({...formState, [e.target.name] : value} );
+            if(options[i].selected) {
+             
+              value.push(options[i].value)
+            }
+          }
+         
+          setFormState({...formState, [e.target.name]: value});
+        
+        
+    }else{
+      setFormState({...formState, [e.target.name]: e.target.value });
     }
-    //setFormState({ ...formState, [e.target.name]: e.target.value });
   }
+
+  const hoursSelected = []
+  if(isLoading === false && formState.timetable ){
+    formState.timetable.map((el)=>{
+      hoursSelected.push({value:el, label: el})
+    })
+  }
+  
+  
+  const optionsFoodType = [
+    "American",
+    "Argentinian",
+    "British",
+    "Brunch",
+    "Catalan",
+    "Chinese",
+    "European",
+    "German",
+    "Greek",
+    "Indian",
+    "Korean",
+    "Lebanese",
+    "Mediterranean",
+    "Mexican",
+    "Moroccan",
+    "Pizzeria",
+    "Seafood",
+    "Spanish",
+    "Thai",
+    "Traditional",
+    "Turkish",
+    "Vegetarian",
+    "Vegan",
+    "Vietnamese"
+  ]
 
   return (
     <>
@@ -108,31 +151,19 @@ export default function EditPageBusiness() {
             value={formState.value}
             onChange={handleInput}
             multiple
+            defaultValue={formState.value}
           >
-            <option value="American">American</option>
-            <option value="Argentinian">Argentinian</option>
-            <option value="British">British</option>
-            <option value="Brunch">Brunch</option>
-            <option value="Catalan">Catalan</option>
-            <option value="Chinese">Chinese</option>
-            <option value="European">European</option>
-            <option value="German">German</option>
-            <option value="Greek">Greek</option>
-            <option value="Indian">Indian</option>
-            <option value="Korean">Korean</option>
-            <option value="Lebanese">Lebanese</option>
-            <option value="Mediterranean">Mediterranean</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Moroccan">Moroccan</option>
-            <option value="Pizzeria">Pizzeria</option>
-            <option value="Seafood">Seafood</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Thai">Thai</option>
-            <option value="Traditional">Traditional</option>
-            <option value="Turkish">Turkish</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Vegan">Vegan</option>
-            <option value="Vietnamese">Vietnamese</option>
+          {isLoading === false && optionsFoodType.map((el=>{
+            <option value={el} selected>{el}</option>
+            if(formState.foodType.includes(el)){
+              
+              return <option value={el} selected>{el}</option>
+            }else{
+              
+              return <option value={el}>{el}</option>
+            }
+          }))}
+
           </select>
         </div>
 
@@ -157,7 +188,7 @@ export default function EditPageBusiness() {
           type="text"
           name="desert"
           onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.desert}
+          value={formState.menuDeserts}
         />
 
         <label>Price Range</label>
@@ -167,19 +198,10 @@ export default function EditPageBusiness() {
           onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
           value={formState.priceRange}
         />
-
-        <label>Timetable</label>
-        <select
-            name="timeTable"
-            value={formState.value}
-            onChange={handleInput}
-            multiple
-          >
-          {count.map((el, index)=>{
-            return <AddHourRange data={hoursRange[index]}/>
-          })}
-          </select>
-        <button onClick={increment}>Add one</button>
+          {isLoading === false && <AddHourRange selected={selected} setSelected={setSelected} restaurant={hoursSelected} url={id}/>}
+           
+          
+        <button onClick={(e)=>increment(e)}>Add one</button>
         <label>Tables</label>
         <input
           type="text"
