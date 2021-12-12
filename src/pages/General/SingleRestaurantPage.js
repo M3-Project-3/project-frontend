@@ -26,7 +26,7 @@ export default function SingleRestaurantPage() {
             <div className="singleRest__imgContainer">
                 <img className="singleRest__img" src="/stockrestimg.png"></img>
             </div>
-            
+
             <div className="singleRest__bottomContainer">
                 <div className="singleRest__titleContainer">
                     <div className="singleRest__title">
@@ -34,38 +34,38 @@ export default function SingleRestaurantPage() {
                     </div>
                 </div>
                     
-                    <div className="restCard__infoBar">
-                        <div className="restCard__infoBarItem">
-                            <img className="restCard__icon" src="/tray.png"></img>
-                            <p>{restaurant.resType}</p>
-                        </div>
-
-                            <div className="restCard__infoBarItem">
-                                <img className="restCard__icon" src="/restaurant.png"></img>
-                                <p>{restaurant.foodType}</p>
-                            </div>
-
-                                <div className="restCard__infoBarItem">
-                                    <img className="restCard__icon" src="/dollar-tag.png"></img>
-                                    <p>{restaurant.priceRange}</p>
-                                </div>
+                <div className="restCard__infoBar">
+                    <div className="restCard__infoBarItem">
+                        <img className="restCard__icon" src="/tray.png"></img>
+                        <p>{restaurant.resType}</p>
                     </div>
 
-                        <div className="singleRest__addressBar">
-                            <img className="singleRest__addressIcon" src="/pin.png"></img>
-                                <div className="singleRest__address">
-                                    <p>{restaurant.address}</p>
-                                </div>
-                        </div>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <div className="singleRest__reservationButtonContainer">
-                                <div className="singleRest__reservationButton">
-                                    <Link to="/ReservationForm" className="singleRest__link">Book a table</Link>
-                                </div>
-                            </div>
-                            </div>
+                    <div className="restCard__infoBarItem">
+                        <img className="restCard__icon" src="/restaurant.png"></img>
+                        <p>{restaurant.foodType}</p>
+                    </div>
+
+                    <div className="restCard__infoBarItem">
+                        <img className="restCard__icon" src="/dollar-tag.png"></img>
+                        <p>{restaurant.priceRange}</p>
+                    </div>
+                </div>
+
+                <div className="singleRest__addressBar">
+                    <img className="singleRest__addressIcon" src="/pin.png"></img>
+                    <div className="singleRest__address">
+                        <p>{restaurant.address}</p>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <div className="singleRest__reservationButtonContainer">
+                    <div className="singleRest__reservationButton">
+                        <Link to="/ReservationForm" className="singleRest__link">Book a table</Link>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 };
