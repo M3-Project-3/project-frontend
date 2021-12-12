@@ -1,13 +1,13 @@
 import SearchBar from '../../components/SearchBar';
 import { useState, useEffect } from "react";
 import axios from 'axios';
-
 import React from 'react'
 import RestaurantCard from '../../components/RestaurantCard';
 
 export default function FilterRestaurantsPage() {
-
     const [restaurants, setRestaurants] = useState([]);
+    const [query, setQuery] = useState('');
+    const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
     axios
@@ -16,16 +16,18 @@ export default function FilterRestaurantsPage() {
             console.log('response.data', response.data.data);
             setRestaurants(response.data.data)
         });
-    }, [] );
+    }, [query] );
+
+    const handleFilterByQuery = (e) => setQuery(e.target.value)
 
     return (
         <div>
-            <SearchBar/>
-            <h3>List of Restaurants</h3>
-            {restaurants.map(restaurant => {
-                return <RestaurantCard key={restaurant._id} restaurant={restaurant} />
-            }
-            )}
+            <h1>List of Restaurants</h1>
+            <SearchBar query={query} filterByQuery={handleFilterByQuery} />
+            {isLoading}
+            {restaurants.map((restaurant => {
+                return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+            }))}
         </div>
     )
 }

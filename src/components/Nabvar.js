@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react"; // <== IMPORT
-import { AuthContext } from "./../context/auth.context"; // <== IMPORT
+import { AuthContext } from "../context/auth.context"; // <== IMPORT
 import NavbarUser from "./NavbarUser";
 import NavbarBusiness from "./NavbarBusiness";
 
