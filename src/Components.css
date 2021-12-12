@@ -38,9 +38,28 @@
   font-family: "Readex Pro", sans-serif;
 }
 
+.restCard__bookmarkIconContainer {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    position:relative;
+    top: -204px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 317px;
+}
+
+.restCard__bookmarkImg {
+    height: 25px
+}
+
+
 .restCard__title {
   margin-left: 20px;
   margin-bottom: 0;
+  margin-top: 7px;
 }
 
 .restCard__img {
@@ -48,7 +67,7 @@
   border-radius: 25px 25px 0 0;
 }
 
-.restCard__content {
+.restCard__bottomContainer {
   display: flex;
   flex-direction: column;
   width: 380px;
@@ -63,6 +82,7 @@
   justify-content: flex-start;
   width: 360px;
   margin-left: 20px;
+  color: grey
 }
 
 .restCard__icon {

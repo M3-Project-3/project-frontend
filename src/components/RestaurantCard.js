@@ -5,8 +5,13 @@ export default function RestaurantCard(props) {
 
     return (
         <div className="restCard__container">
+            <div className="restCard__topContainer">
             <img className="restCard__img" src="stockrestimg.png"></img>
-            <div className="restCard__content">
+            <div className="restCard__bookmarkIconContainer">
+            <img className="restCard__bookmarkImg" src="bookmark.png"></img>
+            </div>
+            </div>
+            <div className="restCard__bottomContainer">
                 <h2 className="restCard__title">{restaurant.name}</h2>
                 <div className="restCard__infoBar">
                     {/* <p>{restaurant.resType}</p> */}
