@@ -26,9 +26,12 @@ export default function SingleRestaurantPage() {
             <div className="singleRest__imgContainer">
                 <img className="singleRest__img" src="/stockrestimg.png"></img>
             </div>
-
-                <div className="singleRest__title">
-                    <h1>{restaurant.name}</h1>
+            
+            <div className="singleRest__bottomContainer">
+                <div className="singleRest__titleContainer">
+                    <div className="singleRest__title">
+                        <h1>{restaurant.name}</h1>
+                    </div>
                 </div>
                     
                     <div className="restCard__infoBar">
@@ -61,6 +64,7 @@ export default function SingleRestaurantPage() {
                                 <div className="singleRest__reservationButton">
                                     <Link to="/ReservationForm" className="singleRest__link">Book a table</Link>
                                 </div>
+                            </div>
                             </div>
         </div>
     )

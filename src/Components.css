@@ -85,18 +85,37 @@
 /* .singleRest__container {
 } */
 
+.singleRest__bottomContainer{
+height: 448px;
+top: -20px;
+position: relative;
+background-color: #F6F6F6;
+border-radius: 20px 20px 0 0;
+font-family: "Readex Pro", sans-serif;
+}
+
 .singleRest__link {
   text-decoration: none;
 }
 
+.singleRest__imgContainer {
+  display: flex;
+}
+
 .singleRest__img {
+  background-color: #000000;
   width: 100%;
+}
+
+.singleRest__titleContainer {
+border-radius: 20px;
 }
 
 .singleRest__title {
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
+  
 }
 
 .singleRest__addressBar {
@@ -118,7 +137,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
 
 .singleRest__reservationButton {
@@ -131,5 +149,3 @@
   justify-content: center;
   align-items: center;
 }
-
-
