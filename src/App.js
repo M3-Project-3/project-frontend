@@ -16,6 +16,11 @@ import ReservationListPage from "./pages/ReservationListPage";
 import BottomNavbar from "./components/BottomNavbar"
 import AnonRouteBusiness from "./components/AnonRouteBusiness"
 
+import ReservationListPageBusiness from "./pages/Business/ReservationListPageBusiness";
+import ReservationListPageUser from "./pages/Users/ReservationListPageUser";
+
+
+
 function App() {
 
   return (
@@ -35,6 +40,8 @@ function App() {
         <AnonRouteBusiness exact path="/business/:id/edit" component={EditPageBusiness} />
         <Route exact path="/business/:id/reservation" component={ReservationListPage} />
 
+        <Route exact path="/:id/reservations" component={ReservationListPageUser}/>
+        
       </Switch>
       <BottomNavbar/>
     </div>

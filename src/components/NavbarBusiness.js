@@ -12,7 +12,6 @@ function NavbarBusiness() {
     logInBusiness,
     logOutBusiness,
   } = useContext(AuthContext);
- 
   return (
     <nav>
       <Link to="/">

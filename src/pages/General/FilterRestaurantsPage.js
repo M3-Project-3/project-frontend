@@ -3,29 +3,51 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import React from 'react'
 import RestaurantCard from '../../components/RestaurantCard';
+import NotFoundImg from '../../not-found.jpeg'
 
 export default function FilterRestaurantsPage() {
-    const [restaurants, setRestaurants] = useState([]);
-    const [query, setQuery] = useState('');
+
+    const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    
+
+    const API_URL = "http://localhost:5005"
+
     useEffect(() => {
     axios
-        .get("http://localhost:5005/business")
+        .get(`${API_URL}/business`)
         .then((response) => {
-            console.log('response.data', response.data.data);
-            setRestaurants(response.data.data)
+      
+            setFilteredRestaurants(response.data.data)
         });
-    }, [query] );
+    }, [] );
 
-    const handleFilterByQuery = (e) => setQuery(e.target.value)
+    function handleFilter( string){
+
+        const params = {
+            name: string,
+            resType: string,
+            foodType: string
+          }; 
+  
+        axios
+            .get(`${API_URL}/business/search`,{params})
+            .then((response) => { 
+                
+                    
+                setFilteredRestaurants(response.data)
+            });   
+                
+    }
+
 
     return (
         <div>
+
             <h1>List of Restaurants</h1>
-            <SearchBar query={query} filterByQuery={handleFilterByQuery} />
+            <SearchBar filter={handleFilter} />
             {isLoading}
-            {restaurants.map((restaurant => {
+            {filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
+            {filteredRestaurants.map((restaurant => {
                 return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
             }))}
         </div>
