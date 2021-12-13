@@ -13,6 +13,7 @@ function AuthProviderWrapper(props) {
   const [businessIsLoading, businessSetIsLoading] = useState(true);
   const [business, setBusiness] = useState(null);
   
+  
 
 
   const verifyToken = () => {
