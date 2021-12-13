@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 
-  // restaurants data from the seed js
 
-export default function Favotites(){
+export default function Favorites(){
     const [favourites, setFavorites] = useState([]);
 
     useEffect(()=>{
