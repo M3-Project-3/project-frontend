@@ -20,10 +20,8 @@ export default function ReservationForm(props) {
     const {user} = useContext(AuthContext)
     
     
-
-    
     function handleSubmit(event){
-        console.log(date._d)
+
         event.preventDefault()
     const objToSend = {
         name: formState.name,

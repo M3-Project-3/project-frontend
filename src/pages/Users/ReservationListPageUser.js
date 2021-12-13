@@ -14,7 +14,7 @@ import ReservationCard from '../../components/ReservationCard';
         axios
             .get(`http://localhost:5005/user/${userId}/reservations`)
             .then((response) => {
-                console.log('response.data', response.data.data);
+        
                 setReservations(response.data.data)
                 setIsLoading(false)
             })

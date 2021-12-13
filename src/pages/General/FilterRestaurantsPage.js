@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import React from 'react'
 import RestaurantCard from '../../components/RestaurantCard';
+import NotFoundImg from '../../not-found.jpeg'
 
 export default function FilterRestaurantsPage() {
 
@@ -31,6 +32,7 @@ export default function FilterRestaurantsPage() {
         axios
             .get(`${API_URL}/business/search`,{params})
             .then((response) => { 
+                
                     
                 setFilteredRestaurants(response.data)
             });   
@@ -44,7 +46,7 @@ export default function FilterRestaurantsPage() {
             <h1>List of Restaurants</h1>
             <SearchBar filter={handleFilter} />
             {isLoading}
-            
+            {filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
             {filteredRestaurants.map((restaurant => {
                 return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
             }))}
