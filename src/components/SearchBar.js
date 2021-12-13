@@ -1,24 +1,17 @@
 import { useState } from 'react';
 
-export default function SearchBar({ query, filterByQuery}) {
+export default function SearchBar(props) {
     
-    const [search, setSearch] = useState("")
+    const [string, stringState] = useState("")
 
-    function handleInput(event){
+    function handleSearch(event){
 
-        setSearch(event.target.value)
-        search(event.target.value)
+        stringState(event.target.value)
+        props.filter(event.target.value)
     }
     return(
         <div>
-
-        <form className="Search">
-                <input
-                    value={query}
-                    onChange={filterByQuery}
-                    placeholder="Search for a restaurant here"
-                />
-        </form>
+        <input className='Search' type="search" value={string} placeholder='Search by name, food type, ambience...'  name="search" onChange={handleSearch}/>
       </div>
     )
 }

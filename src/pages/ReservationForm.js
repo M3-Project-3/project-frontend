@@ -9,6 +9,7 @@ import { useParams } from 'react-router';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
+
 export default function ReservationForm(props) {
     const businessId = useParams()
     const history = useHistory()
@@ -17,6 +18,7 @@ export default function ReservationForm(props) {
     const [date, setDate] = useState(null)
 
     const {user} = useContext(AuthContext)
+    console.log(user._id)
     
     function handleSubmit(event){
         console.log(date._d)
@@ -31,6 +33,11 @@ export default function ReservationForm(props) {
         businessId : businessId
     }
 
+
+    
+
+  function handleSubmit(event){
+    event.preventDefault()
     axios.post(
         `http://localhost:5005/reservations/61b370afc352c83cdbdf1ac4/new`,
         objToSend
@@ -79,4 +86,5 @@ function handleInput(event){
             
         </div>
     )
+}
 }

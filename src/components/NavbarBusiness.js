@@ -10,7 +10,7 @@ function NavbarBusiness() {
     logInBusiness,
     logOutBusiness,
   } = useContext(AuthContext);
- console.log('loginbuss',logInBusiness)
+
   return (
     <nav>
       <Link to="/">
