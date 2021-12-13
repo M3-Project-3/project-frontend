@@ -18,11 +18,12 @@ function NavbarUser() {
       <Link to="/">
         <button>Home</button>
       </Link>
-      -
+      
       {isLoading === false && isLoggedIn ? (
         <>
           <button onClick={logOutUser}>Logout</button>
-          <span>{user.name}</span>
+          <span>Hi {user.name} !</span>
+          <br/>
           <Link to={`/user/${user._id}/edit`}>User Edit</Link>
         </>
       ) : (

@@ -18,7 +18,7 @@ return (
                 <div>
                     <img src={user.picture} alt={user.name} height="200px"></img>
                     <div>
-                        <div>Name: {user.name} {user.surename} </div>
+                        <div>Name: {user.name} {user.surname} </div>
                         <div>{user.email}</div>
                         <div>{user.favourites}</div>
                     </div>

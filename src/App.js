@@ -28,8 +28,8 @@ function App() {
        <Navbar/>
       
       <Switch>      
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/restaurants" component={FilterRestaurantsPage} />
+        {/* <Route exact path="/" component={HomePage} /> */}
+        <Route exact path="/" component={FilterRestaurantsPage} />
         <Route exact path="/:resId/reservation/new" component={ReservationForm} />
         <Route exact path="/restaurants/:id" component={SingleRestaurantPage} />
       

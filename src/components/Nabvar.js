@@ -16,9 +16,10 @@ function Navbar() {
   
     return (
         
-        <>
-     {isLoggedIn ? <NavbarUser /> : <NavbarBusiness />}
-     </>
+    <div>
+      {isLoggedIn ? <NavbarUser /> : <NavbarBusiness />}
+    </div>
+     
     );
   }
   
