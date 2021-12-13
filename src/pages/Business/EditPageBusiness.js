@@ -3,65 +3,171 @@ import { useState, useEffect} from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import AddHourRange from '../../components/AddHourRange'
+import AddTypeRestaurant from '../../components/AddTypeRestaurant'
+import AddFoodType from "../../components/AddFoodType";
+import AddOneToMenu from "../../components/AddOneToMenu"
+
+
 
 export default function EditPageBusiness() {
   const { id } = useParams();
-  const [count, setCount] = useState([" "])
-  const hoursRange = ["12-13", "13-14"]
-  const [formState, setFormState] = useState({});
   const history = useHistory();
+  const [formState, setFormState] = useState({});
+  const [selectedHourRange, setSelectedHourRange] = useState()
+  const [selectedResType, setSelectedResType] = useState()
+  const [selectedFoodType, setSelectedFoodType] = useState()
+  const [isLoading, setIsLoading] = useState(true)
+  const [starters, setStarters] = useState()
+  const [main, setMain] = useState()
+  const [deserts, setDeserts] = useState()
+
   
   
   
-  useEffect(()=>{
-    axios.get("http://localhost:5005/business")
-    .then(allBusiness => {
-      const oneRest = allBusiness.data.data.find(el=> el._id===id)
-      
-    })
-    .catch(err=>console.log(err))
+  
+  useEffect( ()=>{
+    const getBusiness = async () =>{
+      try{
+        const allBusiness = await axios.get("http://localhost:5005/business")
+        setFormState(allBusiness.data.data.find(el=> el._id===id))
+        setIsLoading(false)
+        if(formState.menuStarters) {
+
+          setStarters(formState.menuStarters)
+        }
+        if(formState.menuMain){
+          setMain(formState.menuMain)
+        }
+        if(formState.menuDeserts){
+          setDeserts(formState.menuDeserts)
+        }
+      }
+      catch(error){
+        console.log(error)
+      }
+    }
+    getBusiness()
   },[])
 
+  useEffect( ()=>{
+      if(formState.menuStarters) {
+        setStarters(formState.menuStarters)
+      }
+      if(formState.menuMain){
+        setMain(formState.menuMain)
+      }
+      if(formState.menuDeserts){
+        setDeserts(formState.menuDeserts)
+      }
+  },[formState])
   //make this dynamic
-
-
-
-  
-  function increment(e){
-    e.preventDefault()
-    console.log("count", count)
-    const newArr = count.push(" ")
-    console.log("---------a",newArr)
-    setCount(newArr)
-  }
   
   function handleSubmit(e) {
     e.preventDefault();
+    
+    let hourRanges = []
+    if(selectedHourRange){
+      for(let el of selectedHourRange) {
+        hourRanges.push(el.value)
+      }
+    }else{
+      for(let el of formState.timetable) {
+        hourRanges.push(el)
+      }
+    }
+
+    let resType = []
+    if(selectedResType){
+      for(let el of selectedResType) {
+        resType.push(el.value)
+      }
+    }else{
+      for(let el of formState.resType) {
+        resType.push(el)
+      }
+    }
+    let foodType = []
+    if(selectedFoodType){
+      for(let el of selectedFoodType) {
+        foodType.push(el.value)
+      }
+    }else{
+      for(let el of formState.foodType) {
+        foodType.push(el)
+      }
+    }
+    let menuStarters;
+    if(starters){
+        menuStarters = starters
+    }else{
+        menuStarters = []
+    }
+    let menuMain;
+    if(main){
+        menuMain = main
+    }else{
+        menuMain = []
+    }
+    let menuDeserts;
+    if(deserts){
+        menuDeserts = deserts
+    }else{
+        menuDeserts = []
+    }
+    
     axios
-      .put(`http://localhost:5005/business/${id}/edit`, formState)
+      .put(`http://localhost:5005/business/${id}/edit`, {formState, hourRanges, resType, foodType, menuStarters, menuMain, menuDeserts})
       .then((response) => {
-        setFormState({})
         history.push("/") //path where to go when you click submit
       })
       .catch(console.log);
   }
 
-  function handleInput(e) {
+  function handleInput(e) {  
     if (e.target.type === "select-multiple"){
-        let options = e.target.options
-        let value = []
-        for(let i=0; i < options.length ; i++){
-            if(options[i].selected) value.push(options[i].value)
-        }
-        setFormState({...formState, [e.target.name] : value} );
+      setFormState({...formState, [e.target.name]: e.target.value });
     }
-    //setFormState({ ...formState, [e.target.name]: e.target.value });
   }
 
+  const hoursSelected = []
+  if(isLoading === false && formState.timetable ){
+    formState.timetable.map((el)=>{
+      hoursSelected.push({value:el, label: el})
+    })
+  }
+  const resTypeSelected = []
+  if(isLoading === false && formState.resType ){
+    formState.resType.map((el)=>{
+      resTypeSelected.push({value:el, label: el})
+    })
+  }
+  const foodTypeSelected = []
+  if(isLoading === false && formState.foodType ){
+    formState.foodType.map((el)=>{
+      foodTypeSelected.push({value:el, label: el})
+    })
+  }
+  function removeStarter(e, index){
+    e.preventDefault()
+    const list = [...starters];
+    list.splice(index, 1);
+    setStarters(list);
+}
+function removeMain(e, index){
+  e.preventDefault()
+  const list = [...main];
+  list.splice(index, 1);
+  setMain(list);
+}
+function removeDesert(e, index){
+  e.preventDefault()
+  const list = [...deserts];
+  list.splice(index, 1);
+  setDeserts(list);
+}
+  
   return (
     <>
-   
-   
     <div>
       <h2>Edit Restaurant Profile</h2>
 
@@ -85,101 +191,48 @@ export default function EditPageBusiness() {
 
         <label>Restaurant Type</label>
         <div>
-          <select name="resType" value={formState.value} onChange={handleInput} multiple>
-            <option value="fineDining">Fine Dining</option>
-            <option value="casual">Casual</option>
-            <option value="familyFriendly">Family Friendly</option>
-            <option value="foodFood">Fast Food</option>
-            <option value="cafe">Cafe</option>
-            <option value="buffet">Buffet</option>
-            <option value="foodTruck">Food Truck</option>
-            <option value="popUp">Pop Up</option>
-            <option value="Sports Bar">Sports Bar</option>
-            <option value="Bistro">Bistro</option>
-            <option value="diner">Diner</option>
-            <option value="themeRestaurant">Themed Restaurant</option>
-          </select>
+          {isLoading === false && <AddTypeRestaurant selectedResType={selectedResType} setSelectedResType={setSelectedResType} restaurant={resTypeSelected}/>}
         </div>
 
         <label>Food Type</label>
         <div>
-          <select
-            name="foodType"
-            value={formState.value}
-            onChange={handleInput}
-            multiple
-          >
-            <option value="American">American</option>
-            <option value="Argentinian">Argentinian</option>
-            <option value="British">British</option>
-            <option value="Brunch">Brunch</option>
-            <option value="Catalan">Catalan</option>
-            <option value="Chinese">Chinese</option>
-            <option value="European">European</option>
-            <option value="German">German</option>
-            <option value="Greek">Greek</option>
-            <option value="Indian">Indian</option>
-            <option value="Korean">Korean</option>
-            <option value="Lebanese">Lebanese</option>
-            <option value="Mediterranean">Mediterranean</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Moroccan">Moroccan</option>
-            <option value="Pizzeria">Pizzeria</option>
-            <option value="Seafood">Seafood</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Thai">Thai</option>
-            <option value="Traditional">Traditional</option>
-            <option value="Turkish">Turkish</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Vegan">Vegan</option>
-            <option value="Vietnamese">Vietnamese</option>
-          </select>
+          {isLoading === false && <AddFoodType selectedFoodType={selectedFoodType} setSelectedFoodType={setSelectedFoodType} food={foodTypeSelected}/>}
         </div>
-
         <label>Starters</label>
-        <input
-          type="text"
-          name="menuStarters"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.menuStarters}
-        />
+        {isLoading === false && starters.map((el, index)=>{
+          return (
+            <>
+            <span>{el.menuStarters} </span><span> {el.price} euros</span><button onClick={(e) => removeStarter(e,index)}>Remove</button>
+            <br></br>
+            </>
+          )
+        })}
+           <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters"/>
+        
+          <label>Main Course</label>
+            {isLoading === false && main.map((el, index)=>{
+             return (
+            <>
+            <span>{el.menuMain} </span><span> {el.price} euros</span><button onClick={(e) => removeMain(e,index)}>Remove</button>
+            <br></br>
+            </>
+          )
+        })}
+           <AddOneToMenu addOne={main} setAddOne={setMain} name="menuMain"/>
+        
+           <label>Deserts</label>
+            {isLoading === false && deserts.map((el, index)=>{
+            return (
+            <>
+            <span>{el.menuDeserts} </span><span> {el.price} euros</span><button onClick={(e) => removeDesert(e,index)}>Remove</button>
+            <br></br>
+            </>
+          )
+        })}
+           <AddOneToMenu addOne={deserts} setAddOne={setDeserts} name="menuDeserts"/>
 
-        <label>Main Course</label>
-        <input
-          type="text"
-          name="menuMain"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.menuMain}
-        />
-
-        <label>Desert</label>
-        <input
-          type="text"
-          name="desert"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.desert}
-        />
-
-        <label>Price Range</label>
-        <input
-          type="text"
-          name="priceRange"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.priceRange}
-        />
-
-        <label>Timetable</label>
-        <select
-            name="timeTable"
-            value={formState.value}
-            onChange={handleInput}
-            multiple
-          >
-          {count.map((el, index)=>{
-            return <AddHourRange data={hoursRange[index]}/>
-          })}
-          </select>
-        <button onClick={increment}>Add one</button>
+          {isLoading === false && <AddHourRange selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} restaurant={hoursSelected}/>}
+           
         <label>Tables</label>
         <input
           type="text"
