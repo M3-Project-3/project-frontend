@@ -2,12 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "./../context/auth.context";
 import { Redirect, Route } from "react-router-dom";
 
-function AnonRoute(props) {
+function AnonRouteBusiness(props) {
   const { to, exact, Component, ...restProps } = props;
 
-  const { isLoggedIn, isLoading } = useContext(AuthContext);
+  const { businessIsLoggedIn, businessIsLoading } = useContext(AuthContext);
 
- 
   // If the authentication is still loading ⏳
   // if (isLoading) return <p>Loading ...</p>;
 
@@ -15,7 +14,7 @@ function AnonRoute(props) {
   // if (isLoggedIn) return <Redirect to="/" />;
 
   // If the user is not logged in yet, allow him to see the page
-  return <Route to={to} exact={exact} {...restProps} render={props => (isLoggedIn ? <Component {...props} /> : <Redirect to="/login" />)} />;
+  return <Route to={to} exact={exact} {...restProps} render={props => (businessIsLoggedIn ? <Component {...props} /> : <Redirect to="/business/login" />)} />;
 }
 
-export default AnonRoute;
+export default AnonRouteBusiness;

@@ -12,9 +12,9 @@ import AnonRoute from "./components/AnonRoute";
 import EditPageBusiness from "./pages/Business/EditPageBusiness";
 import FilterRestaurantsPage from "./pages/General/FilterRestaurantsPage";
 import SingleRestaurantPage from "./pages/General/SingleRestaurantPage";
-import {useContext} from "react"
 import ReservationListPage from "./pages/ReservationListPage";
-
+import BottomNavbar from "./components/BottomNavbar"
+import AnonRouteBusiness from "./components/AnonRouteBusiness"
 
 function App() {
 
@@ -30,12 +30,13 @@ function App() {
       
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
-        <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
-        <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
-        <AnonRoute exact path="/business/:id/edit" component={EditPageBusiness} />
+        <AnonRouteBusiness exact path="/business/login" component={LoginPageBusiness} />
+        <AnonRouteBusiness exact path="/business/signup" component={SignupPageBusiness} />
+        <AnonRouteBusiness exact path="/business/:id/edit" component={EditPageBusiness} />
         <Route exact path="/business/:id/reservation" component={ReservationListPage} />
 
       </Switch>
+      <BottomNavbar/>
     </div>
   );
 }
