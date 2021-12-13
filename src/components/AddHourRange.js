@@ -20,24 +20,20 @@ export default class AddHourRange extends Component {
   
 
   handleChange = selectedOption => {
-    this.props.setSelected(selectedOption);
+    this.props.setSelectedHourRange(selectedOption);
   };
   
   render() {
     return (
       <>
-      {console.log(options[1])}
-      <form onSubmit={this.submitHourRange}>
         <Select
           isMulti
           options={options}
-          value={this.props.selected}
+          value={this.props.selectedHourRange}
           onChange={this.handleChange}
           closeMenuOnSelect={false}
           defaultValue={this.props.restaurant}
-        />
-      
-      </form>
+        />  
       </>   
 
     );
