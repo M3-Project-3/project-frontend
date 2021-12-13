@@ -5,21 +5,33 @@ import Calendar from '../components/Calendar'
 import {AuthContext} from '../context/auth.context'
 import { AuthProviderWrapper } from '../context/auth.context';
 import { useParams } from 'react-router';
+import AddHourRange from '../components/AddHourRange';
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 export default function ReservationForm(props) {
-    const businessId = useParams()
+    const {businessId} = useParams()
+    console.log("businessId",businessId)
     const history = useHistory()
     const [formState, setFormState] = useState({})
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [date, setDate] = useState(null)
-
     const {user} = useContext(AuthContext)
+    const [hoursSelected, setHoursSelected] = useState()
+    const [isLoading, setIsLoading] = useState(true)
+    const [selectedHourRange, setSelectedHourRange] = useState()
+
+    useEffect(()=>{
+        axios.get(`http://localhost:5005/business/${businessId}/reservations`)
+        .then(response=>{
+            console.log("sasaddsada",response.data.data)
+            setHoursSelected(response.data.timetable)
+            setIsLoading(false)
+        })
+    },[])
     
     function handleSubmit(event){
-        console.log(date._d)
         event.preventDefault()
     const objToSend = {
         name: formState.name,
@@ -49,7 +61,7 @@ function handleInput(event){
    
     return (
         <div>
-
+        {isLoading === false && console.log("hoursSelected",hoursSelected)}
         <form onSubmit={handleSubmit}>
             <label>Name:</label>
             <input type="text" name="name" value={formState.name} onChange={handleInput} />
@@ -60,10 +72,16 @@ function handleInput(event){
             <label>Day:</label>
             <Calendar date={date} setDate={setDate}/>
             <label>Hour:</label>
+
+
+            {isLoading === false && <AddHourRange selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} restaurant={hoursSelected}/>}
+
+
+
             <input
             type="string"
             name="hour"
-            value="hora"
+            value={formState.timetable}
             onChange={handleInput}
             />
 

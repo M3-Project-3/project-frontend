@@ -8,6 +8,10 @@
 
  export default function ReservationListPage() {
 
+    return (
+        <h1>prueba</h1>
+    )
+
 //     const [reservations, setReservations] = useState({});
 //     const { id: resId } = useParams()
 
