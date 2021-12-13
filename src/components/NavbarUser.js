@@ -6,8 +6,10 @@ function NavbarUser() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const {
+    isLoading,
+    user,
     isLoggedIn,
-    user: loggedInUser,
+    loggedInUser,
     logOutUser,
   } = useContext(AuthContext);
 
@@ -16,11 +18,12 @@ function NavbarUser() {
       <Link to="/">
         <button>Home</button>
       </Link>
-      {isLoggedIn ? (
+      -
+      {isLoading === false && isLoggedIn ? (
         <>
           <button onClick={logOutUser}>Logout</button>
-          <span>{loggedInUser.name}</span>
-          <Link to={`/user/${loggedInUser._id}/edit`}>User Edit</Link>
+          <span>{user.name}</span>
+          <Link to={`/user/${user._id}/edit`}>User Edit</Link>
         </>
       ) : (
         <>

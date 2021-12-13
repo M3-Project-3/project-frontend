@@ -6,21 +6,23 @@ function NavbarBusiness() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const {
+    business,
     businessIsLoggedIn,
+    businessIsLoading,
     logInBusiness,
     logOutBusiness,
   } = useContext(AuthContext);
-
   return (
     <nav>
       <Link to="/">
         <button>Home</button>
       </Link>
-      {businessIsLoggedIn ? (
+      -
+      {businessIsLoading === false && businessIsLoggedIn ? (
         <>
           <button onClick={logOutBusiness}>Logout</button>
-          <span>{logInBusiness.name}</span>
-          <Link to={`/business/${logInBusiness._id}/edit`}>Business Edit</Link>
+          <span>{business.name}</span>
+          <Link to={`/business/${business._id}/edit`}>Business Edit</Link>
         </>
       ) : (
         <>
