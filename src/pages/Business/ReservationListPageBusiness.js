@@ -8,21 +8,23 @@ import ReservationCard from '../../components/ReservationCard';
     const [reservations, setReservations] = useState({});
     const [query, setQuery] = useState('');
     const { id: resId } = useParams()
-    // const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         axios
             .get(`http://localhost:5005/business/${resId}/reservations`)
             .then((response) => {
-                console.log('response.data', response.data.data);
                 setReservations(response.data.data)
+                setIsLoading(false)
             })
-    }, [query] );
+    }, [] );
 
 return (
     <div>
         <h1>List of Reservations</h1>
-        {reservations.map((reservation => {
+        
+        {isLoading === false && reservations.map((reservation => {
+            console.log("-------->",reservation)
             return <ReservationCard reservation={reservation} key={reservation._id}/>
         }))}
     </div>
