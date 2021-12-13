@@ -190,3 +190,16 @@ border-radius: 20px;
 .reservationPage__font {
   font-family: "Readex Pro", sans-serif;
 }
+
+.reservationCard__ImgContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.reservationCard__reservationImg{
+  height: 25px;
+
+}
