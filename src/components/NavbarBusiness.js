@@ -16,7 +16,6 @@ function NavbarBusiness() {
       <Link to="/">
         <button>Home</button>
       </Link>
-      -
       {businessIsLoggedIn ? (
         <>
           <button onClick={logOutBusiness}>Logout</button>
