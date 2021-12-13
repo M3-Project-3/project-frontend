@@ -18,7 +18,7 @@ export default function ReservationForm(props) {
     const [date, setDate] = useState(null)
 
     const {user} = useContext(AuthContext)
-  
+    
     
     function handleSubmit(event){
 
@@ -33,10 +33,7 @@ export default function ReservationForm(props) {
         businessId : businessId
     }
 
-
     
-
-  function handleSubmit(event){
     event.preventDefault()
     axios.post(
         `http://localhost:5005/reservations/61b370afc352c83cdbdf1ac4/new`,
@@ -52,6 +49,8 @@ export default function ReservationForm(props) {
 
 function handleInput(event){
     setFormState({...formState, [event.target.name]: event.target.value })// setFormState(Object.assign({}, formState, {[ecen.name]: event.value}))
+    console.log('dsasddsadsadsdssdasdasdasaddasdads',user._id)
+
 }
    
     return (
@@ -86,5 +85,5 @@ function handleInput(event){
             
         </div>
     )
-}
+
 }

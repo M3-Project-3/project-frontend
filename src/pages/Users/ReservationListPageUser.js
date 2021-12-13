@@ -21,8 +21,8 @@ import ReservationCard from '../../components/ReservationCard';
     }, [query] );
 
 return (
-    <div>
-        <h1>List of Reservations</h1>
+    <div className="reservationPage__font">
+        <h1>My Reservations</h1>
         { isLoading === false && reservations.map((reservation => {
             return <ReservationCard reservation={reservation} key={reservation._id} />
         }))}
