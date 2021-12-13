@@ -21,10 +21,7 @@ export default function EditPageBusiness() {
   const [main, setMain] = useState()
   const [deserts, setDeserts] = useState()
 
-  
-  
-  
-  
+
   useEffect( ()=>{
     const getBusiness = async () =>{
       try{
