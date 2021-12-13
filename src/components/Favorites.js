@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from "react";
 
-const restaurantsData =  [{data}]  // need to import restaurants data from the seed js
 
 export default function Favorites(){
-    const [favorites, setFavorites] = useState([]);
+    const [favourites, setFavorites] = useState([]);
 
     useEffect(()=>{
-        setFavorites(restaurantsData)
+        setFavorites()
     }, [])
 
     function handleFavorite(id){
-        const newFavorites = favorites.map(restaurant=>{
+        const newFavorites = favourites.map(restaurant=>{
             return restaurant.id = id ? {...restaurant, favorite: restaurant.favorite} : restaurant;
         })
         setFavorites(newFavorites)
@@ -20,7 +19,7 @@ export default function Favorites(){
         <div>
             <h1>favorites</h1>
             <ul>
-                {favorites.map((restaurant, fav) => (
+                {favourites.map((restaurant, fav) => (
                     <li key={fav}>
                         {restaurant.name}
                         <button onClick={()=>{

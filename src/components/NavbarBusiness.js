@@ -10,13 +10,12 @@ function NavbarBusiness() {
     logInBusiness,
     logOutBusiness,
   } = useContext(AuthContext);
- console.log('loginbuss',logInBusiness)
+
   return (
     <nav>
       <Link to="/">
         <button>Home</button>
       </Link>
-      -
       {businessIsLoggedIn ? (
         <>
           <button onClick={logOutBusiness}>Logout</button>

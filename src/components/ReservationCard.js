@@ -1,14 +1,14 @@
-// import React from 'react'
+import React from 'react'
 
-// export default function ReservationCard(props) {
-//     const { reservation } = props;
+export default function ReservationCard(props) {
+    const { reservation } = props;
 
-//     return (
-//     <div className="reservation-card">
-//         <p>Date: {reservation.day}</p>
-//         <p>Time: {reservation.hour}</p>
-//         <p>Guests: {reservation.people}</p>
-//         <p>Status: {reservation.status}</p>
-//     </div>
-//     )
-// }
+    return (
+    <div className="reservationCard__container">
+        <p>Date: {reservation.date}</p>
+        <p>Time: {reservation.hour}</p>
+        <p>Guests: {reservation.people}</p>
+        <p>Status: {reservation.status}</p>
+    </div>
+    )
+}

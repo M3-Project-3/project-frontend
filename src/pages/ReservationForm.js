@@ -10,6 +10,7 @@ import AddHourRange from '../components/AddHourRange';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
+
 export default function ReservationForm(props) {
     const {businessId} = useParams()
     console.log("businessId",businessId)
@@ -43,6 +44,11 @@ export default function ReservationForm(props) {
         businessId : businessId
     }
 
+
+    
+
+  function handleSubmit(event){
+    event.preventDefault()
     axios.post(
         `http://localhost:5005/reservations/61b370afc352c83cdbdf1ac4/new`,
         objToSend
@@ -97,4 +103,5 @@ function handleInput(event){
             
         </div>
     )
+}
 }
