@@ -62,7 +62,8 @@ export default function SingleRestaurantPage() {
                 <br/>
                 <div className="singleRest__reservationButtonContainer">
                     <div className="singleRest__reservationButton">
-                        <Link to="/ReservationForm" className="singleRest__link">Book a table</Link>
+                        <Link to="/reservation/new" className="singleRest__link">Book a table</Link> 
+                        {/* this link to the reservation isnt working */}
                     </div>
                 </div>
             </div>

@@ -197,9 +197,28 @@ border-radius: 20px;
   justify-content: center;
   align-items: center;
   padding-top: 20px;
+  
 }
 
 .reservationCard__reservationImg{
   height: 25px;
+}
+
+.reservationCard__date{
+  margin-left: 10px;
+}
+
+.reservationCard__hour{
+  margin-left: 10px;
+}
+
+.reservationCard__people{
+  margin-left: 10px;
+}
+
+/* SEARCH BAR */
+
+.searchBar{
+  width:380px;
 
 }
