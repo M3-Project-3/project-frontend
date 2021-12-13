@@ -18,8 +18,10 @@ export default function FilterRestaurantsPage() {
         });
     }, [query] );
 
-    const handleFilterByQuery = (e) => setQuery(e.target.value)
-
+    const handleFilterByQuery = (e) => {setQuery(e.target.value)
+        console.log(e.target.value)
+    }
+    
     return (
         <div>
             <h1>List of Restaurants</h1>

@@ -16,7 +16,6 @@ function NavbarUser() {
       <Link to="/">
         <button>Home</button>
       </Link>
-      -
       {isLoggedIn ? (
         <>
           <button onClick={logOutUser}>Logout</button>
