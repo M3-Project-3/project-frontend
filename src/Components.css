@@ -1,0 +1,97 @@
+/* BEM */
+/* Block Element Modifier */
+/* Block - is the entire encasing name for example button */
+/* Element - is something specific inside the block for example text */
+/* Modifier - is something that modifies the block element for example white */
+/* Block and Element are separated by double underscore __ and a modifier is separated by double dash -- */
+/* Put together this example class would look like button__text--white */
+/* You always need the Block and Element but you don't always need the Modifier */
+
+/* .button__container {
+
+}
+
+.button__image {
+
+}
+
+.button__text {
+
+}
+
+.button__text--white {
+
+}
+
+.button__text--red {
+
+} */
+
+/* REST CARD */
+
+.restCard__container {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  margin: auto;
+  text-align: left;
+  font-family: "Readex Pro", sans-serif;
+}
+
+.restCard__bookmarkIconContainer {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    position:relative;
+    top: -204px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 317px;
+}
+
+.restCard__bookmarkImg {
+    height: 25px
+}
+
+
+.restCard__title {
+  margin-left: 20px;
+  margin-bottom: 0;
+  margin-top: 7px;
+}
+
+.restCard__img {
+  width: 380px;
+  border-radius: 25px 25px 0 0;
+}
+
+.restCard__bottomContainer {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  border-radius: 0 0 25px 25px;
+  background-color: #ffffff;
+  position: relative;
+  top: -50px;
+}
+
+.restCard__infoBar {
+  display: flex;
+  justify-content: flex-start;
+  width: 360px;
+  margin-left: 20px;
+  color: grey
+}
+
+.restCard__icon {
+  height: 25px;
+  margin-right: 6px;
+}
+
+.restCard__infoBarItem {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
