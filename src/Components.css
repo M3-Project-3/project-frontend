@@ -60,7 +60,7 @@
   background-color: #ffffff;
   position: relative;
   top: -50px;
-  box-shadow: 0 10px 6px -6px #777;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .restCard__infoBar {
@@ -239,6 +239,7 @@ border-radius: 20px;
   height: 80px;
   font-family: "Readex Pro", sans-serif;
   font-size: small;
+  
 }
 
 .bottomNavbar__container{
@@ -257,7 +258,7 @@ border-radius: 20px;
 }
 
 .bottomNavbar__icons{
-  height: 50px;
+  height: 25px;
   display: flex;
 }
 
