@@ -5,57 +5,76 @@ import Calendar from '../components/Calendar'
 import {AuthContext} from '../context/auth.context'
 import { AuthProviderWrapper } from '../context/auth.context';
 import { useParams } from 'react-router';
+import AddHoursToForm from '../components/AddHoursToForm';
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
 export default function ReservationForm(props) {
-    const businessId = useParams()
+    const {businessId} = useParams()
     const history = useHistory()
     const [formState, setFormState] = useState({})
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [date, setDate] = useState(null)
-
     const {user} = useContext(AuthContext)
+    const [hoursSelected, setHoursSelected] = useState()
+    const [isLoading, setIsLoading] = useState(true)
+    const [selectedHourRange, setSelectedHourRange] = useState()
+    useEffect(()=>{
+        axios.get(`http://localhost:5005/business/${businessId}/reservations`)
+        .then(response=>{
+            setHoursSelected(response.data.data[0].businessId.timetable)
+            setIsLoading(false)
+        })  
+    },[])
     
     
+
     function handleSubmit(event){
-
         event.preventDefault()
-    const objToSend = {
-        name: formState.name,
-        surname: formState.surname,
-        date: date._d,
-        hour: null,
-        people: formState.people,
-        userId: user._id,
-        businessId : businessId
-    }
 
-    
-    event.preventDefault()
-    axios.post(
-        `http://localhost:5005/reservations/61b370afc352c83cdbdf1ac4/new`,
-        objToSend
-    ).then((response)=>{
-        console.log(objToSend)
-        setFormState({})
-        history.push("/")
+        if(!formState.name || !formState.surname || !date._d || !selectedHourRange.value || !formState.people || !user._id || !businessId){
+            setErrorMessage("All fields are required")
+        }
+        else{
+        const objToSend = {
+            name: formState.name,
+            surname: formState.surname,
+            date: date._d,
+            hour: selectedHourRange.value,
+            people: formState.people,
+            userId: user._id,
+            businessId : businessId
+        }
+
+        axios.post(
+            `http://localhost:5005/reservations/${businessId}/new`,
+            objToSend
+        )
+        .then((response)=>{
+            
+            setFormState({})
+            history.push("/")
+        })
+        .catch(console.log)
     }
-        
-    ).catch(console.log)
 }
 
 function handleInput(event){
     setFormState({...formState, [event.target.name]: event.target.value })// setFormState(Object.assign({}, formState, {[ecen.name]: event.value}))
-    console.log('dsasddsadsadsdssdasdasdasaddasdads',user._id)
-
+   
 }
+const posibleHourRange = []
+    if(hoursSelected){
+        hoursSelected.map(a=>{
+           return posibleHourRange.push({value:a, label: a})
+        })
+    }
+    
    
     return (
         <div>
-
         <form onSubmit={handleSubmit}>
             <label>Name:</label>
             <input type="text" name="name" value={formState.name} onChange={handleInput} />
@@ -66,12 +85,9 @@ function handleInput(event){
             <label>Day:</label>
             <Calendar date={date} setDate={setDate}/>
             <label>Hour:</label>
-            <input
-            type="string"
-            name="hour"
-            value="hora"
-            onChange={handleInput}
-            />
+
+
+            {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
 
             <label>People:</label>
             <input type="number" name="people" value={formState.people} onChange={handleInput} />
@@ -85,5 +101,16 @@ function handleInput(event){
             
         </div>
     )
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
