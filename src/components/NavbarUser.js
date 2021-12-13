@@ -16,8 +16,24 @@ function NavbarUser() {
   return (
     <nav>
       
-
-    
+      {isLoading === false && isLoggedIn ? (
+        <>
+          <button onClick={logOutUser}>Logout</button>
+       
+  
+        </>
+      ) : (
+        <>
+          <Link to="/signup">
+            {" "}
+            <button>Signup</button>{" "}
+          </Link>
+          <Link to="/login">
+            {" "}
+            <button>Login</button>{" "}
+          </Link>
+        </>
+      )}
     </nav>
   );
 }
