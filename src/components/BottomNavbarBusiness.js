@@ -27,11 +27,19 @@ export default function BottomNavbarBusiness(props){
                     {" "}
                     <button>Profile</button>{" "}
                     </Link>
+                    <Link to={`/business/${business._id}/edit`}><button>Edit profile</button></Link>
                     </>
                 ) : (
                     <>
-                    <p>Created by Ironhackers</p>
-                 </>
+                <Link to="/signup">
+                  {" "}
+                  <button>Signup</button>{" "}
+                </Link>
+                <Link to="/login">
+                  {" "}
+                  <button>Login</button>{" "}
+                </Link>
+              </>
                 )}
 
         </div>

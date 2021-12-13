@@ -32,16 +32,23 @@ export default function BottomNavbarUser(props){
                     <button>Favourites</button>
                 </Link>
 
-                <Link to={`/${user._id}`}>
+                <Link to={`/${user._id}/profile`}>
                  
                     <button>Profile</button>
                 </Link>
 
             </>
             ) : (
-                    <>
-                    <p>Created by Ironhackers</p>
-                 </>
+                <>
+                <Link to="/signup">
+                  {" "}
+                  <button>Signup</button>{" "}
+                </Link>
+                <Link to="/login">
+                  {" "}
+                  <button>Login</button>{" "}
+                </Link>
+              </>
             )}
 
         </div>
