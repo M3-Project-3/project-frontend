@@ -2,7 +2,7 @@ import "./App.css";
 import "../src/Components.css"
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Nabvar";
-import HomePage from "./pages/General/HomePage";
+//import HomePage from "./pages/General/HomePage";
 import SignupPage from "./pages/Users/SignupPage"
 import SignupPageBusiness from "./pages/Business/SignupPageBusiness";
 import LoginPage from "./pages/Users/LoginPage";

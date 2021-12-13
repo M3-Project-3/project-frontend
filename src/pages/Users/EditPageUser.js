@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-export default function(){
+export default function EditPageUser() {
     const { id } = useParams();
 
     const [formState, setFormState] = useState({})
