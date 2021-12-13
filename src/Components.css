@@ -98,19 +98,20 @@
 .bottom-nav {
   width: 25%;
   height: 100%;
+}
 /* REST PAGE  */
 
 /* .singleRest__container {
 } */
 
-/* .singleRest__bottomContainer{
+ .singleRest__bottomContainer{
 height: 448px;
 top: -20px;
 position: relative;
 background-color: #F6F6F6;
 border-radius: 20px 20px 0 0;
 font-family: "Readex Pro", sans-serif;
-} */
+} 
 
 .singleRest__link {
   text-decoration: none;
