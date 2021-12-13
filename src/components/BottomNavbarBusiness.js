@@ -20,17 +20,17 @@ export default function BottomNavbarBusiness(props){
                     <>
                     <Link to={`/business/${business._id}/reservations`}>
                     {" "}
-                    <button>Reservations</button>{" "}
+                    <p className="bottomNavbar__text" >Reservations</p>{" "}
                     </Link>
 
                     <Link to={`/business/${business._id}/details`}>
                     {" "}
-                    <button>Profile</button>{" "}
+                    <p className="bottomNavbar__text">Profile</p>{" "}
                     </Link>
                     </>
                 ) : (
                     <>
-                    <p>Created by Ironhackers</p>
+                    <p className="bottomNavbar__text">Created by Ironhackers</p>
                  </>
                 )}
 

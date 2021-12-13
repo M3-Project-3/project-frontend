@@ -44,6 +44,7 @@
   margin-left: 20px;
   margin-bottom: 0;
   margin-top: 7px;
+  color: black;
 }
 
 .restCard__img {
@@ -59,6 +60,7 @@
   background-color: #ffffff;
   position: relative;
   top: -50px;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .restCard__infoBar {
@@ -225,22 +227,36 @@ border-radius: 20px;
 
 /* BOTTOM NAVBAR */
 
-.bottom-navbar {
-  background: #202D3C;
-  color: white;
-  padding: 0px 20px;
+.bottomNavbar__mainContainer {
+  background: white;
+  color: #777;
   box-shadow: 0px 1px 2px gray;
   width: 100%;
   height: 50px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   position: fixed;
   bottom: 0;
-  border-top: 1px solid rgb(230, 230, 230);
+  height: 80px;
+  font-family: "Readex Pro", sans-serif;
+  font-size: small;
 }
 
-.bottom-nav {
-  width: 25%;
-  height: 100%;
+.bottomNavbar__container{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 50px;
+}
+
+.bottomNavbar__icons{
+  padding-left: 20px;
+}
+
+.bottomNavbar__text{
+  color: #777;
+}
+
+.bottomNavbar__icons{
+  height: 10px;
+  display: flex;
 }
