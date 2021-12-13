@@ -15,29 +15,9 @@ function NavbarUser() {
 
   return (
     <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
       
-      {isLoading === false && isLoggedIn ? (
-        <>
-          <button onClick={logOutUser}>Logout</button>
-          <span>Hi {user.name} !</span>
-          <br/>
-          <Link to={`/user/${user._id}/edit`}>User Edit</Link>
-        </>
-      ) : (
-        <>
-          <Link to="/signup">
-            {" "}
-            <button>Signup</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
+
+    
     </nav>
   );
 }

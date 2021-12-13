@@ -14,28 +14,7 @@ function NavbarBusiness() {
   } = useContext(AuthContext);
   return (
     <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-      -
-      {businessIsLoading === false && businessIsLoggedIn ? (
-        <>
-          <button onClick={logOutBusiness}>Logout</button>
-          <span>{business.name}</span>
-          <Link to={`/business/${business._id}/edit`}>Business Edit</Link>
-        </>
-      ) : (
-        <>
-          <Link to="/signup">
-            {" "}
-            <button>Signup</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
+
     </nav>
   );
 }
