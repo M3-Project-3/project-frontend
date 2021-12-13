@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function ReservationCard(props) {
     const { reservation } = props;
+    console.log("--------------z",reservation)
 
     return (
     <div className="reservationCard__container">

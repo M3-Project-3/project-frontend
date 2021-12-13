@@ -257,6 +257,10 @@ border-radius: 20px;
 }
 
 .bottomNavbar__icons{
-  height: 10px;
+  height: 50px;
+  display: flex;
+}
+
+.bottomNavbar__textIconContainer{
   display: flex;
 }
