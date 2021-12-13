@@ -38,7 +38,7 @@ function App() {
         <AnonRoute exact path="/business/login" component={LoginPageBusiness} />
         <AnonRoute exact path="/business/signup" component={SignupPageBusiness} />
         <AnonRoute exact path="/business/:id/edit" component={EditPageBusiness} />
-        <Route exact path="/:id/reservations" component={ReservationListPageBusiness} />
+        <Route exact path="/business/:id/reservations" component={ReservationListPageBusiness} />
         
       </Switch>
     </div>
