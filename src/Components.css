@@ -160,4 +160,33 @@ border-radius: 20px;
   text-align: center;
   font-family: "Readex Pro", sans-serif;
   text-decoration: none;
+  border-style: solid;
+  border-color: #000000;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  padding-bottom: 20px;
+}
+
+.reservationCard__statusContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.reservationCard__statusBar{
+  height: 50px;
+  width: 150px;
+  background-color: #cb9981;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* RESERVATION PAGE */
+
+.reservationPage__font {
+  font-family: "Readex Pro", sans-serif;
 }

@@ -8,7 +8,11 @@ export default function ReservationCard(props) {
         <p>Date: {reservation.date}</p>
         <p>Time: {reservation.hour}</p>
         <p>Guests: {reservation.people}</p>
+        <div className="reservationCard__statusContainer">
+            <div className="reservationCard__statusBar">
         <p>Status: {reservation.status}</p>
+            </div>
+        </div>
     </div>
     )
 }
