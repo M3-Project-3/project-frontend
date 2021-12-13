@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
-import NavbarUser from "./NavbarUser";
-import NavbarBusiness from "./NavbarBusiness";
+import BottomNavbarUser from "./BottomNavbarUser";
+import BottomNavbarBusiness from "./BottomNavbarBusiness";
 
-function Navbar() {
+function BottomNavbar() {
     // Subscribe to the AuthContext to gain access to
     // the values from AuthContext.Provider `value` prop
     const {
@@ -16,11 +15,10 @@ function Navbar() {
   
     return (
         
-    <div>
-      {isLoggedIn ? <NavbarUser /> : <NavbarBusiness />}
-    </div>
-     
+        <>
+     {isLoggedIn ? <BottomNavbarUser /> : <BottomNavbarBusiness />}
+     </>
     );
   }
   
-  export default Navbar;
+  export default BottomNavbar;

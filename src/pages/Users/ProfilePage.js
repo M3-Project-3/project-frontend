@@ -16,11 +16,11 @@ return (
         <h2>Profile</h2>
         {isLoading === false &&
                 <div>
-                    <img src={user.picture} alt={user.name} height="200px"></img>
+                    <img src={profile.picture} alt={profile.name} height="200px"></img>
                     <div>
-                        <div>Name: {user.name} {user.surename} </div>
-                        <div>{user.email}</div>
-                        <div>{user.favourites}</div>
+                        <div>Name: {profile.name} {profile.surname} </div>
+                        <div>{profile.email}</div>
+                        <div>{profile.favourites}</div>
                     </div>
                 </div>
             }

@@ -19,6 +19,8 @@ function HomePage() {
   return (
     <div>
       <h1>Home Page</h1>
+
+    {/* add some restaurant cards here, most popular etc */}
       
     </div>
   );
