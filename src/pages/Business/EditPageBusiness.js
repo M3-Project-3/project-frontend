@@ -199,7 +199,7 @@ function removeDesert(e, index){
           {isLoading === false && <AddFoodType selectedFoodType={selectedFoodType} setSelectedFoodType={setSelectedFoodType} food={foodTypeSelected}/>}
         </div>
         <label>Starters</label>
-        {isLoading === false && starters.map((el, index)=>{
+        {isLoading === false && starters && starters.map((el, index)=>{
           return (
             <>
             <span>{el.menuStarters} </span><span> {el.price} euros</span><button onClick={(e) => removeStarter(e,index)}>Remove</button>
