@@ -10,13 +10,13 @@ export default function SingleRestaurantPage() {
     const [restaurant, setRestaurant] = useState({});
     const { id: resId } = useParams()
 
-    console.log(resId);
+
 
     useEffect(() => {
     axios
         .get(`http://localhost:5005/business/${resId}/details`)
         .then((response) => {
-            console.log('response.data', response.data.data);
+
             setRestaurant(response.data.data)
         });
     }, [resId] );
@@ -24,7 +24,7 @@ export default function SingleRestaurantPage() {
     return(
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src="/stockrestimg.png"></img>
+                <img className="singleRest__img" src="/stockrestimg.png" alt="Restaurant"></img>
             </div>
 
             <div className="singleRest__bottomContainer">
