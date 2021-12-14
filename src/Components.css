@@ -301,3 +301,13 @@ border-radius: 20px;
   font-size: small;
   display: flex;
 }
+
+.form__padding{
+  padding-bottom: 220px;
+}
+
+/* BOTTOM NAVBAR GUEST */
+
+.bottomNav__guest{
+  height:50px;
+}

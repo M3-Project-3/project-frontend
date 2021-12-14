@@ -169,7 +169,7 @@ function removeDesert(e, index){
   
   return (
     <>
-    <div>
+    <div className="form__padding">
       <h2>Edit Restaurant Profile</h2>
 
       <form onSubmit={handleSubmit}>

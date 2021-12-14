@@ -31,11 +31,10 @@ export default function BottomNavbarBusiness(props){
                     <img className="bottomNavbar__icon" src="userProfile.png" alt=""/>
                     <p className="bottomNavbar__text">Profile</p>{" "}
                     </Link>
-                    <Link to={`/business/${business._id}/edit`}><button>Edit profile</button></Link>
+                    {/* <Link to={`/business/${business._id}/edit`}><button>Edit profile</button></Link> */}
                     </>
                 ) : (
                     <>
-                <p>Thank you for visiting the page</p>
               </>
                 )}
 

@@ -15,9 +15,9 @@ function BottomNavbar() {
   
     return (
         
-        <>
-     {isLoggedIn ? <BottomNavbarUser /> : <BottomNavbarBusiness />}
-     </>
+        <div className="bottomNav__guest">
+          {isLoggedIn ? <BottomNavbarUser /> : <BottomNavbarBusiness />}
+        </div>
     );
   }
   
