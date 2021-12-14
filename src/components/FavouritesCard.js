@@ -1,23 +1,15 @@
 import React from 'react'
-import { useContext } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios'
-import { AuthContext } from '../context/auth.context';
 
-const API_URL =  process.env.REACT_APP_API_URI;
 
 export default function FavouritesCard(props) {
 
     const { restaurant } = props;
-    const {user} = useContext(AuthContext)
   
-
-    function removeFavourite(){
-        axios.delete(`${API_URL}/user/${user._id}/favourites/${restaurant._id}` )      
-        .then(()=>{
-            window.location.reload();
-        })    
+    const removeFavourite = ()=>{
+        props.handleInput(restaurant._id)
     }
+
 
     return (
         <div className="restCard__container">
