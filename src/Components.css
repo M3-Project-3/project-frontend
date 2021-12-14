@@ -282,36 +282,35 @@ border-radius: 20px;
 .bottomNavbar__mainContainer {
   background: white;
   color: #777;
-  box-shadow: 0px 1px 2px gray;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 1px 2px grey;
   width: 100%;
-  height: 50px;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 1;
-  height: 80px;
+  height: 10%;
   font-family: "Readex Pro", sans-serif;
   font-size: small;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .bottomNavbar__textIconContainer{
-  display: flex;
-  justify-content: space-between;
   width:60px;
-  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  
 }
 
-.bottomNavbar__icon{
-  padding-left: 20px;
-}
 
-.bottomNavbar__text{
-  color: #777;
-}
+
 
 .bottomNavbar__icon{
   height: 35px;
   display: flex;
+ 
 }
 
 .bottomNavbar__favIcon{
