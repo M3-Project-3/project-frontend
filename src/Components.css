@@ -22,10 +22,7 @@
 .restCard__link {
   text-decoration: none;
 }
-.fav-button{
-  background-color: transparent;
-  border: none;
-}
+
 
 .restCard__bookmarkIconContainer {
   height: 50px;
@@ -48,8 +45,17 @@
 .restCard__bookmarkIconButton{
     border-style: none;
     border-radius: 15px;
+    cursor: pointer;
     height: 48px;
     width: 60px;
+}
+
+.restCard__bookmarkIconButton:active{
+  background-color: rgb(61, 189, 45);
+  cursor: pointer;
+  border-radius: 15px;
+  height: 48px;
+  width: 60px;
 }
 
 .restCard__title {
@@ -69,7 +75,7 @@
   flex-direction: column;
   width: 380px;
   border-radius: 0 0 25px 25px;
-  background-color: #ffffff;
+  background-color: white;
   position: relative;
   top: -54px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -81,6 +87,8 @@
   width: 360px;
   margin-left: 20px;
   color: grey;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .restCard__icon {
@@ -103,7 +111,7 @@
 height: 1050px;
 top: -20px;
 position: relative;
-background-color: #F6F6F6;
+background-color: white;
 border-radius: 20px 20px 0 0;
 font-family: "Readex Pro", sans-serif;
 } 
@@ -254,7 +262,6 @@ border-radius: 20px;
 .searchBar{
   width:85%;
   margin: 10% 0;
-
   height: 50px;
   font-size: 1em;
   border-radius: 10px;
@@ -263,9 +270,10 @@ border-radius: 20px;
 }
 .searchBar__container{
   display:flex;
-  justify-content: center;
+  align-items: center;
   padding-bottom: 40px;
   padding-top: 40px;
+  
 }
 
 /* BOTTOM NAVBAR */
@@ -273,35 +281,33 @@ border-radius: 20px;
 .bottomNavbar__mainContainer {
   background: white;
   color: #777;
-  box-shadow: 0px 1px 2px gray;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 1px 2px grey;
   width: 100%;
-  height: 50px;
-  align-items: center;
   position: fixed;
   bottom: 0;
-  height: 80px;
-  font-family: "Readex Pro", sans-serif;
-  font-size: small;
+  left: 0;
+  z-index: 1;
+  height: 10%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .bottomNavbar__textIconContainer{
-  display: flex;
-  justify-content: space-between;
   width:60px;
-  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  
 }
 
-.bottomNavbar__icon{
-  padding-left: 20px;
-}
 
-.bottomNavbar__text{
-  color: #777;
-}
+
 
 .bottomNavbar__icon{
   height: 35px;
   display: flex;
+ 
 }
 
 .bottomNavbar__favIcon{
@@ -322,16 +328,29 @@ border-radius: 20px;
 
 .homepage__container{
   padding-bottom: 80px;
-  background-color: #f5f5f5;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
 }
 
 /* LOGIN PAGE CONTAINER */
 
 .loginPage__container{
-  font-family: "Readex Pro", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  padding-bottom: 5%;
 }
 
 .loginPage__titleContiner{
@@ -347,7 +366,38 @@ border-radius: 20px;
   justify-content: center;
 }
 
-.loginPage__form{
-  display: flex;
+.loginPage__form input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.loginPage__form button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: rgb(30, 43, 99);
+  color: white;
 }
 
+/* FAVOURITE PAGE */
+
+#delete-button{
+  background-color: white;
+  border: 4px solid white;
+  padding: 2 8px;
+  border-radius: 14px;
+}
+#delete-button:hover{
+  background-color: rgb(223, 82, 82);
+  border: 4px solid rgb(223, 82, 82);
+  border-radius: 14px;
+}
+
+/*    */

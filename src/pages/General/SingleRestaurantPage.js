@@ -5,6 +5,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 import BusinessReview from "../../components/BusinessReview";
+import BottomNavbarUser from "../../components/BottomNavbarUser";
 
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -64,12 +65,12 @@ export default function SingleRestaurantPage() {
                 <div className="restCard__infoBar">
                     <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="/tray.png" alt=""></img>
-                        <p>{restaurant.resType}</p>
+                        <p>{restaurant.resType && restaurant.resType.map((type)=>(<span>  {type} </span>))}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="/restaurant.png" alt=""></img>
-                        <p>{restaurant.foodType}</p>
+                        <p>{restaurant.foodType && restaurant.foodType.map((type)=>(<span>  {type} </span>))}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
@@ -86,13 +87,15 @@ export default function SingleRestaurantPage() {
                 </div>
                 <div>
                     <p>{restaurant.description}</p>
-                  <h2 className="singleRest__h2">{restaurant.name} Reviews</h2>
+                  <h2 className="singleRest__h2">Reviews</h2>
                 </div>
-                {restaurant.reviews && restaurant.reviews.map((singleReview)=>{
+                {restaurant.reviews && restaurant.reviews.length > 0 ? restaurant.reviews.map((singleReview)=>{
                     return (
                         <BusinessReview review={singleReview} />
                     )
-                })}
+                }):
+                <span>Leave the first review!</span>
+                }
                 {isLoggedIn && <div>
                     <form className="singleRest__reviewFormContainer" onSubmit={handleSubmit}>
                         <h2 className="singleRest__h2">Leave your review</h2>
@@ -114,6 +117,8 @@ export default function SingleRestaurantPage() {
                     </div>
                 </div>
             </div>
+       
         </div>
+        
     )
 };
