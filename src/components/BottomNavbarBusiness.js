@@ -9,7 +9,6 @@ export default function BottomNavbarBusiness(props){
         business,
         businessIsLoggedIn,
         businessIsLoading,
-        logInBusiness,
         
       } = useContext(AuthContext);
 

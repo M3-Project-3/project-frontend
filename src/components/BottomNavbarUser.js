@@ -8,8 +8,7 @@ export default function BottomNavbarUser(props){
         isLoading,
         user,
         isLoggedIn,
-        loggedInUser,
-        logOutUser,
+
       } = useContext(AuthContext);
 
 

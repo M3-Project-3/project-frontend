@@ -6,10 +6,10 @@ function NavbarBusiness() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const {
-    business,
+
     businessIsLoggedIn,
     businessIsLoading,
-    logInBusiness,
+
     logOutBusiness,
   } = useContext(AuthContext);
   return (
