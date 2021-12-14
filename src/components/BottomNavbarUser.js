@@ -23,7 +23,7 @@ export default function BottomNavbarUser(props){
             
             <div className="bottomNavbar__iconTextContainer">
                 <Link to="/">
-                    <img className="bottomNavbar__icon" src="magnifyingGlass.png"/>
+                    {/* <img className="bottomNavbar__icon" src="magnifyingGlass.png"/> */}
                     <p className="bottomNavbar__text">Search</p>
                 </Link>
             </div>
