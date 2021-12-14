@@ -243,17 +243,16 @@ border-radius: 20px;
   height: 80px;
   font-family: "Readex Pro", sans-serif;
   font-size: small;
-  
 }
 
-.bottomNavbar__container{
+.bottomNavbar__textIconContainer{
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width:60px;
   margin-left: 50px;
 }
 
-.bottomNavbar__icons{
+.bottomNavbar__icon{
   padding-left: 20px;
 }
 
@@ -261,11 +260,27 @@ border-radius: 20px;
   color: #777;
 }
 
-.bottomNavbar__icons{
+.bottomNavbar__icon{
+  height: 35px;
+  display: flex;
+}
+
+.bottomNavbar__favIcon{
   height: 25px;
   display: flex;
 }
 
-.bottomNavbar__textIconContainer{
+.bottomNavbar__profileIcon{
+  height: 35px;
   display: flex;
+}
+
+.bottomNavbar__Container{
+  display: flex;
+}
+
+/* HOMEPAGE */
+
+.homepage__container{
+  padding-bottom: 80px;
 }

@@ -41,7 +41,7 @@ export default function FilterRestaurantsPage() {
 
 
     return (
-        <div>
+        <div className="homepage__container">
             {/* <h1>List of Restaurants</h1> */}
             <SearchBar filter={handleFilter} />
             {isLoading}
