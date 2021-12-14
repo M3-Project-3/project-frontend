@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from "./../context/auth.context";
 
 
-const API_URL =  process.env.FRONTEND_DOMAIN;
+const API_URL =  process.env.REACT_APP_API_URI;
 
 export default function RestaurantCard(props) {
 

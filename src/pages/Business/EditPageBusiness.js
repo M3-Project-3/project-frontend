@@ -8,7 +8,7 @@ import AddFoodType from "../../components/AddFoodType";
 import AddOneToMenu from "../../components/AddOneToMenu"
 
 
-
+const API_URL = process.env.REACT_APP_API_URI;
 export default function EditPageBusiness() {
   const { id } = useParams();
   const history = useHistory();
@@ -21,7 +21,7 @@ export default function EditPageBusiness() {
   const [main, setMain] = useState()
   const [deserts, setDeserts] = useState()
 
-  const API_URL = process.env.FRONTEND_DOMAIN;
+
 
   useEffect( ()=>{
     const getBusiness = async () =>{

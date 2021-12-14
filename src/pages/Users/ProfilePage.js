@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 function ProfilePage(props) {
 

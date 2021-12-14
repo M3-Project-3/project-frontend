@@ -4,7 +4,7 @@ import axios from 'axios';
 import React from 'react';
 import ReservationCard from '../../components/ReservationCard';
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
  export default function ReservationListPageUser() {
     const [reservations, setReservations] = useState({});

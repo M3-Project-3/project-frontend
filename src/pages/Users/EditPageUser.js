@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 
 export default function EditPageUser() {

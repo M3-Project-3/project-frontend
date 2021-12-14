@@ -8,7 +8,7 @@ import { useParams } from 'react-router';
 import AddHoursToForm from '../components/AddHoursToForm';
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-const API_URL =  process.env.FRONTEND_DOMAIN;
+const API_URL =  process.env.REACT_APP_API_URI;
 
 
 export default function ReservationForm(props) {
