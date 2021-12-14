@@ -33,15 +33,23 @@
   border-radius: 15px;
   position: relative;
   top: -204px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   display: flex;
   justify-content: center;
   align-items: center;
   left: 317px;
+  border-style: none;
 }
 
 .restCard__bookmarkImg {
-  height: 25px;
+  height: 31px;
+}
+
+.restCard__bookmarkIconButton{
+    border-style: none;
+    border-radius: 15px;
+    height: 48px;
+    width: 60px;
 }
 
 .restCard__title {
@@ -226,6 +234,7 @@ border-radius: 20px;
 
 .searchBar{
   width:380px;
+  border-radius: 11px;
 }
 
 .searchBar__container{

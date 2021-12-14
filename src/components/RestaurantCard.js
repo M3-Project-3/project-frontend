@@ -20,11 +20,11 @@ export default function RestaurantCard(props) {
 
     return (
         <div className="restCard__container">
-            <Link to={`/restaurants/${restaurant._id}`} className="restCard__link">
+            <Link to={`/restaurants/${restaurant._id}`} className="restCard__link" >
                 <div className="restCard__topContainer">
                     <img className="restCard__img" src="stockrestimg.png" alt={restaurant.name}></img>
                 <div className="restCard__bookmarkIconContainer">
-                    <button  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
+                    <button className="restCard__bookmarkIconButton"  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
                 </div>
                 </div>
                 <div className="restCard__bottomContainer">
@@ -38,13 +38,15 @@ export default function RestaurantCard(props) {
                             <img className="restCard__icon" src="restaurant.png" alt="food type"></img>
                             <p>{restaurant.foodType}</p>
                         </div>
-                        <div className="restCard__infoBarItem">
+                        <div className="restCard__infoBarItem">|"?`"
                         <img className="restCard__icon" src="dollar-tag.png" alt="price"></img>
                             <p>{restaurant.priceRange}</p>
                         </div>
                     </div>
                 </div>
-            </Link>
+           z`vbµ≤./
+           |`
+           
         </div>
     )
 }
