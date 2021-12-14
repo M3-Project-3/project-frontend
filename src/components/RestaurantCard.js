@@ -11,7 +11,6 @@ export default function RestaurantCard(props) {
 
     const { restaurant } = props;
 
-    console.log(restaurant)
     const {user} = useContext(AuthContext);
 
     function addFavorite(){

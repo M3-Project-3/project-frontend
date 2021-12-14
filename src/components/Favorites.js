@@ -1,25 +1,32 @@
+import axios from "axios";
 import React, {useState, useEffect, useContext} from "react";
+import { AuthContext } from "../context/auth.context";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 export default function Favorites(){
-    const [favourites, setFavorites] = useState([]);
+    const [favourites, setFavourites] = useState({})
 
+    const API_URL = "http://localhost:5005"
+    const {userId} = useParams();
+    console.log(userId)
 
     useEffect(()=>{
-        setFavorites()
+        axios.get(`${API_URL}/user/${userId}/favourites`)
+        .then((response)=>{
+            setFavourites(response.data)
+            console.log(favourites)
+            
+        })
     }, [])
 
-    function handleFavorite(id){
-        const newFavorites = favourites.map(restaurant=>{
-            return restaurant.id = id ? {...restaurant, favorite: restaurant.favorite} : restaurant;
-        })
-        setFavorites(newFavorites)
-    }
+
+
 
     return (
         <div>
-            <h1>favorites</h1>
-            <ul>
+            <h1>Favourites</h1>
+           {/*  <ul>
                 {favourites.map((restaurant, fav) => (
                     <li key={fav}>
                         {restaurant.name}
@@ -30,7 +37,7 @@ export default function Favorites(){
                         </button>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     )
 }

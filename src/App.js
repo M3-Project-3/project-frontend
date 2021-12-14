@@ -19,6 +19,7 @@ import AnonRouteBusiness from "./components/AnonRouteBusiness"
 
 //import ReservationListPageBusiness from "./pages/Business/ReservationListPageBusiness";
 import ReservationListPageUser from "./pages/Users/ReservationListPageUser";
+import Favorites from "./components/Favorites";
 
 
 
@@ -43,6 +44,7 @@ function App() {
 
         <Route exact path="/business/:id/reservations" component={ReservationListPageBusiness} />
         <Route exact path="/:id/reservations" component={ReservationListPageUser}/>
+        <Route exact path="/:userId/favourites" component={Favorites}/>
         
       </Switch>
       <BottomNavbar/>
