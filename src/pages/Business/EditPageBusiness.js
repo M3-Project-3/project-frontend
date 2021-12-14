@@ -6,7 +6,7 @@ import AddHourRange from '../../components/AddHourRange'
 import AddTypeRestaurant from '../../components/AddTypeRestaurant'
 import AddFoodType from "../../components/AddFoodType";
 import AddOneToMenu from "../../components/AddOneToMenu"
-
+import service from "../../api/service";
 
 const API_URL = process.env.REACT_APP_API_URI;
 export default function EditPageBusiness() {
@@ -127,10 +127,6 @@ export default function EditPageBusiness() {
       .catch(console.log);
   }
 
-  function handleInput(e) {  
-      setFormState({...formState, [e.target.name]: e.target.value });
-  }
-
   const hoursSelected = []
   if(isLoading === false && formState.timetable ){
     formState.timetable.map((el)=>{
@@ -168,12 +164,37 @@ function removeDesert(e, index){
   setDeserts(list);
 }
   
+
+function handleInput(e) {  
+  setFormState({...formState, [e.target.name]: e.target.value });
+}
+
+function handleFileInput(e){
+
+  const pictureUploadForm = new FormData();
+  pictureUploadForm
+  .append("pictures", e.target.files[0]);
+  
+  service
+  .uploadPictures(pictureUploadForm)
+  .then(response => {
+    let pictures
+    if(!formState.pictures) pictures=[]
+    else pictures = [...formState.pictures]
+    pictures.push(response.secure_url)
+    
+    setFormState({...formState, pictures});
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  };
+  
+
   return (
     <>
     <div>
       <h2>Edit Restaurant Profile</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form className="editRest__container" onSubmit={handleSubmit}>
         <label>Name</label>
         <input
           type="text"
@@ -235,20 +256,24 @@ function removeDesert(e, index){
 
           {isLoading === false && <AddHourRange selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} restaurant={hoursSelected}/>}
            
-        <label>Tables</label>
+        {/* <label>Tables</label> */}
+        <br/>
+        <label>Images:</label>
         <input
-          type="text"
+          type="file"
           name="tables"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.tables}
+          onChange={handleFileInput} // onChange={(e) => setHeadline(e.target.value)}
+          value={formState.pictures}
         />
-        <label for="description">Description</label>
-        <textarea name="description" value={formState.description} onChange={handleInput} />
         
+        <label for="description">Description</label>
+
+        <textarea name="description" value={formState.description} onChange={handleInput} />
+
 
         <button type="submit">Submit</button>
       </form>
     </div>
     </>
   );
-}
+      }

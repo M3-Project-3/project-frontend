@@ -351,3 +351,11 @@ border-radius: 20px;
   display: flex;
 }
 
+/* EDIT RESTAURANT PAGE / BUSINESS */
+
+.editRest__container{
+  display: flex;
+  flex-direction: column;
+  height: 2000px;
+}
+

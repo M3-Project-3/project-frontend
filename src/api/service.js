@@ -19,9 +19,9 @@ const getPictures = () => {
     .catch(errorHandler);
 };
 
-const uploadPictures = (file) => {
+const uploadPictures = (imageUploadForm) => {
   return service
-    .post("/upload", file)
+    .post("/upload", imageUploadForm)
     .then(res => res.data)
     .catch(errorHandler);
 };

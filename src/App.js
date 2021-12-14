@@ -16,7 +16,7 @@ import ReservationListPageBusiness from "./pages/Business/ReservationListPageBus
 import ProfilePageBusiness from "./pages/Business/ProfilePageBusiness"
 import BottomNavbar from "./components/BottomNavbar"
 import AnonRouteBusiness from "./components/AnonRouteBusiness"
-// import AddPicture from "./components/AddPicture";
+
 
 //import ReservationListPageBusiness from "./pages/Business/ReservationListPageBusiness";
 import ReservationListPageUser from "./pages/Users/ReservationListPageUser";
