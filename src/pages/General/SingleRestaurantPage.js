@@ -58,23 +58,23 @@ export default function SingleRestaurantPage() {
                     
                 <div className="restCard__infoBar">
                     <div className="restCard__infoBarItem">
-                        <img className="restCard__icon" src="/tray.png"></img>
+                        <img className="restCard__icon" src="/tray.png" alt=""></img>
                         <p>{restaurant.resType}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
-                        <img className="restCard__icon" src="/restaurant.png"></img>
+                        <img className="restCard__icon" src="/restaurant.png" alt=""></img>
                         <p>{restaurant.foodType}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
-                        <img className="restCard__icon" src="/dollar-tag.png"></img>
+                        <img className="restCard__icon" src="/dollar-tag.png" alt=""></img>
                         <p>{restaurant.priceRange}</p>
                     </div>
                 </div>
 
                 <div className="singleRest__addressBar">
-                    <img className="singleRest__addressIcon" src="/pin.png"></img>
+                    <img className="singleRest__addressIcon" src="/pin.png" alt=""></img>
                     <div className="singleRest__address">
                         <p>{restaurant.address}</p>
                     </div>

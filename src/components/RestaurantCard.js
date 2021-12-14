@@ -1,16 +1,31 @@
+import axios from 'axios';
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from "./../context/auth.context";
+
+
+const API_URL = "http://localhost:5005"
 
 export default function RestaurantCard(props) {
+
     const { restaurant } = props;
+
+    console.log(restaurant)
+    const {user} = useContext(AuthContext);
+
+    function addFavorite(){
+        axios.put(`${API_URL}/user/${user._id}/favourites/${restaurant._id}` )      
+
+    }
 
     return (
         <div className="restCard__container">
             <Link to={`/restaurants/${restaurant._id}`} className="restCard__link">
                 <div className="restCard__topContainer">
-                <img className="restCard__img" src="stockrestimg.png" alt={restaurant.name}></img>
+                    <img className="restCard__img" src="stockrestimg.png" alt={restaurant.name}></img>
                 <div className="restCard__bookmarkIconContainer">
-                <img className="restCard__bookmarkImg" src="bookmark.png" alt="bookmark"></img>
+                    <button  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
                 </div>
                 </div>
                 <div className="restCard__bottomContainer">

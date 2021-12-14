@@ -15,6 +15,19 @@ function NavbarBusiness() {
   return (
     <nav>
 
+      {businessIsLoading === false && businessIsLoggedIn ? (
+        <>
+          <button onClick={logOutBusiness}>Logout</button>
+        </>
+      ) : (
+        <>
+
+          <Link to="/login">
+            {" "}
+            <button>Login</button>{" "}
+          </Link>
+        </>
+      )}
     </nav>
   );
 }
