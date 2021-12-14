@@ -22,7 +22,7 @@
 .restCard__link {
   text-decoration: none;
 }
-.fav-button{
+.fav-button {
   background-color: transparent;
   border: none;
 }
@@ -45,11 +45,11 @@
   height: 31px;
 }
 
-.restCard__bookmarkIconButton{
-    border-style: none;
-    border-radius: 15px;
-    height: 48px;
-    width: 60px;
+.restCard__bookmarkIconButton {
+  border-style: none;
+  border-radius: 15px;
+  height: 48px;
+  width: 60px;
 }
 
 .restCard__title {
@@ -99,14 +99,14 @@
 /* .singleRest__container {
 } */
 
- .singleRest__bottomContainer{
-height: 1050px;
-top: -20px;
-position: relative;
-background-color: #F6F6F6;
-border-radius: 20px 20px 0 0;
-font-family: "Readex Pro", sans-serif;
-} 
+.singleRest__bottomContainer {
+  height: 1050px;
+  top: -20px;
+  position: relative;
+  background-color: #f6f6f6;
+  border-radius: 20px 20px 0 0;
+  font-family: "Readex Pro", sans-serif;
+}
 
 .singleRest__link {
   text-decoration: none;
@@ -122,14 +122,13 @@ font-family: "Readex Pro", sans-serif;
 }
 
 .singleRest__titleContainer {
-border-radius: 20px;
+  border-radius: 20px;
 }
 
 .singleRest__title {
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
-  
 }
 
 .singleRest__addressBar {
@@ -164,21 +163,21 @@ border-radius: 20px;
   align-items: center;
 }
 
-.singleRest__reviewContainer{
-    background-color: white;
-    box-shadow: 0px 1px 2px gray;
-    margin-bottom: 40px;
-    margin-left: 20px;
-    margin-right: 40px;
+.singleRest__reviewContainer {
+  background-color: white;
+  box-shadow: 0px 1px 2px gray;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
 }
 
-.singleRest__h2{
+.singleRest__h2 {
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
 }
 
-.singleRest__reviewFormContainer{
+.singleRest__reviewFormContainer {
   display: flex;
   flex-direction: column;
 }
@@ -200,13 +199,13 @@ border-radius: 20px;
   padding-bottom: 20px;
 }
 
-.reservationCard__statusContainer{
+.reservationCard__statusContainer {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.reservationCard__statusBar{
+.reservationCard__statusBar {
   height: 50px;
   width: 150px;
   background-color: #cb9981;
@@ -217,52 +216,50 @@ border-radius: 20px;
   align-items: center;
 }
 
-
 /* RESERVATION PAGE */
 
 .reservationPage__font {
   font-family: "Readex Pro", sans-serif;
 }
 
-.reservationCard__ImgContainer{
+.reservationCard__ImgContainer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 20px;
-  
 }
 
-.reservationCard__reservationImg{
+.reservationCard__reservationImg {
   height: 25px;
 }
 
-.reservationCard__date{
+.reservationCard__date {
   margin-left: 10px;
 }
 
-.reservationCard__hour{
+.reservationCard__hour {
   margin-left: 10px;
 }
 
-.reservationCard__people{
+.reservationCard__people {
   margin-left: 10px;
 }
 
 /* SEARCH BAR */
 
-.searchBar{
-  width:85%;
+.searchBar {
+  width: 85%;
   margin: 10% 0;
 
   height: 50px;
   font-size: 1em;
   border-radius: 10px;
   border: 1px solid white;
-   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.searchBar__container{
-  display:flex;
+.searchBar__container {
+  display: flex;
   justify-content: center;
   padding-bottom: 40px;
   padding-top: 40px;
@@ -284,78 +281,158 @@ border-radius: 20px;
   font-size: small;
 }
 
-.bottomNavbar__textIconContainer{
+.bottomNavbar__textIconContainer {
   display: flex;
   justify-content: space-between;
-  width:60px;
+  width: 60px;
   margin-left: 50px;
 }
 
-.bottomNavbar__icon{
+.bottomNavbar__icon {
   padding-left: 20px;
 }
 
-.bottomNavbar__text{
+.bottomNavbar__text {
   color: #777;
 }
 
-.bottomNavbar__icon{
+.bottomNavbar__icon {
   height: 35px;
   display: flex;
 }
 
-.bottomNavbar__favIcon{
+.bottomNavbar__favIcon {
   height: 25px;
   display: flex;
 }
 
-.bottomNavbar__profileIcon{
+.bottomNavbar__profileIcon {
   height: 35px;
   display: flex;
 }
 
-.bottomNavbar__Container{
+.bottomNavbar__Container {
   display: flex;
 }
 
 /* HOMEPAGE */
 
-.homepage__container{
+.homepage__container {
   padding-bottom: 80px;
   background-color: #f5f5f5;
 }
 
 /* LOGIN PAGE CONTAINER */
 
-.loginPage__container{
+.loginPage__container {
   font-family: "Readex Pro", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginPage__titleContiner{
+.loginPage__titleContiner {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginPage__title{
+.loginPage__title {
   width: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginPage__form{
+.loginPage__form {
   display: flex;
 }
 
 /* EDIT RESTAURANT PAGE / BUSINESS */
 
-.editRest__container{
+.editRest__base {
   display: flex;
   flex-direction: column;
-  height: 2000px;
+  align-items: flex-start;
+  font-family: "Readex Pro", sans-serif;
+  height:1200px;
 }
 
+.editRest__header {
+  align-self: center;
+}
+
+.editRest__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.editRest__fieldContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+/* first child / last child / nth child are selectors (ways of targeting elements without classes  */
+
+.editRest__label {
+  width: 20%;
+}
+
+.editRest__input {
+  width: 300px;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer {
+  width: 100%;
+}
+
+.editRest__addTypeContainer--dropdown {
+  width: 300px;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
+  width: 20%;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :nth-child(2) {
+  width: 30%;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :last-child {
+  width: 30%;
+}
+
+.editRest__fieldContainer--fullWidth :first-child {
+  width: 100%;
+}
+
+.editRest__addTypeContainer {
+  margin-left: 10px;
+}
+
+/* ADD ONE COMPONENT */
+
+.addOne__base {
+  display: flex;
+  flex-direction: column;
+}
+
+.addOne__itemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.addOne__itemContainer :first-child {
+  width: 20%;
+}
+
+.addOne__itemContainer :last-child {
+  width: 60%;
+}

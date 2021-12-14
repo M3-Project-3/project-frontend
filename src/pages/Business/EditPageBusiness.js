@@ -191,87 +191,120 @@ function handleFileInput(e){
 
   return (
     <>
-    <div>
-      <h2>Edit Restaurant Profile</h2>
+    <div className="editRest__base">
+      <h2 className="editRest__header">Edit Restaurant Profile</h2>
 
       <form className="editRest__container" onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.name}
-        />
-
-
-        <label>Address</label>
-        <input
-          type="text"
-          name="address"
-          onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.address}
-        />
-
-        <label>Restaurant Type</label>
-        <div>
-          {isLoading === false && <AddTypeRestaurant selectedResType={selectedResType} setSelectedResType={setSelectedResType} restaurant={resTypeSelected}/>}
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label" className="editRest__label">Name</label>
+          <input
+            className="editRest__input"
+            type="text"
+            name="name"
+            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+            value={formState.name}
+          />
         </div>
 
-        <label>Food Type</label>
-        <div>
-          {isLoading === false && <AddFoodType selectedFoodType={selectedFoodType} setSelectedFoodType={setSelectedFoodType} food={foodTypeSelected}/>}
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Address</label>
+          <input
+            className="editRest__input"
+            type="text"
+            name="address"
+            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+            value={formState.address}
+          />
         </div>
-        <label>Starters</label>
-        {isLoading === false && starters && starters.map((el, index)=>{
-          return (
-            <>
-            <span>{el.menuStarters} </span><span> {el.price} euros</span><button onClick={(e) => removeStarter(e,index)}>Remove</button>
-            <br></br>
-            </>
-          )
-        })}
-           <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters"/>
-        
-          <label>Main Course</label>
-            {isLoading === false && main.map((el, index)=>{
-             return (
-            <>
-            <span>{el.menuMain} </span><span> {el.price} euros</span><button onClick={(e) => removeMain(e,index)}>Remove</button>
-            <br></br>
-            </>
-          )
-        })}
-           <AddOneToMenu addOne={main} setAddOne={setMain} name="menuMain"/>
-        
-           <label>Deserts</label>
-            {isLoading === false && deserts.map((el, index)=>{
+
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Restaurant Type</label>
+          <div class="editRest__addTypeContainer editRest__addTypeContainer--dropdown">
+            {isLoading === false && <AddTypeRestaurant selectedResType={selectedResType} setSelectedResType={setSelectedResType} restaurant={resTypeSelected}/>}
+          </div>
+        </div>
+
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Food Type</label>
+          <div class="editRest__addTypeContainer editRest__addTypeContainer--dropdown">
+            {isLoading === false && <AddFoodType selectedFoodType={selectedFoodType} setSelectedFoodType={setSelectedFoodType} food={foodTypeSelected}/>}
+          </div>
+        </div>
+
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Starters</label>
+          {isLoading === false && starters && starters.map((el, index)=>{
             return (
-            <>
-            <span>{el.menuDeserts} </span><span> {el.price} euros</span><button onClick={(e) => removeDesert(e,index)}>Remove</button>
-            <br></br>
-            </>
-          )
-        })}
-           <AddOneToMenu addOne={deserts} setAddOne={setDeserts} name="menuDeserts"/>
+              <>
+              <span>{el.menuStarters} </span><span> {el.price} euros</span><button onClick={(e) => removeStarter(e,index)}>Remove</button>
+              <br></br>
+              </>
+            )
+          })} 
+        </div>
 
+        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+          <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters"/>
+        </div>
+
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Main Course</label>
+          {isLoading === false && main.map((el, index)=>{
+            return (
+              <>
+              <span>{el.menuMain} </span><span> {el.price} euros</span><button onClick={(e) => removeMain(e,index)}>Remove</button>
+              <br></br>
+              </>
+            )
+          })}
+        </div>
+
+        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+          <AddOneToMenu addOne={main} setAddOne={setMain} name="menuMain"/>
+        </div>
+
+        <div className="editRest__fieldContainer">
+           <label className="editRest__label">Deserts</label>
+          {isLoading === false && deserts.map((el, index)=>{
+            return (
+              <>
+              <span>{el.menuDeserts} </span><span> {el.price} euros</span><button onClick={(e) => removeDesert(e,index)}>Remove</button>
+              <br></br>
+              </>
+            )
+          })}
+        </div>
+
+        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+          <AddOneToMenu addOne={deserts} setAddOne={setDeserts} name="menuDeserts"/>
+        </div>
+
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Opening Times</label>
+          <div class="editRest__addTypeContainer">
           {isLoading === false && <AddHourRange selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} restaurant={hoursSelected}/>}
+          </div>
+        </div>
            
-        {/* <label>Tables</label> */}
-        <br/>
-        <label>Images:</label>
-        <input
-          type="file"
-          name="tables"
-          onChange={handleFileInput} // onChange={(e) => setHeadline(e.target.value)}
-          value={formState.pictures}
-        />
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label">Images:</label>
+          <input
+            type="file"
+            name="tables"
+            onChange={handleFileInput} // onChange={(e) => setHeadline(e.target.value)}
+            value={formState.pictures}
+          />
+        </div>
         
-        <label for="description">Description</label>
+        <div className="editRest__fieldContainer">
+          <label className="editRest__label" for="description">Description</label>
+          <textarea name="description" value={formState.description} onChange={handleInput} />
+        </div>
 
-        <textarea name="description" value={formState.description} onChange={handleInput} />
+        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+          <button type="submit">Submit</button>
+        </div>
 
-
-        <button type="submit">Submit</button>
       </form>
     </div>
     </>
