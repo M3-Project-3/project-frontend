@@ -164,6 +164,25 @@ border-radius: 20px;
   align-items: center;
 }
 
+.singleRest__reviewContainer{
+    background-color: white;
+    box-shadow: 0px 1px 2px gray;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.singleRest__h2{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.singleRest__reviewFormContainer{
+  display: flex;
+  flex-direction: column;
+}
+
 /* RESERVATION PAGE */
 
 .reservationCard__container {
