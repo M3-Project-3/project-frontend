@@ -58,6 +58,7 @@ function AuthProviderWrapper(props) {
     setIsLoggedIn(false);
     setUser(null);
     history.push("/")
+    window.location.reload()
   };
 
   useEffect(() => {
@@ -106,6 +107,7 @@ const logOutBusiness = () => {
   businessSetIsLoggedIn(false);
   setBusiness(null);
   history.push("/")
+  window.location.reload()
 
 
 };
