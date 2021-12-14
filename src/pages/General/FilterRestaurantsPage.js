@@ -41,9 +41,8 @@ export default function FilterRestaurantsPage() {
 
 
     return (
-        <div>
-
-            <h1>List of Restaurants</h1>
+        <div className="homepage__container">
+            {/* <h1>List of Restaurants</h1> */}
             <SearchBar filter={handleFilter} />
             {isLoading}
             {filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
