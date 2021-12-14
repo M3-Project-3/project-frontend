@@ -5,6 +5,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 import BusinessReview from "../../components/BusinessReview";
+import BottomNavbarUser from "../../components/BottomNavbarUser";
 
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -116,6 +117,8 @@ export default function SingleRestaurantPage() {
                     </div>
                 </div>
             </div>
+       
         </div>
+        
     )
 };

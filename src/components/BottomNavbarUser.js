@@ -21,12 +21,12 @@ export default function BottomNavbarUser(props) {
 
                 {isLoggedIn ?
                     <Link to="/">
-                        <img className="bottomNavbar__icon" src="magnifyingGlass.png" alt="" />
+                        <img className="bottomNavbar__icon" src="/magnifyingGlass.png" alt="" />
 
                     </Link>
                     :
                     <Link to="/login">
-                        <img className="bottomNavbar__icon" src="magnifyingGlass.png" alt="" />
+                        <img className="bottomNavbar__icon" src="/magnifyingGlass.png" alt="" />
 
                     </Link>
                 }
@@ -35,11 +35,11 @@ export default function BottomNavbarUser(props) {
 
                 {isLoggedIn ?
                     <Link to={`/${user._id}/reservations`}>
-                        <img className="bottomNavbar__icon" src="reservation.png" alt="" />
+                        <img className="bottomNavbar__icon" src="/reservation.png" alt="" />
                     </Link>
                     :
                     <Link to="/login">
-                        <img className="bottomNavbar__icon" src="reservation.png" alt="" />
+                        <img className="bottomNavbar__icon" src="/reservation.png" alt="" />
 
                     </Link>
                 }
@@ -48,11 +48,11 @@ export default function BottomNavbarUser(props) {
 
                 {isLoggedIn ?
                     <Link to={`/${user._id}/favourites`}>
-                        <img className="bottomNavbar__favIcon" src="bookmark.png" alt="" />
+                        <img className="bottomNavbar__favIcon" src="/bookmark.png" alt="" />
                     </Link>
                     :
                     <Link to="/login">
-                        <img  className="bottomNavbar__favIcon" src="bookmark.png" alt="" />
+                        <img  className="bottomNavbar__favIcon" src="/bookmark.png" alt="" />
 
                     </Link>
                 }
@@ -62,12 +62,12 @@ export default function BottomNavbarUser(props) {
                 {isLoggedIn ?
                     <div className="bottomNavbar__textIconContainer">
                         <Link to={`/${user._id}/profile`}>
-                            <img className="bottomNavbar__profileIcon" src="userProfile.png" alt="" />
+                            <img className="bottomNavbar__profileIcon" src="/userProfile.png" alt="" />
                         </Link>
                     </div>
                     :
                     <Link to="/login">
-                        <img className="bottomNavbar__profileIcon" src="userProfile.png" alt="" />
+                        <img className="bottomNavbar__profileIcon" src="/userProfile.png" alt="" />
 
                     </Link>
                 }
