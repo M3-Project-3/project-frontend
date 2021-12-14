@@ -31,7 +31,7 @@ function App() {
       <Switch>      
         {/* <Route exact path="/" component={HomePage} /> */}
         <Route exact path="/" component={FilterRestaurantsPage} />
-        <Route exact path="/:resId/reservation/new" component={ReservationForm} />
+        <Route exact path="/:businessId/reservation/new" component={ReservationForm} />
         <Route exact path="/restaurants/:id" component={SingleRestaurantPage} />
       
         <AnonRoute exact path="/signup" component={SignupPage} />
