@@ -1,6 +1,6 @@
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
-
+import { Link } from "react-router-dom";
 
 function Navbar() {
     // Subscribe to the AuthContext to gain access to
