@@ -18,9 +18,9 @@ function NavbarUser() {
       
       {isLoading === false && isLoggedIn ? (
         <>
-          
-          <span>{user.name}</span>
-          
+          <button onClick={logOutUser}>Logout</button>
+       
+  
         </>
       ) : (
         <>
@@ -34,8 +34,6 @@ function NavbarUser() {
           </Link>
         </>
       )}
-
-    
     </nav>
   );
 }
