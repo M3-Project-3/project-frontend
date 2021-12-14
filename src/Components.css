@@ -295,5 +295,26 @@ border-radius: 20px;
 /* LOGIN PAGE CONTAINER */
 
 .loginPage__container{
-
+  font-family: "Readex Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.loginPage__titleContiner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginPage__title{
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginPage__form{
+  display: flex;
+}
+
