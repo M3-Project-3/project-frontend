@@ -47,7 +47,7 @@ export default function FilterRestaurantsPage() {
             {/* <h1>List of Restaurants</h1> */}
             <SearchBar filter={handleFilter} />
             {isLoading}
-            {filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
+            {<img className='not-found' src={NotFoundImg} alt='Not found' />}
             {filteredRestaurants.map((restaurant => {
                 return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
             }))}
