@@ -12,8 +12,9 @@ import AnonRoute from "./components/AnonRoute";
 import EditPageBusiness from "./pages/Business/EditPageBusiness";
 import FilterRestaurantsPage from "./pages/General/FilterRestaurantsPage";
 import SingleRestaurantPage from "./pages/General/SingleRestaurantPage";
+import ProfilePage from "./pages/Users/ProfilePage"
 import ReservationListPageBusiness from "./pages/Business/ReservationListPageBusiness"
-
+import ProfilePageBusiness from "./pages/Business/ProfilePageBusiness"
 import BottomNavbar from "./components/BottomNavbar"
 import AnonRouteBusiness from "./components/AnonRouteBusiness"
 
@@ -39,7 +40,8 @@ function App() {
         <AnonRouteBusiness exact path="/business/login" component={LoginPageBusiness} />
         <AnonRouteBusiness exact path="/business/signup" component={SignupPageBusiness} />
         <AnonRouteBusiness exact path="/business/:id/edit" component={EditPageBusiness} />
-
+        <Route exact path="/:id/profile" component={ProfilePage} />
+        <Route exact path="/:id/businessProfile" component={ProfilePageBusiness} />
 
         <Route exact path="/business/:id/reservations" component={ReservationListPageBusiness} />
         <Route exact path="/:id/reservations" component={ReservationListPageUser}/>

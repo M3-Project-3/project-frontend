@@ -10,7 +10,7 @@ export default function BottomNavbarBusiness(props){
         businessIsLoggedIn,
         businessIsLoading,
         logInBusiness,
-        logOutBusiness,
+        
       } = useContext(AuthContext);
 
         
@@ -23,15 +23,16 @@ export default function BottomNavbarBusiness(props){
                     <p className="bottomNavbar__text" >Reservations</p>{" "}
                     </Link>
 
-                    <Link to={`/business/${business._id}/details`}>
+                    <Link to={`/${business._id}/businessProfile`}>
                     {" "}
                     <p className="bottomNavbar__text">Profile</p>{" "}
                     </Link>
+                    <Link to={`/business/${business._id}/edit`}><button>Edit profile</button></Link>
                     </>
                 ) : (
                     <>
-                    <p className="bottomNavbar__text">Created by Ironhackers</p>
-                 </>
+                <p>Thank you for visiting the page</p>
+              </>
                 )}
 
         </div>
