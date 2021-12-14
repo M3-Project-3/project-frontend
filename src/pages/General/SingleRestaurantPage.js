@@ -4,6 +4,7 @@ import axios from 'axios';
 import React from 'react'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
+import BusinessReview from "../../components/BusinessReview";
 
 
 
@@ -15,6 +16,7 @@ export default function SingleRestaurantPage() {
     const {user} = useContext(AuthContext)
     const [review, setReview] = useState({})
     const [messageError, setMessageError] = useState()
+    const [reviewAdded, setReviewAdded] = useState(false)
     
     useEffect(() => {
     axios
@@ -22,7 +24,7 @@ export default function SingleRestaurantPage() {
         .then((response) => {
             setRestaurant(response.data.data)
         });
-    }, [resId] );
+    }, [reviewAdded] );
 
     const handleInput = (e)=>{
         setReview({...review, [e.target.name] : e.target.value})
@@ -30,6 +32,7 @@ export default function SingleRestaurantPage() {
     
     const handleSubmit = (e)=>{
         e.preventDefault()
+        setReviewAdded(false)
         setReview({reviewText: " ", rating: " "})
         if(!review.reviewText || !review.rating) setMessageError("All fields are required")
         else{
@@ -38,7 +41,7 @@ export default function SingleRestaurantPage() {
             const date = newDate.getUTCDate() +"/"+ (newDate.getUTCMonth()+1) +"/"+ newDate.getUTCFullYear() + " " + (newDate.getUTCHours()+1) + ":" + newDate.getUTCMinutes() 
             axios.post(`http://localhost:5005/business/${resId}/review`, {review, owner, date})
             .then((response)=>{
-                console.log(response)
+                setReviewAdded(true)
             })
         }
         
@@ -82,15 +85,9 @@ export default function SingleRestaurantPage() {
                 <div>
                     <p>{restaurant.description}</p>
                 </div>
-                {restaurant.reviews && restaurant.reviews.map((review)=>{
+                {restaurant.reviews && restaurant.reviews.map((singleReview)=>{
                     return (
-                        <div>
-                            <span>{review.owner}</span>   <span>{review.date}</span>
-                            <br></br>
-                            <span>Rating:{review.rating}</span>
-                            <p>{review.review}</p>
-                            <br></br>
-                        </div>
+                        <BusinessReview review={singleReview} />
                     )
                 })}
                 {isLoggedIn && <div>
