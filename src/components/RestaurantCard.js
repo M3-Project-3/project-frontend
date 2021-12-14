@@ -8,17 +8,14 @@ import { AuthContext } from "./../context/auth.context";
 const API_URL = "http://localhost:5005"
 
 export default function RestaurantCard(props) {
+
     const { restaurant } = props;
+
+    console.log(restaurant)
     const {user} = useContext(AuthContext);
-    const [favorite, setFavourite] = useState({})
 
     function addFavorite(){
-        axios.put(`${API_URL}/${user._id}/favourites`)
-        .then((response)=>{
-            console.log(response)
-            setFavourite(response)
-        })
-        
+        axios.put(`${API_URL}/user/${user._id}/favourites/${restaurant._id}` )      
 
     }
 
@@ -28,7 +25,7 @@ export default function RestaurantCard(props) {
                 <div className="restCard__topContainer">
                     <img className="restCard__img" src="stockrestimg.png" alt=''></img>
                 <div className="restCard__bookmarkIconContainer">
-                    <button className='fav-button' onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt=''></img></button>
+                    <button  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt=''></img></button>
                 </div>
                 </div>
                 <div className="restCard__bottomContainer">
