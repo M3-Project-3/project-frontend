@@ -40,7 +40,7 @@ export default function RestaurantCard(props) {
                             <img className="restCard__icon" src="restaurant.png" alt="food type"></img>
                             <p>{restaurant.foodType}</p>
                         </div>
-                        <div className="restCard__infoBarItem">|"?`"
+                        <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="dollar-tag.png" alt="price"></img>
                             <p>{restaurant.priceRange}</p>
                         </div>
