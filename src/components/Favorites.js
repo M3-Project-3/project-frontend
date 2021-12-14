@@ -12,7 +12,7 @@ export default function Favorites(){
   
     const {userId} = useParams();
 
-
+    console.log(favourites)
     useEffect(()=>{
         axios.get(`${API_URL}/user/${userId}/favourites`)
         .then((response)=>{
@@ -21,6 +21,14 @@ export default function Favorites(){
         })
     }, [])
 
+    const handleInput = (restaurantId) =>{
+        axios.delete(`${API_URL}/user/${userId}/favourites/${restaurantId}` )      
+        .then((response)=>{
+            console.log(response.data.data)
+            setFavourites(response.data.data)
+        })    
+    }
+
 
     return (
         <div>
@@ -28,7 +36,7 @@ export default function Favorites(){
             <div className="homepage__container">
 
             {isLoading=== false && favourites.map((restaurant => {
-                return <FavouritesCard restaurant={restaurant} key={restaurant._id}  />
+                return <FavouritesCard handleInput={handleInput} restaurant={restaurant} key={restaurant._id}  />
             }))}
         </div>
         </div>
