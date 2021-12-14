@@ -3,13 +3,15 @@ import React, {useState, useEffect, useContext} from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
+
 import FavouritesCard from "./FavouritesCard";
 
 export default function Favorites(){
     const [favourites, setFavourites] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-    const API_URL = "http://localhost:5005"
+    const API_URL = process.env.FRONTEND_DOMAIN
+    console.log(API_URL)
     const {userId} = useParams();
 
 
