@@ -14,10 +14,11 @@ export default function BottomNavbarBusiness(props){
 
         
     return(
+        
         <div  className='bottom-navbar'>
                 {businessIsLoading === false && businessIsLoggedIn &&
                     <>
-                    <Link to={`/business/${business._id}/reservations`}>
+                    <Link className="login" to={`/business/${business._id}/reservations`}>
                     {" "}
                     <p className="bottomNavbar__text" >Reservations</p>{" "}
                     </Link>

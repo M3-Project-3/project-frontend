@@ -21,11 +21,13 @@ export default function RestaurantCard(props) {
     return (
         
         <div className="restCard__container">
-            <Link to={`/restaurants/${restaurant._id}`} className="restCard__link">
+            
                 <div className="restCard__topContainer">
-                    <img className="restCard__img" src="stockrestimg.png" alt={restaurant.name}></img>
+                <Link to={`/restaurants/${restaurant._id}`} className="restCard__link" >
+                    <img className="restCard__img" src="stockrestimg.png" alt={restaurant.name}/>
+                </Link>
                 <div className="restCard__bookmarkIconContainer">
-                    <button  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
+                    <button className="restCard__bookmarkIconButton"  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
                 </div>
                 </div>
                 <div className="restCard__bottomContainer">
@@ -47,7 +49,6 @@ export default function RestaurantCard(props) {
                         </div>
                     </div>
                 </div>
-            </Link>
         </div>
     )
 }
