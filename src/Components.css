@@ -33,15 +33,23 @@
   border-radius: 15px;
   position: relative;
   top: -204px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   display: flex;
   justify-content: center;
   align-items: center;
   left: 317px;
+  border-style: none;
 }
 
 .restCard__bookmarkImg {
-  height: 25px;
+  height: 31px;
+}
+
+.restCard__bookmarkIconButton{
+    border-style: none;
+    border-radius: 15px;
+    height: 48px;
+    width: 60px;
 }
 
 .restCard__title {
@@ -92,7 +100,7 @@
 } */
 
  .singleRest__bottomContainer{
-height: 448px;
+height: 1050px;
 top: -20px;
 position: relative;
 background-color: #F6F6F6;
@@ -154,6 +162,25 @@ border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.singleRest__reviewContainer{
+    background-color: white;
+    box-shadow: 0px 1px 2px gray;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.singleRest__h2{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.singleRest__reviewFormContainer{
+  display: flex;
+  flex-direction: column;
 }
 
 /* RESERVATION PAGE */
@@ -225,8 +252,20 @@ border-radius: 20px;
 /* SEARCH BAR */
 
 .searchBar{
-  width:380px;
+  width:85%;
+  margin: 10% 0;
 
+  height: 50px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid white;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.searchBar__container{
+  display:flex;
+  justify-content: center;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 /* BOTTOM NAVBAR */
@@ -283,4 +322,32 @@ border-radius: 20px;
 
 .homepage__container{
   padding-bottom: 80px;
+  background-color: #f5f5f5;
 }
+
+/* LOGIN PAGE CONTAINER */
+
+.loginPage__container{
+  font-family: "Readex Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginPage__titleContiner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginPage__title{
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginPage__form{
+  display: flex;
+}
+
