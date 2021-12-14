@@ -20,29 +20,26 @@ export default function BottomNavbarUser(props){
             <div className="bottomNavbar__textIconContainer">
             <div>
                 <Link to="/">
-                    {/* <img className="bottomNavbar__icon" src="magnifyingGlass.png" alt=""/> */}
-                    <p className="bottomNavbar__text">Search</p>
+                     <img className="bottomNavbar__icon" src="magnifyingGlass.png" alt=""/>
+                   
                 </Link>
             </div>
                 
             <div className="bottomNavbar__textIconContainer">
             <Link to={`/${user._id}/reservations`}>   
-            {/* <img className="bottomNavbar__icon" src="reservation.png" alt=""/> */}
-                <p className="bottomNavbar__text">Reservations</p>
+            <img className="bottomNavbar__icon" src="reservation.png" alt=""/> 
             </Link>
             </div>
             
             <div className="bottomNavbar__textIconContainer">
             <Link to={`/${user._id}/favourites`}>
-            {/* <img className="bottomNavbar__favIcon" src="bookmark.png" alt=""/> */}
-                <p className="bottomNavbar__text">Favourites</p>
+            <img className="bottomNavbar__favIcon" src="bookmark.png" alt=""/>
             </Link>
             </div>
 
             <div className="bottomNavbar__textIconContainer">
             <Link to={`/${user._id}/profile`}>
-            {/* <img className="bottomNavbar__profileIcon" src="userProfile.png" alt=""/> */}
-                <p className="bottomNavbar__text">Profile</p>
+                <img className="bottomNavbar__profileIcon" src="userProfile.png" alt=""/>
             </Link>
             </div>
 

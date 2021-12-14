@@ -61,12 +61,12 @@ export default function SingleRestaurantPage() {
                 <div className="restCard__infoBar">
                     <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="/tray.png" alt=""></img>
-                        <p>{restaurant.resType}</p>
+                        <p>{restaurant.resType && restaurant.resType.map((type)=>(<span>  {type} </span>))}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="/restaurant.png" alt=""></img>
-                        <p>{restaurant.foodType}</p>
+                        <p>{restaurant.foodType && restaurant.foodType.map((type)=>(<span>  {type} </span>))}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
@@ -83,9 +83,9 @@ export default function SingleRestaurantPage() {
                 </div>
                 <div>
                     <p>{restaurant.description}</p>
-                  <h2 className="singleRest__h2">{restaurant.name} Reviews</h2>
+                  <h2 className="singleRest__h2">Reviews</h2>
                 </div>
-                {restaurant.reviews && restaurant.reviews.map((review)=>{
+                {restaurant.reviews && restaurant.reviews.length > 0 ? restaurant.reviews.map((review)=>{
                     return (
                         
                         <div className="singleRest__reviewContainer">
@@ -96,7 +96,9 @@ export default function SingleRestaurantPage() {
                             <br></br>
                         </div>
                     )
-                })}
+                }):
+                <span>Leave the first review!</span>
+                }
                 {isLoggedIn && <div>
                     <form className="singleRest__reviewFormContainer" onSubmit={handleSubmit}>
                         <h2 className="singleRest__h2">Leave your review</h2>
