@@ -42,10 +42,10 @@ export default function BottomNavbarUser(props){
             </div>
 
             <div className="bottomNavbar__textIconContainer">
-                <Link to={`/${user._id}`}>
-                <img className="bottomNavbar__profileIcon" src="userProfile.png" alt=""/>
-                    <p className="bottomNavbar__text">Profile</p>
-                </Link>
+            <Link to={`/${user._id}/profile`}>
+            <img className="bottomNavbar__profileIcon" src="userProfile.png" alt=""/>
+                <p className="bottomNavbar__text">Profile</p>
+            </Link>
             </div>
 
             </div>
