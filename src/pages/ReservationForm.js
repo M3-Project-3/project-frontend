@@ -21,9 +21,9 @@ export default function ReservationForm(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
     useEffect(()=>{
-        axios.get(`${API_URL}/business/${businessId}/reservations`)
+        axios.get(`http://localhost:5005/business/${businessId}/details`)
         .then(response=>{
-            setHoursSelected(response.data.data[0].businessId.timetable)
+            setHoursSelected(response.data.data.timetable)
             setIsLoading(false)
         })  
     },[])
