@@ -225,7 +225,14 @@ border-radius: 20px;
 /* SEARCH BAR */
 
 .searchBar{
-  width:380px;
+  width:85%;
+  margin: 10% 0;
+
+  height: 50px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid white;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
 }
 
