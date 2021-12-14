@@ -25,14 +25,7 @@ export default function EditPageUser() {
   }
 
   function handleInput(e) {
-    if (e.target.type === "select-multiple"){
-        let valueInput = e.target.valueInput
-        let value = []
-        for(let i=0; i < valueInput.length ; i++){
-            if(valueInput[i].selected) value.push(valueInput[i].value)
-        }
-        setFormState({...formState, [e.target.name] : value} );
-    }   
+    setFormState({...formState, [e.target.name] : e.target.value} );   
   }
 
     return(
