@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 function LoginPageBusiness(props) {
   const [email, setEmail] = useState("");
@@ -57,7 +57,7 @@ function LoginPageBusiness(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have a business?</p>
-      <Link to={"/user/login"}>User Log In</Link>
+      <Link to={"/user/login"}>Login as a customer</Link>
 
       <p>Don't have an account yet?</p>
       <Link to={"/business/signup"}> Sign Up</Link>

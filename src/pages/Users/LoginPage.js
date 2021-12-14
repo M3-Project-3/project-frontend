@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
-const API_URI  = process.env.FRONTEND_DOMAIN;
+const API_URI  = process.env.REACT_APP_API_URI;
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -35,9 +35,13 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>User Login</h1>
+    <div className="loginPage__container">
 
+      <div className="loginPage__titleContainer">
+        <h1 className="loginPage__title">User Login</h1>
+      </div>
+
+      <div className="loginPage__form">
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="text" name="email" value={email} onChange={handleEmail} />
@@ -54,11 +58,15 @@ function LoginPage(props) {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
+      </div>
+
+      <div className="">
       <p>Are you a business?</p>
       <Link to={"/business/login"}>Login In Here</Link>
 
       <p>Don't have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
+      </div>
     </div>
   );
 }

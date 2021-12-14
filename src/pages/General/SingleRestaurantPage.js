@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 
 
+const API_URI = process.env.REACT_APP_API_URI;
 
 export default function SingleRestaurantPage() {
 
@@ -18,7 +19,7 @@ export default function SingleRestaurantPage() {
     
     useEffect(() => {
     axios
-        .get(`http://localhost:5005/business/${resId}/details`)
+        .get(`${API_URI}/business/${resId}/details`)
         .then((response) => {
             setRestaurant(response.data.data)
         });
@@ -36,7 +37,7 @@ export default function SingleRestaurantPage() {
             const owner = user.name
             const newDate = new Date()
             const date = newDate.getUTCDate() +"/"+ (newDate.getUTCMonth()+1) +"/"+ newDate.getUTCFullYear() + " " + (newDate.getUTCHours()+1) + ":" + newDate.getUTCMinutes() 
-            axios.post(`http://localhost:5005/business/${resId}/review`, {review, owner, date})
+            axios.post(`${API_URI}/business/${resId}/review`, {review, owner, date})
             .then((response)=>{
                 console.log(response)
             })
@@ -44,6 +45,7 @@ export default function SingleRestaurantPage() {
         
     }
     return(
+
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
                 <img className="singleRest__img" src="/stockrestimg.png" alt="Restaurant"></img>
@@ -81,10 +83,12 @@ export default function SingleRestaurantPage() {
                 </div>
                 <div>
                     <p>{restaurant.description}</p>
+                  <h2 className="singleRest__h2">{restaurant.name} Reviews</h2>
                 </div>
                 {restaurant.reviews && restaurant.reviews.map((review)=>{
                     return (
-                        <div>
+                        
+                        <div className="singleRest__reviewContainer">
                             <span>{review.owner}</span>   <span>{review.date}</span>
                             <br></br>
                             <span>Rating:{review.rating}</span>
@@ -94,12 +98,12 @@ export default function SingleRestaurantPage() {
                     )
                 })}
                 {isLoggedIn && <div>
-                    <form onSubmit={handleSubmit}>
-                        <h2>Leave your review</h2>
+                    <form className="singleRest__reviewFormContainer" onSubmit={handleSubmit}>
+                        <h2 className="singleRest__h2">Leave your review</h2>
                         <label for="review">Review</label>
                         <textarea name="reviewText" value={review.reviewText} onChange={handleInput} placeholder="Leave a review!"></textarea>
                         <label for="rating">Rating</label>
-                        <input type="number" name="rating" min="0" max="10" value={review.rating} onChange={handleInput}></input>                      
+                        <input type="number" name="rating" min="0" max="10" value={review.rating} onChange={handleInput} placeholder="/10"></input>                      
                         <button type="submit">Send</button>
                         {messageError && <span>{messageError}</span>}
                     </form>
