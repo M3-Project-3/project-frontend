@@ -90,18 +90,7 @@ export default function SingleRestaurantPage() {
                 </div>
                 {restaurant.reviews && restaurant.reviews.map((singleReview)=>{
                     return (
-<<<<<<< HEAD
                         <BusinessReview review={singleReview} />
-=======
-                        
-                        <div className="singleRest__reviewContainer">
-                            <span>{review.owner}</span>   <span>{review.date}</span>
-                            <br></br>
-                            <span>Rating:{review.rating}</span>
-                            <p>{review.review}</p>
-                            <br></br>
-                        </div>
->>>>>>> 9ab90e44dc8f4d78c197791aa71bc9b2361274f8
                     )
                 })}
                 {isLoggedIn && <div>
