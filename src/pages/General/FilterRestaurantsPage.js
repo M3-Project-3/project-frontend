@@ -6,7 +6,7 @@ import RestaurantCard from '../../components/RestaurantCard';
 import NotFoundImg from '../../not-found.jpeg'
 
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 export default function FilterRestaurantsPage() {
 
@@ -47,7 +47,7 @@ export default function FilterRestaurantsPage() {
             {/* <h1>List of Restaurants</h1> */}
             <SearchBar filter={handleFilter} />
             {isLoading}
-            {<img className='not-found' src={NotFoundImg} alt='Not found' />}
+            {filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
             {filteredRestaurants.map((restaurant => {
                 return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
             }))}
