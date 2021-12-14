@@ -19,6 +19,7 @@ export default function RestaurantCard(props) {
     }
 
     return (
+        
         <div className="restCard__container">
             
                 <div className="restCard__topContainer">
@@ -42,7 +43,9 @@ export default function RestaurantCard(props) {
                         </div>
                         <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="dollar-tag.png" alt="price"></img>
+                            {!restaurant.priceRange ? <p>Price not available</p>:
                             <p>{restaurant.priceRange}</p>
+                            }
                         </div>
                     </div>
                 </div>

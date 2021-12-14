@@ -3,7 +3,6 @@ import axios from "axios"
 import { useState, useEffect, useContext } from "react";
 import Calendar from '../components/Calendar'
 import {AuthContext} from '../context/auth.context'
-import { AuthProviderWrapper } from '../context/auth.context';
 import { useParams } from 'react-router';
 import AddHoursToForm from '../components/AddHoursToForm';
 

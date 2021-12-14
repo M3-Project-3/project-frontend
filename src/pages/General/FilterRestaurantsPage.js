@@ -20,6 +20,7 @@ export default function FilterRestaurantsPage() {
         .then((response) => {
       
             setFilteredRestaurants(response.data.data)
+            setIsLoading(false)
         });
     }, [] );
 
@@ -35,7 +36,7 @@ export default function FilterRestaurantsPage() {
             .get(`${API_URI}/business/search`,{params})
             .then((response) => { 
                 
-                    
+                setIsLoading(false)
                 setFilteredRestaurants(response.data)
             });   
                 
@@ -44,12 +45,11 @@ export default function FilterRestaurantsPage() {
 
     return (
         <div className="homepage__container">
-            {/* <h1>List of Restaurants</h1> */}
-            <div className="searchBar__container">
+    
             <SearchBar filter={handleFilter} />
-            </div>
-            {isLoading}
-            {filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
+
+            {isLoading === true &&<p>Loading...</p>}
+            {isLoading === false && filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
             {filteredRestaurants.map((restaurant => {
                 return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
             }))}

@@ -7,9 +7,7 @@ function NavbarUser() {
   // the values from AuthContext.Provider `value` prop
   const {
     isLoading,
-    user,
     isLoggedIn,
-    loggedInUser,
     logOutUser,
   } = useContext(AuthContext);
 
