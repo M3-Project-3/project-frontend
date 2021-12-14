@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 
 
+const API_URI = process.env.REACT_APP_API_URI;
 
 export default function SingleRestaurantPage() {
 
@@ -18,7 +19,7 @@ export default function SingleRestaurantPage() {
     
     useEffect(() => {
     axios
-        .get(`http://localhost:5005/business/${resId}/details`)
+        .get(`${API_URI}/business/${resId}/details`)
         .then((response) => {
             setRestaurant(response.data.data)
         });
@@ -36,7 +37,7 @@ export default function SingleRestaurantPage() {
             const owner = user.name
             const newDate = new Date()
             const date = newDate.getUTCDate() +"/"+ (newDate.getUTCMonth()+1) +"/"+ newDate.getUTCFullYear() + " " + (newDate.getUTCHours()+1) + ":" + newDate.getUTCMinutes() 
-            axios.post(`http://localhost:5005/business/${resId}/review`, {review, owner, date})
+            axios.post(`${API_URI}/business/${resId}/review`, {review, owner, date})
             .then((response)=>{
                 console.log(response)
             })

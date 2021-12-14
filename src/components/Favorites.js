@@ -10,7 +10,7 @@ export default function Favorites(){
     const [favourites, setFavourites] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-    const API_URL = process.env.FRONTEND_DOMAIN
+    const API_URL = process.env.REACT_APP_API_URI
     console.log(API_URL)
     const {userId} = useParams();
 

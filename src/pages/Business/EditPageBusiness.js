@@ -8,7 +8,7 @@ import AddFoodType from "../../components/AddFoodType";
 import AddOneToMenu from "../../components/AddOneToMenu"
 
 
-
+const API_URL = process.env.REACT_APP_API_URI;
 export default function EditPageBusiness() {
   const { id } = useParams();
   const history = useHistory();
@@ -22,10 +22,11 @@ export default function EditPageBusiness() {
   const [deserts, setDeserts] = useState()
 
 
+
   useEffect( ()=>{
     const getBusiness = async () =>{
       try{
-        const allBusiness = await axios.get("http://localhost:5005/business")
+        const allBusiness = await axios.get(`${API_URL}/business`)
         setFormState(allBusiness.data.data.find(el=> el._id===id))
         setIsLoading(false)
         if(formState.menuStarters) {
@@ -119,7 +120,7 @@ export default function EditPageBusiness() {
     }
     
     axios
-      .put(`http://localhost:5005/business/${id}/edit`, {formState, hourRanges, resType, foodType, menuStarters, menuMain, menuDeserts})
+      .put(`${API_URL}/business/${id}/edit`, {formState, hourRanges, resType, foodType, menuStarters, menuMain, menuDeserts})
       .then((response) => {
         history.push("/") //path where to go when you click submit
       })

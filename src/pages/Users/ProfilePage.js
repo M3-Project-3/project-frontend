@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 function ProfilePage(props) {
 
@@ -26,7 +26,7 @@ function ProfilePage(props) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5005/user/${id}`)
+            .get(`${API_URI}/user/${id}`)
             .then((response) => {
                
                 setProfile(response.data)

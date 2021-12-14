@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 const AuthContext = React.createContext();
 

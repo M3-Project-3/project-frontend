@@ -5,16 +5,18 @@ import React from 'react'
 import RestaurantCard from '../../components/RestaurantCard';
 import NotFoundImg from '../../not-found.jpeg'
 
+
+const API_URI = process.env.REACT_APP_API_URI;
+
 export default function FilterRestaurantsPage() {
 
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
-    const API_URL = "http://localhost:5005"
 
     useEffect(() => {
     axios
-        .get(`${API_URL}/business`)
+        .get(`${API_URI}/business`)
         .then((response) => {
       
             setFilteredRestaurants(response.data.data)
@@ -30,7 +32,7 @@ export default function FilterRestaurantsPage() {
           }; 
   
         axios
-            .get(`${API_URL}/business/search`,{params})
+            .get(`${API_URI}/business/search`,{params})
             .then((response) => { 
                 
                     

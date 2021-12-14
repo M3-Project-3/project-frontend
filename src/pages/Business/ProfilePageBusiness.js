@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
-const API_URI = process.env.FRONTEND_DOMAIN;
+const API_URI = process.env.REACT_APP_API_URI;
 
 function ProfilePageBusiness(props) {
     
@@ -24,7 +24,7 @@ function ProfilePageBusiness(props) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5005/business/${id}/details`)
+            .get(`${API_URI}/business/${id}/details`)
             .then((response) => {
                 
                 setProfile(response.data.data)
