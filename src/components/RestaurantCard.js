@@ -15,7 +15,7 @@ export default function RestaurantCard(props) {
     function addFavorite(){
         axios.put(`${API_URL}/${user._id}/favourites`)
         .then((response)=>{
-            console.log(response)
+            
             setFavourite(response)
         })
         

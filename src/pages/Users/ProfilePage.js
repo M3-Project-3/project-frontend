@@ -28,7 +28,7 @@ function ProfilePage(props) {
         axios
             .get(`http://localhost:5005/user/${id}`)
             .then((response) => {
-                console.log("response", response.data)
+               
                 setProfile(response.data)
                 setIsLoading(false)
             })
@@ -37,7 +37,7 @@ function ProfilePage(props) {
 return (
     <div>
         <h2>Profile</h2>
-        {isLoading === false && console.log("hello",profile)}
+       
         {isLoading === false &&
                 <div>
                     <img src={profile.picture} alt={profile.name} height="200px"></img>

@@ -24,7 +24,7 @@ return (
         <h1>List of Reservations</h1>
         
         {isLoading === false && reservations.map((reservation => {
-            console.log("-------->",reservation)
+            
             return <ReservationCard reservation={reservation} key={reservation._id}/>
         }))}
     </div>

@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/auth.context";
 const API_URI = process.env.REACT_APP_API_URI;
 
 function ProfilePageBusiness(props) {
+    
 
     const {
         business,
@@ -25,17 +26,17 @@ function ProfilePageBusiness(props) {
         axios
             .get(`http://localhost:5005/business/${id}/details`)
             .then((response) => {
-                console.log("response", response.data)
-                setProfile(response.data)
-                setIsLoading(false)
+                
+                setProfile(response.data.data)
+                setBusinessIsLoading(false)
             })
     }, [] );
 
 return (
     <div>
         <h2>Profile</h2>
-        {businessIsLoading === false && console.log("hello",profile)}
-        {/* {businessIsLoading === false &&
+        
+        {businessIsLoading === false &&
                 
                     <div>
                         
@@ -43,7 +44,7 @@ return (
                         <button onClick={logOutBusiness}>Logout</button>
                 
                 </div>
-            } */}
+            }
         
     </div>
 )

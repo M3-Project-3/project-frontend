@@ -40,14 +40,7 @@ export default function BottomNavbarUser(props){
             </>
             ) : (
                 <>
-                <Link to="/signup">
-                  {" "}
-                  <button>Signup</button>{" "}
-                </Link>
-                <Link to="/login">
-                  {" "}
-                  <button>Login</button>{" "}
-                </Link>
+               <p>Thank you for visiting the page</p>
               </>
             )}
 
