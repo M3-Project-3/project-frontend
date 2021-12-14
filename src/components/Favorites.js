@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import FavouritesCard from "./FavouritesCard";
 
@@ -19,7 +19,7 @@ export default function Favorites(){
             setFavourites(response.data)
             setIsLoading(false)           
         })
-    }, [])
+    }, [userId])
 
     const handleInput = (restaurantId) =>{
         axios.delete(`${API_URL}/user/${userId}/favourites/${restaurantId}` )      

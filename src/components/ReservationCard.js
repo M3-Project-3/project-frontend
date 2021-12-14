@@ -7,17 +7,17 @@ export default function ReservationCard(props) {
     return (
     <div className="reservationCard__container">
         <div className="reservationCard__ImgContainer">
-            <img className="reservationCard__reservationImg" src="/reservation.png"></img>
+            <img className="reservationCard__reservationImg" src="/reservation.png" alt=''></img>
         <p className="reservationCard__date">{reservation.date}</p>
         </div>
 
             <div className="reservationCard__ImgContainer">
-                <img className="reservationCard__reservationImg" src="/time.png"></img>
+                <img className="reservationCard__reservationImg" src="/time.png" alt=''></img>
                 <p className="reservationCard__hour">{reservation.hour}</p>
             </div>
 
         <div className="reservationCard__ImgContainer">
-        <img className="reservationCard__reservationImg" src="/people.png"></img>
+        <img className="reservationCard__reservationImg" src="/people.png" alt=''></img>
         <p className="reservationCard__people">{reservation.people}</p>
         </div>
         <div className="reservationCard__statusContainer">

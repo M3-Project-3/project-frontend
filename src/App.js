@@ -2,7 +2,6 @@ import "./App.css";
 import "../src/Components.css"
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Nabvar";
-//import HomePage from "./pages/General/HomePage";
 import SignupPage from "./pages/Users/SignupPage"
 import SignupPageBusiness from "./pages/Business/SignupPageBusiness";
 import LoginPage from "./pages/Users/LoginPage";
@@ -17,6 +16,7 @@ import ReservationListPageBusiness from "./pages/Business/ReservationListPageBus
 import ProfilePageBusiness from "./pages/Business/ProfilePageBusiness"
 import BottomNavbar from "./components/BottomNavbar"
 import AnonRouteBusiness from "./components/AnonRouteBusiness"
+import EditPageUser from "./pages/Users/EditPageUser";
 
 //import ReservationListPageBusiness from "./pages/Business/ReservationListPageBusiness";
 import ReservationListPageUser from "./pages/Users/ReservationListPageUser";
@@ -42,11 +42,13 @@ function App() {
         <AnonRouteBusiness exact path="/business/signup" component={SignupPageBusiness} />
         <AnonRouteBusiness exact path="/business/:id/edit" component={EditPageBusiness} />
         <Route exact path="/:id/profile" component={ProfilePage} />
+        <Route exact path="/:id/profile/edit" component={EditPageUser} />
         <Route exact path="/:id/businessProfile" component={ProfilePageBusiness} />
 
         <Route exact path="/business/:id/reservations" component={ReservationListPageBusiness} />
         <Route exact path="/:id/reservations" component={ReservationListPageUser}/>
         <Route exact path="/:userId/favourites" component={Favorites}/>
+        
         
       </Switch>
       <BottomNavbar/>
