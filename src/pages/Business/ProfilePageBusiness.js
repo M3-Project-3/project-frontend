@@ -24,7 +24,7 @@ function ProfilePageBusiness(props) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5005/business/${id}/details`)
+            .get(`${API_URI}/business/${id}/details`)
             .then((response) => {
                 
                 setProfile(response.data.data)

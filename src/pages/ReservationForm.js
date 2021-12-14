@@ -8,7 +8,7 @@ import { useParams } from 'react-router';
 import AddHoursToForm from '../components/AddHoursToForm';
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
+const API_URL =  process.env.FRONTEND_DOMAIN;
 
 
 export default function ReservationForm(props) {
@@ -22,7 +22,7 @@ export default function ReservationForm(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
     useEffect(()=>{
-        axios.get(`http://localhost:5005/business/${businessId}/reservations`)
+        axios.get(`${API_URL}/business/${businessId}/reservations`)
         .then(response=>{
             setHoursSelected(response.data.data[0].businessId.timetable)
             setIsLoading(false)
@@ -49,7 +49,7 @@ export default function ReservationForm(props) {
         }
 
         axios.post(
-            `http://localhost:5005/reservations/${businessId}/new`,
+            `${API_URL}/reservations/${businessId}/new`,
             objToSend
         )
         .then((response)=>{

@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
+const API_URI = process.env.FRONTEND_DOMAIN;
+
+
 export default function EditPageUser() {
     const { id } = useParams();
 
@@ -13,7 +16,7 @@ export default function EditPageUser() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .put(`http://localhost:5005/user/${id}/edit`, formState)
+      .put(`${API_URI}/user/${id}/edit`, formState)
       .then((response) => {
         setFormState({})
         history.push("/")

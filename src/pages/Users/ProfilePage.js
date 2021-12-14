@@ -26,7 +26,7 @@ function ProfilePage(props) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5005/user/${id}`)
+            .get(`${API_URI}/user/${id}`)
             .then((response) => {
                
                 setProfile(response.data)

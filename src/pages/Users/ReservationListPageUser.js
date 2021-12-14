@@ -4,6 +4,8 @@ import axios from 'axios';
 import React from 'react';
 import ReservationCard from '../../components/ReservationCard';
 
+const API_URI = process.env.FRONTEND_DOMAIN;
+
  export default function ReservationListPageUser() {
     const [reservations, setReservations] = useState({});
     const [query, setQuery] = useState('');
@@ -12,7 +14,7 @@ import ReservationCard from '../../components/ReservationCard';
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5005/user/${userId}/reservations`)
+            .get(`${API_URI}/user/${userId}/reservations`)
             .then((response) => {
         
                 setReservations(response.data.data)
