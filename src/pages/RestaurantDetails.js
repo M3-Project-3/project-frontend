@@ -26,6 +26,7 @@ export default function RestaurantDetails(props){
             </header>
             {isLoading === false &&
                 <div>
+                        
                         <div>{restaurant.name}</div>
                         <div>{restaurant.email}</div>
                         <div>{restaurant.address}</div>

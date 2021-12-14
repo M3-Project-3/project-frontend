@@ -68,8 +68,10 @@ export default function EditPageBusiness() {
         hourRanges.push(el.value)
       }
     }else{
-      for(let el of formState.timetable) {
-        hourRanges.push(el)
+      if(formState.timetable){
+        for(let el of formState.timetable) {
+          hourRanges.push(el)
+        }
       }
     }
 
@@ -79,8 +81,10 @@ export default function EditPageBusiness() {
         resType.push(el.value)
       }
     }else{
-      for(let el of formState.resType) {
-        resType.push(el)
+      if(formState.resType){
+        for(let el of formState.resType) {
+          resType.push(el)
+        }
       }
     }
     let foodType = []
@@ -89,8 +93,10 @@ export default function EditPageBusiness() {
         foodType.push(el.value)
       }
     }else{
-      for(let el of formState.foodType) {
-        foodType.push(el)
+      if(formState.foodType){
+        for(let el of formState.foodType) {
+          foodType.push(el)
+        }
       }
     }
     let menuStarters;
@@ -121,9 +127,7 @@ export default function EditPageBusiness() {
   }
 
   function handleInput(e) {  
-    if (e.target.type === "select-multiple"){
       setFormState({...formState, [e.target.name]: e.target.value });
-    }
   }
 
   const hoursSelected = []
@@ -237,6 +241,9 @@ function removeDesert(e, index){
           onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
           value={formState.tables}
         />
+        <label for="description">Description</label>
+        <textarea name="description" value={formState.description} onChange={handleInput} />
+        
 
         <button type="submit">Submit</button>
       </form>

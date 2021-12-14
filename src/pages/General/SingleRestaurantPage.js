@@ -1,26 +1,48 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import React from 'react'
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/auth.context"
+
 
 
 export default function SingleRestaurantPage() {
 
     const [restaurant, setRestaurant] = useState({});
     const { id: resId } = useParams()
-
-
-
+    const {isLoggedIn} = useContext(AuthContext);
+    const {user} = useContext(AuthContext)
+    const [review, setReview] = useState({})
+    const [messageError, setMessageError] = useState()
+    
     useEffect(() => {
     axios
         .get(`http://localhost:5005/business/${resId}/details`)
         .then((response) => {
-
             setRestaurant(response.data.data)
         });
     }, [resId] );
 
+    const handleInput = (e)=>{
+        setReview({...review, [e.target.name] : e.target.value})
+    }
+    
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        setReview({reviewText: " ", rating: " "})
+        if(!review.reviewText || !review.rating) setMessageError("All fields are required")
+        else{
+            const owner = user.name
+            const newDate = new Date()
+            const date = newDate.getUTCDate() +"/"+ (newDate.getUTCMonth()+1) +"/"+ newDate.getUTCFullYear() + " " + (newDate.getUTCHours()+1) + ":" + newDate.getUTCMinutes() 
+            axios.post(`http://localhost:5005/business/${resId}/review`, {review, owner, date})
+            .then((response)=>{
+                console.log(response)
+            })
+        }
+        
+    }
     return(
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
@@ -57,12 +79,36 @@ export default function SingleRestaurantPage() {
                         <p>{restaurant.address}</p>
                     </div>
                 </div>
+                <div>
+                    <p>{restaurant.description}</p>
+                </div>
+                {restaurant.reviews && restaurant.reviews.map((review)=>{
+                    return (
+                        <div>
+                            <span>{review.owner}</span>   <span>{review.date}</span>
+                            <br></br>
+                            <span>Rating:{review.rating}</span>
+                            <p>{review.review}</p>
+                            <br></br>
+                        </div>
+                    )
+                })}
+                {isLoggedIn && <div>
+                    <form onSubmit={handleSubmit}>
+                        <h2>Leave your review</h2>
+                        <label for="review">Review</label>
+                        <textarea name="reviewText" value={review.reviewText} onChange={handleInput} placeholder="Leave a review!"></textarea>
+                        <label for="rating">Rating</label>
+                        <input type="number" name="rating" min="0" max="10" value={review.rating} onChange={handleInput}></input>                      
+                        <button type="submit">Send</button>
+                        {messageError && <span>{messageError}</span>}
+                    </form>
+                </div>}
                 <br/>
                 <br/>
                 <br/>
                 <div className="singleRest__reservationButtonContainer">
                     <div className="singleRest__reservationButton">
-        
                         <Link to={`/${resId}/reservation/new`} className="singleRest__link">Book a table</Link> 
                         {/* this link to the reservation isnt working */}
                     </div>
