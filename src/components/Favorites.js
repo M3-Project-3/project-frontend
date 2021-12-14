@@ -1,36 +1,38 @@
+import axios from "axios";
 import React, {useState, useEffect, useContext} from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
+
+
+import FavouritesCard from "./FavouritesCard";
 
 export default function Favorites(){
-    const [favourites, setFavorites] = useState([]);
+    const [favourites, setFavourites] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
+
+    const API_URL = process.env.FRONTEND_DOMAIN
+    console.log(API_URL)
+    const {userId} = useParams();
 
 
     useEffect(()=>{
-        setFavorites()
+        axios.get(`${API_URL}/user/${userId}/favourites`)
+        .then((response)=>{
+            setFavourites(response.data)
+            setIsLoading(false)           
+        })
     }, [])
 
-    function handleFavorite(id){
-        const newFavorites = favourites.map(restaurant=>{
-            return restaurant.id = id ? {...restaurant, favorite: restaurant.favorite} : restaurant;
-        })
-        setFavorites(newFavorites)
-    }
 
     return (
         <div>
-            <h1>favorites</h1>
-            <ul>
-                {favourites.map((restaurant, fav) => (
-                    <li key={fav}>
-                        {restaurant.name}
-                        <button onClick={()=>{
-                            handleFavorite(restaurant.id)
-                        }}>
-                            {restaurant.favorite === true ? "remove" : "add"}
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            <h1>Favourites</h1>
+            <div className="homepage__container">
+
+            {isLoading=== false && favourites.map((restaurant => {
+                return <FavouritesCard restaurant={restaurant} key={restaurant._id}  />
+            }))}
+        </div>
         </div>
     )
 }
