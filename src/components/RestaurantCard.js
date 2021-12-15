@@ -10,6 +10,7 @@ const API_URL =  process.env.REACT_APP_API_URI;
 export default function RestaurantCard(props) {
 
     const { restaurant } = props;
+    console.log('props',props.restaurant.pictures)
 
     const {user} = useContext(AuthContext);
 
@@ -17,15 +18,17 @@ export default function RestaurantCard(props) {
         axios.put(`${API_URL}/user/${user._id}/favourites/${restaurant._id}` )      
 
     }
-
+console.log("testpics", restaurant)
     return (
 
         <div className="restCard__container">
             
                 <div className="restCard__topContainer">
                 <Link to={`/restaurants/${restaurant._id}`} className="restCard__link" >
-                    <img className="restCard__img" src="stockrestimg.png" alt={restaurant.name}/>
-                </Link>
+                    {restaurant.pictures && restaurant.pictures.length > 0 &&
+                    <img className="restCard__img" src={restaurant.pictures[0]} alt={restaurant.name}/>
+                    }
+                    </Link>
                 <div className="restCard__bookmarkIconContainer">
                     <button className="restCard__bookmarkIconButton"  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
                 </div>
