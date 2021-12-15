@@ -27,10 +27,11 @@ function Navbar() {
       ) : (
         <>
        
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
+          
+          <div>
+            <Link to="/login" className="navBar__logInButton">Login</Link>{" "}
+          </div>
+
         </>
       )}
     </nav>

@@ -53,7 +53,7 @@ export default function SingleRestaurantPage() {
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src="/stockrestimg.png" alt="Restaurant"></img>
+                <img className="singleRest__img" src={restaurant.pictures} alt="Restaurant"></img>
             </div>
 
             <div className="singleRest__bottomContainer">
