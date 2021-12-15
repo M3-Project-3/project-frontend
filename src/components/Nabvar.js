@@ -18,22 +18,6 @@ function Navbar() {
             </img>
           </NavLink>
         </nav>
-      
-      /* {(isLoading === false && isLoggedIn) || (businessIsLoading === false && businessIsLoggedIn) ? (
-        <>
-          <button onClick={logOutUser || logOutBusiness}>Logout</button>
-       
-  
-        </>
-      ) : (
-        <>
-          <Link to="/login" className="navBar__logInButton">
-            {" "}
-            <Link>Login</Link>{" "}
-          </Link>
-        </>
-      )} */
-   
      
     );
   }
