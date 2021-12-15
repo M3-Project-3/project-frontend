@@ -73,23 +73,23 @@ const posibleHourRange = []
     
    
     return (
-        <div>
+        <div className='reservationForm'>
         <form onSubmit={handleSubmit}>
-            <label>Name:</label>
-            <input required type="text" name="name" value={formState.name} onChange={handleInput} />
 
-            <label>Surname:</label>
-            <input required type="text" name="surname" value={formState.surname} onChange={handleInput} />
+            <input placeholder='Name' required type="text" name="name" value={formState.name} onChange={handleInput} />
 
-            <label>Day:</label>
+       
+            <input placeholder='Surname' required type="text" name="surname" value={formState.surname} onChange={handleInput} />
+
+            <input placeholder='Nº of people' required type="number" name="people" value={formState.people} onChange={handleInput} />
+
+         
             <Calendar required date={date} setDate={setDate}/>
-            <label>Hour:</label>
-
-
-            {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
-
-            <label>People:</label>
-            <input required type="number" name="people" value={formState.people} onChange={handleInput} />
+            <div className='hourField'>
+                <span> <label>Hour:</label> </span>
+                {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
+            </div>
+          
 
            
 
