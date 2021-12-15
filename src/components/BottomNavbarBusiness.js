@@ -28,7 +28,6 @@ export default function BottomNavbarBusiness(props){
                     {" "}
                     <p className="bottomNavbar__text">Profile</p>{" "}
                     </Link>
-                    <Link to={`/business/${business._id}/edit`}><button>Edit profile</button></Link>
                     </>
                 
 
