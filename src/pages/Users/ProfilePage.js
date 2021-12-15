@@ -76,8 +76,7 @@ const ProfilePage = (props) => {
 
                                 <h4 id="pending">Pending reservations:</h4>
 
-                                {pending && pending.length > 0 ? pending.map(el => {
-                                    console.log(el)
+                                {isLoading === false && pending && pending.length > 0 ? pending.map(el => {
                                     return <Reservation reservation={el} />
                                 }) : <span>No pending reservations</span>
                                 }

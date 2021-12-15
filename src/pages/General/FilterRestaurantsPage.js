@@ -52,8 +52,10 @@ const FilterRestaurantsPage = () => {
 
             {isLoading === true &&<p>Loading...</p>}
             {isLoading === false && filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
-            {filteredRestaurants.map((restaurant => {
-                return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+            {isLoading === false && filteredRestaurants.map((restaurant => {
+                if(restaurant.isProfileComplete === true){
+                    return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+                }
             }))}
             
           
