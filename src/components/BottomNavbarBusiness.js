@@ -15,24 +15,29 @@ export default function BottomNavbarBusiness(props){
         
     return(
         
-        <div  className='bottom-navbar'>
+        <div className='bottomNavbar__mainContainer'>
+
+            <div className="bottomNavbar__textIconContainer">
                 {businessIsLoading === false && businessIsLoggedIn &&
-                    <>
                     
                     <Link className="login" to={`/business/${business._id}/reservations`}>
-                    {" "}
-                    <p className="bottomNavbar__text" >Reservations</p>{" "}
+    
+                    <img className="bottomNavbar__icon" src="/reservation.png" alt="" />
                     </Link>
 
-                    <Link to={`/${business._id}/businessProfile`}>
-                    {" "}
-                    <p className="bottomNavbar__text">Profile</p>{" "}
-                    </Link>
-                    </>
                 
-
+            }
+            <div className="bottomNavbar__textIconContainer"></div>
+            {businessIsLoading === false && businessIsLoggedIn &&
+           
+            <Link to={`/${business._id}/businessProfile`}>
+                    
+            <img className="bottomNavbar__profileIcon" src="/userProfile.png" alt="" />
+            </Link>
+            
             }
 
+        </div>
         </div>
     )
 }

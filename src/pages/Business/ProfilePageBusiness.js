@@ -117,7 +117,7 @@ return (
         {businessIsLoading === false &&     
             <>
                 <h2>Reviews</h2>
-                {profile.reviews.length > 0 ? profile.reviews.map((singleReview)=>{
+                {profile.reviews && profile.reviews.length > 0 ? profile.reviews.map((singleReview)=>{
                     return (
                         <>  
                             <BusinessReview review={singleReview} />
