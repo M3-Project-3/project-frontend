@@ -1,3 +1,39 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+a{
+    list-style: none;
+    text-decoration: none;
+    
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 /* BEM */
 /* Block Element Modifier */
 /* Block - is the entire encasing name for example button */
@@ -329,7 +365,7 @@ font-family: "Readex Pro", sans-serif;
   display:flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: #f5f5f5;
 }
 
 /* LOGIN PAGE CONTAINER */
@@ -542,5 +578,120 @@ margin-top:5% ;
 .profileReservations span{
   margin-left: 5%;
   margin-top:5% ;
-  
+
   }
+
+  /* EDIT RESTAURANT PAGE / BUSINESS */
+
+.editRest__base {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Readex Pro", sans-serif;
+  height:1000px;
+}
+
+.editRest__header {
+  align-self: center;
+}
+
+.editRest__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.editRest__fieldContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+/* first child / last child / nth child are selectors (ways of targeting elements without classes  */
+
+.editRest__label {
+  width: 20%;
+}
+
+.editRest__input {
+  width: 300px;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer {
+  width: 100%;
+}
+
+.editRest__addTypeContainer--dropdown {
+  width: 300px;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
+  width: 20%;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :nth-child(2) {
+  width: 30%;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :last-child {
+  width: 30%;
+}
+
+.editRest__fieldContainer--fullWidth :first-child {
+  width: 100%;
+}
+
+.editRest__addTypeContainer {
+  margin-left: 10px;
+}
+
+.editRest__submitButton{
+  width: 110px;
+}
+
+.addOne__base {
+  display: flex;
+  flex-direction: column;
+}
+
+.addOne__itemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.addOne__itemContainer :first-child {
+  width: 20%;
+}
+
+.addOne__itemContainer :last-child {
+  width: 60%;
+}
+
+/* NAVBAR */
+
+.navBar__logInButton{
+    color: white;
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    margin-top: 24px;
+    margin-right: 19px;
+    font-size: 18px;
+}
+
+.navBar__logInButtonContainer{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.navBar__logo{ 
+ position: relative;
+width: 267px;
+top: -100px;
+}
