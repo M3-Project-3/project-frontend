@@ -19,10 +19,13 @@ export default function BottomNavbarUser(props) {
 
             <div className="bottomNavbar__textIconContainer">
 
-                {isLoggedIn === false &&
+                {isLoggedIn ?
                     <Link to="/">
                         <img className="bottomNavbar__icon" src="/magnifyingGlass.png" alt="" />
-
+                    </Link>
+                    :
+                    <Link to="/">
+                        <img className="bottomNavbar__icon" src="/magnifyingGlass.png" alt="" />
                     </Link>
                    
                 }
