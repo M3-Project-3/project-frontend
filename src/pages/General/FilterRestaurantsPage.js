@@ -4,7 +4,7 @@ import axios from 'axios';
 import React from 'react'
 import RestaurantCard from '../../components/RestaurantCard';
 import NotFoundImg from '../../not-found.jpeg'
-import BottomNavbarUser from '../../components/BottomNavbarUser';
+
 
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -55,7 +55,7 @@ export default function FilterRestaurantsPage() {
             {filteredRestaurants.map((restaurant => {
                 return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
             }))}
-            <BottomNavbarUser/>
+            
           
         </div>
     )
