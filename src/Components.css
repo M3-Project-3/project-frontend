@@ -179,7 +179,7 @@ font-family: "Readex Pro", sans-serif;
 .singleRest__addressBar {
   display: flex;
   align-items: center;
-  padding-left: 16px;
+  margin-left: 20px;
   color: grey;
 }
 
@@ -195,18 +195,10 @@ font-family: "Readex Pro", sans-serif;
   width: 100%;
   display: flex;
   justify-content: center;
+  
 }
 
-.singleRest__reservationButton {
-  height: 50px;
-  width: 150px;
-  background-color: #cb9981;
-  border-radius: 15px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .singleRest__reviewContainer {
   background-color: white;
@@ -225,23 +217,92 @@ font-family: "Readex Pro", sans-serif;
 .singleRest__reviewFormContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.singleRest__reviewFormContainer input, textarea{
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: "Readex Pro", sans-serif;
+
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
 
+.review-button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #202D3C;
+  color: white;
+  margin-bottom: 30%;
+}
+
+.singleRest__reservationButton {
+  padding: 15px 15px;
+  background-color: #21AC6B;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+}
+.singleRest__reservationButton a {
+ 
+  color: white;
+
+}
+.restaurant-description{
+  margin: 0 5%;
+}
+.restaurant-description p{
+  line-height: 1.5em;
+
+}
+.restaurantsReviews{
+  margin-left: 5%;
+}
+hr{
+  width: 90%;
+}
 /* RESERVATION PAGE */
+
+.reservationForm form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+.SingleDatePicker{
+  
+}
+
+.reservationForm input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 
 .reservationCard__container {
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 90%;
   margin: auto;
   text-align: center;
-  font-family: "Readex Pro", sans-serif;
-  text-decoration: none;
-  border-style: solid;
-  border-color: #000000;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  padding-bottom: 20px;
+  border: 10px solid #C2D5E8;
+  border-radius: 10px;
+  background-color: #C2D5E8;
 }
 
 .reservationCard__statusContainer {
@@ -253,7 +314,7 @@ font-family: "Readex Pro", sans-serif;
 .reservationCard__statusBar {
   height: 50px;
   width: 150px;
-  background-color: #cb9981;
+  background-color: #f3f3f3;
   border-radius: 15px;
   position: relative;
   display: flex;
@@ -261,10 +322,13 @@ font-family: "Readex Pro", sans-serif;
   align-items: center;
 }
 
-/* RESERVATION PAGE */
+
+
 
 .reservationPage__font {
-  font-family: "Readex Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .reservationCard__ImgContainer {
@@ -272,7 +336,8 @@ font-family: "Readex Pro", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+ 
+  
 }
 
 .reservationCard__reservationImg {
@@ -566,7 +631,7 @@ margin-top:5% ;
 .profileReservations{
   display: flex;
   flex-direction: column;
-
+  margin-top: 5%;
   align-items: flex-start;
   border: 2px solid white;
   border-radius: 10px;
@@ -574,13 +639,88 @@ margin-top:5% ;
   background-color: white;
   width: 90%;
   padding-bottom: 5%;
-}
-.profileReservations span{
-  margin-left: 5%;
-  margin-top:5% ;
 
+}
+.profileReservations p{
+  margin-left: 5%;
+  margin-top:0 ;
+  margin-bottom: 0;
+  
+  }
+  .profileReservations h3{
+    color: #202D3C;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    margin-left: 4%;
+    margin-top: 4%;
+    
+    
+  }
+  .reservationCard{
+    border: 10px solid #E9EFF6;
+    border-radius: 10px;
+    background-color: #E9EFF6;
+  }
+  #pending{
+    color: grey
+  }
+  #accepted{
+    color: #21AC6B
+  }
+  #declined{
+    color: #be403c
   }
 
+  .reservationsList{
+    margin-left: 4%;
+    width: 90%;
+  }
+
+  .profile-buttons{
+    margin-bottom: 200px;
+    margin-top: 5%;
+    
+
+  }
+  .profile-buttons a{
+    text-decoration: none;
+    
+  }
+  .profile-buttons button{
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-right: 20px;
+    margin-top: 10%;
+    border: none;
+    background-color: #202D3C;
+    color: white;
+    font-size: 1em;
+    border: 1px solid #202D3C;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+    
+    
+  }
+  .hourField{
+    margin-top: 2%;
+
+    text-align: center;
+  }
+.select{
+  width: 180px;
+  margin-bottom: 15%;
+  margin-top: 5%;
+}
+.bookButton{
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #202D3C;
+  color: white;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+
+}
   /* EDIT RESTAURANT PAGE / BUSINESS */
 
 .editRest__base {
