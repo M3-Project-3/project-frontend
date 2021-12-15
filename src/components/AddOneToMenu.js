@@ -26,7 +26,7 @@ export default function AddOneToMenu(props){
                 <div className="addOne__itemContainer">
                     <label htmlFor="price">Price</label>
                     <input onChange={handleInput} type="number" name="price" value={value.price} />
-                    <button onClick={handleSubmit}>Add</button>
+                    <button className="addOne__addButton" onClick={handleSubmit}>Add</button>
                 </div>
             </div>
         </>

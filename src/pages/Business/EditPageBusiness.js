@@ -219,14 +219,14 @@ function handleFileInput(e){
 
         <div className="editRest__fieldContainer">
           <label className="editRest__label">Restaurant Type</label>
-          <div class="editRest__addTypeContainer editRest__addTypeContainer--dropdown">
+          <div className="editRest__addTypeContainer editRest__addTypeContainer--dropdown">
             {isLoading === false && <AddTypeRestaurant selectedResType={selectedResType} setSelectedResType={setSelectedResType} restaurant={resTypeSelected}/>}
           </div>
         </div>
 
         <div className="editRest__fieldContainer">
           <label className="editRest__label">Food Type</label>
-          <div class="editRest__addTypeContainer editRest__addTypeContainer--dropdown">
+          <div className="editRest__addTypeContainer editRest__addTypeContainer--dropdown">
             {isLoading === false && <AddFoodType selectedFoodType={selectedFoodType} setSelectedFoodType={setSelectedFoodType} food={foodTypeSelected}/>}
           </div>
         </div>
@@ -243,7 +243,7 @@ function handleFileInput(e){
           })} 
         </div>
 
-        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+        <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
           <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters"/>
         </div>
 
@@ -259,7 +259,7 @@ function handleFileInput(e){
           })}
         </div>
 
-        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+        <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
           <AddOneToMenu addOne={main} setAddOne={setMain} name="menuMain"/>
         </div>
 
@@ -275,13 +275,13 @@ function handleFileInput(e){
           })}
         </div>
 
-        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+        <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
           <AddOneToMenu addOne={deserts} setAddOne={setDeserts} name="menuDeserts"/>
         </div>
 
         <div className="editRest__fieldContainer">
           <label className="editRest__label">Opening Times</label>
-          <div class="editRest__addTypeContainer">
+          <div className="editRest__addTypeContainer">
           {isLoading === false && <AddHourRange selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} restaurant={hoursSelected}/>}
           </div>
         </div>
@@ -292,7 +292,7 @@ function handleFileInput(e){
             type="file"
             name="tables"
             onChange={handleFileInput} // onChange={(e) => setHeadline(e.target.value)}
-            value={formState.pictures}
+            
           />
         </div>
         
@@ -301,8 +301,8 @@ function handleFileInput(e){
           <textarea name="description" value={formState.description} onChange={handleInput} />
         </div>
 
-        <div class="editRest__fieldContainer editRest__fieldContainer--fullWidth">
-          <button type="submit">Submit</button>
+        <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
+          <button classtype="editRest__submitButton">Submit</button>
         </div>
 
       </form>

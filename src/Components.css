@@ -436,3 +436,8 @@
 .addOne__itemContainer :last-child {
   width: 60%;
 }
+
+.addOne_addButton{
+  width: 60px;
+}
+
