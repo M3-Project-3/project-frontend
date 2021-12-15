@@ -9,15 +9,18 @@ function Navbar() {
         isLoading,
         logOutUser,
        isLoggedIn,
+       logOutBusiness,
+        businessIsLoggedIn,
+        businessIsLoading,
     } = useContext(AuthContext);
   
     return (
         
       <nav>
       
-      {isLoading === false && isLoggedIn ? (
+      {(isLoading === false && isLoggedIn) || (businessIsLoading === false && businessIsLoggedIn) ? (
         <>
-          <button onClick={logOutUser}>Logout</button>
+          <button onClick={logOutUser || logOutBusiness}>Logout</button>
        
   
         </>
