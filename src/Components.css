@@ -691,7 +691,11 @@ margin-top:5% ;
 }
 
 .navBar__logo{ 
- position: relative;
-width: 267px;
-top: -100px;
+
+}
+
+.navBar__img{
+  position: relative;
+  width: 267px;
+  top: -100px;
 }
