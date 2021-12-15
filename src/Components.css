@@ -32,7 +32,7 @@
   width: 50px;
   border-radius: 15px;
   position: relative;
-  top: -204px;
+  top: -171px;
   /* background-color: #ffffff; */
   display: flex;
   justify-content: center;
@@ -62,6 +62,8 @@
 .restCard__img {
   width: 380px;
   border-radius: 25px 25px 0 0;
+  object-fit: cover;
+  height: 179px;
 }
 
 .restCard__bottomContainer {

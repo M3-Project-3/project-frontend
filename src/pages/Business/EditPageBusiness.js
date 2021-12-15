@@ -292,7 +292,6 @@ function handleFileInput(e){
             type="file"
             name="tables"
             onChange={handleFileInput} // onChange={(e) => setHeadline(e.target.value)}
-            
           />
         </div>
         
