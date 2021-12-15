@@ -66,7 +66,7 @@ function LoginPageBusiness(props) {
         <Link to={"/business/signup"}> Sign Up</Link>
 
         <p>Don't have a business?</p>
-        <Link to={"/user/login"}>Login as customer</Link>
+        <Link to={"/login"}>Login as customer</Link>
 
       </div>
     </div>
