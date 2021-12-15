@@ -91,7 +91,7 @@ export default function SingleRestaurantPage() {
                     <p>{restaurant.description}</p>
                  
                 </div>
-
+        <div className="menuContainer">
                 <h3>Starters</h3>
                     {isLoading === false && restaurant.menuStarters && restaurant.menuStarters.length > 0 ?
                         (
@@ -122,12 +122,14 @@ export default function SingleRestaurantPage() {
                             </p>
                         ):<span>There are no deserts yet</span>
                     }
-
+                </div>
+                    {isLoggedIn &&
                 <div className="singleRest__reservationButtonContainer">
                     <div className="singleRest__reservationButton">
                         <Link to={`/${resId}/reservation/new`} className="singleRest__link">Book a table</Link> 
                     </div>
                 </div>
+                    }
                 <div className="restaurantsReviews">
                 <h2 className="singleRest__h2">Reviews</h2>
                 {restaurant.reviews && restaurant.reviews.length > 0 ? restaurant.reviews.map((singleReview)=>{
