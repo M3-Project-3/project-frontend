@@ -15,21 +15,24 @@ function BottomNavbar() {
   
     return (
         <>
-      {(isLoading === false && isLoggedIn)  || (businessIsLoading === false && businessIsLoggedIn) ? (
-        <>
-           {isLoggedIn && <BottomNavbarUser/>} 
-          {businessIsLoggedIn &&<BottomNavbarBusiness />}
+      { (businessIsLoading === false && businessIsLoggedIn) ? (
+    <>
        
-  
-        </>
-      ) : (
-        <>
-       
-       <BottomNavbarUser/>
-        </>
-      )}
+      {businessIsLoggedIn &&<BottomNavbarBusiness />}
+   
+
+    </>)
+
+  : (
+    <>
+   <BottomNavbarUser/>
+    </>
+  )
+    }
       </>
     );
   }
   
   export default BottomNavbar;
+
+ 
