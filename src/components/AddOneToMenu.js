@@ -1,8 +1,8 @@
 import { useState } from "react"
-export default function AddOneToMenu(props){
+const AddOneToMenu = (props) => {
     const name = props.name
     const [value, setValue] = useState({[name]: "", price:""})
-    function handleSubmit(e){
+    const handleSubmit = (e) => {
         e.preventDefault()
         if(props.name && value.price) {
             props.setAddOne([...props.addOne, value])
@@ -11,7 +11,7 @@ export default function AddOneToMenu(props){
         }
         
     }
-    function handleInput(e){
+    const handleInput = (e) => {
         setValue({...value, [e.target.name]: e.target.value });
     }
     
@@ -32,3 +32,5 @@ export default function AddOneToMenu(props){
         </>
     )
 }
+
+export default AddOneToMenu

@@ -1,4 +1,4 @@
-export default function Reservation(props){
+const Reservation = (props) => {
     const {status, date, hour, people, name, surname, businessId} = props.reservation
     const reservationDate= date.slice(0,10).split("-")
     const day = reservationDate[2]
@@ -22,3 +22,5 @@ export default function Reservation(props){
         </div>
     )
 }
+
+export default Reservation 

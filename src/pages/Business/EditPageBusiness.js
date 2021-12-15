@@ -9,7 +9,7 @@ import AddOneToMenu from "../../components/AddOneToMenu"
 import service from "../../api/service";
 
 const API_URL = process.env.REACT_APP_API_URI;
-export default function EditPageBusiness() {
+const EditPageBusiness = () => {
   const { id } = useParams();
   const history = useHistory();
   const [formState, setFormState] = useState({});
@@ -60,7 +60,7 @@ export default function EditPageBusiness() {
   },[formState])
   //make this dynamic
   
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     let hourRanges = []
@@ -145,19 +145,19 @@ export default function EditPageBusiness() {
       foodTypeSelected.push({value:el, label: el})
     })
   }
-  function removeStarter(e, index){
+  const removeStarter = (e, index) => {
     e.preventDefault()
     const list = [...starters];
     list.splice(index, 1);
     setStarters(list);
 }
-function removeMain(e, index){
+const removeMain = (e, index) => {
   e.preventDefault()
   const list = [...main];
   list.splice(index, 1);
   setMain(list);
 }
-function removeDesert(e, index){
+const removeDesert = (e, index) => {
   e.preventDefault()
   const list = [...deserts];
   list.splice(index, 1);
@@ -165,11 +165,11 @@ function removeDesert(e, index){
 }
   
 
-function handleInput(e) {  
+const handleInput = (e) => {  
   setFormState({...formState, [e.target.name]: e.target.value });
 }
 
-function handleFileInput(e){
+const handleFileInput = (e) => {
 
   const pictureUploadForm = new FormData();
   pictureUploadForm
@@ -310,4 +310,6 @@ function handleFileInput(e){
     </div>
     </>
   );
-      }
+}
+
+export default EditPageBusiness

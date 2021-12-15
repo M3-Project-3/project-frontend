@@ -2,15 +2,14 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
-export default function FavouritesCard(props) {
+const FavouritesCard = (props) => {
 
     const { restaurant } = props;
   
     const removeFavourite = ()=>{
         props.handleInput(restaurant._id)
     }
-
-
+    
     return (
         <div className="restCard__container">
             <Link to={`/restaurants/${restaurant._id}`} className="restCard__link">
@@ -42,3 +41,5 @@ export default function FavouritesCard(props) {
         </div>
     )
 }
+
+export default FavouritesCard

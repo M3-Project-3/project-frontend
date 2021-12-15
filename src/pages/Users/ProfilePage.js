@@ -8,7 +8,7 @@ import Reservation from '../../components/Reservation';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-function ProfilePage(props) {
+const ProfilePage = (props) => {
 
     const { user, logOutUser } = useContext(AuthContext);
     const { id } = useParams()

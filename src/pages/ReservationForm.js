@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const API_URL =  process.env.REACT_APP_API_URI;
 
 
-export default function ReservationForm(props) {
+const ReservationForm = (props) => {
     const {businessId} = useParams()
     const history = useHistory()
     const [formState, setFormState] = useState({})
@@ -20,6 +20,8 @@ export default function ReservationForm(props) {
     const [hoursSelected, setHoursSelected] = useState()
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
+
+
     useEffect(()=>{
         axios.get(`http://localhost:5005/business/${businessId}/details`)
         .then(response=>{
@@ -30,7 +32,7 @@ export default function ReservationForm(props) {
     
     
 
-    function handleSubmit(event){
+    const handleSubmit = (event) => {
         event.preventDefault()
 
         if(!formState.name || !formState.surname || !date._d || !selectedHourRange.value || !formState.people || !user._id || !businessId){
@@ -60,14 +62,14 @@ export default function ReservationForm(props) {
     }
 }
 
-function handleInput(event){
+const handleInput = (event) => {
     setFormState({...formState, [event.target.name]: event.target.value })// setFormState(Object.assign({}, formState, {[ecen.name]: event.value}))
-   
 }
+
 const posibleHourRange = []
     if(hoursSelected){
         hoursSelected.map(a=>{
-           return posibleHourRange.push({value:a, label: a})
+           return posibleHourRange.push({value: a, label: a})
         })
     }
     
@@ -102,6 +104,8 @@ const posibleHourRange = []
         </div>
     )
 }
+
+export default ReservationForm 
 
 
 

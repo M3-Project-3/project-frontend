@@ -9,7 +9,7 @@ import NotFoundImg from '../../not-found.jpeg'
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-export default function FilterRestaurantsPage() {
+const FilterRestaurantsPage = () => {
 
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -26,7 +26,7 @@ export default function FilterRestaurantsPage() {
         });
     }, [] );
 
-    function handleFilter( string){
+    const handleFilter = (string) => {
 
         const params = {
             name: string,
@@ -60,3 +60,5 @@ export default function FilterRestaurantsPage() {
         </div>
     )
 }
+
+export default FilterRestaurantsPage 
