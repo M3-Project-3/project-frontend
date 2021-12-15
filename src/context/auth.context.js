@@ -68,7 +68,7 @@ const AuthProviderWrapper = (props) => {
 //****** BUSINESS AUTH ********/
 
 const verifyBusinessToken = () => {
-  const localJWTToken = localStorage.getItem("authToken");
+  const localJWTToken = localStorage.getItem("authTokenBusiness");
 
   if (localJWTToken) {
     axios
@@ -93,7 +93,7 @@ const verifyBusinessToken = () => {
 };
 
 const logInBusiness = (JWTToken) => {
-  localStorage.setItem("authToken", JWTToken);
+  localStorage.setItem("authTokenBusiness", JWTToken);
   verifyBusinessToken(); // I do not pass it her because verify will read for localStorage.
   // This way I save subsequent requests to the back
 };
@@ -101,7 +101,7 @@ const logInBusiness = (JWTToken) => {
 const logOutBusiness = () => {
   // Upon logout, remove the token from the localStorage
   
-  localStorage.removeItem("authToken");
+  localStorage.removeItem("authTokenBusiness");
   
   // Update the state variables
   businessSetIsLoggedIn(false);

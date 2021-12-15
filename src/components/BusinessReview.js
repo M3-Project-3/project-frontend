@@ -5,11 +5,11 @@ const BusinessReview = (props) => {
     return (
         <>
             <div>
-                <span>{review.owner}</span>   <span>{review.date}</span>
-                <br></br>
-                <span>Rating:{review.rating}</span>
-                <p>{review.review}</p>
-                <br></br>
+                <p> <strong>{review.owner}</strong>  {review.date}</p>
+         
+                <span> <strong> Rating: </strong>{review.rating}</span>
+                <p>"{review.review}"</p>
+          <hr/>
             </div>
         </>
     )

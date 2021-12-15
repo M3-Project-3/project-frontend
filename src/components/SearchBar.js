@@ -10,9 +10,9 @@ const SearchBar = (props) => {
         props.filter(event.target.value)
     }
     return(
-        <div>
+       
         <input className='searchBar' type="search" value={string} placeholder='Search by name, type of food, ambience...'  name="search" onChange={handleSearch}/>
-      </div>
+
     )
 }
 

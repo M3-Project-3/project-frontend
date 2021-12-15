@@ -34,30 +34,38 @@ const LoginPageBusiness = (props) => {
   return (
     <>
   
-    <div className="LoginPage">
-      <h1>Business Login</h1>
-
+  <div className="loginPageBusiness__container">
+      <div className="loginPage__titleContainer">
+        <h1 className="loginPage__title">Business Login</h1>
+      </div>
+      <div className="loginPageBusiness__form"> 
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+     
+        <input placeholder="Email" required type="text" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+       
         <input
+        required
+          placeholder="Password"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
-
+        <br/>
         <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
 
-      <p>Don't have a business?</p>
-      <Link to={"/user/login"}>Login as a customer</Link>
+      <div>
+        <p>Don't have an account yet?</p>
+        <Link to={"/business/signup"}> Sign Up</Link>
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/business/signup"}> Sign Up</Link>
+        <p>Don't have a business?</p>
+        <Link to={"/login"}>Login as customer</Link>
+
+      </div>
     </div>
     </>
   );

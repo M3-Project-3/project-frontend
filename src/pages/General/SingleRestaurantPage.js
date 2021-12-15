@@ -5,6 +5,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 import BusinessReview from "../../components/BusinessReview";
+import BottomNavbarUser from "../../components/BottomNavbarUser";
 
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -61,7 +62,7 @@ const SingleRestaurantPage = () => {
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src="/stockrestimg.png" alt="Restaurant"></img>
+                <img className="singleRest__img" src={restaurant.pictures} alt="Restaurant"></img>
             </div>
 
             <div className="singleRest__bottomContainer">
@@ -74,12 +75,12 @@ const SingleRestaurantPage = () => {
                 <div className="restCard__infoBar">
                     <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="/tray.png" alt=""></img>
-                        <p>{restaurant.resType}</p>
+                        <p>{restaurant.resType && restaurant.resType.map((type)=>(<span>  {type} </span>))}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="/restaurant.png" alt=""></img>
-                        <p>{restaurant.foodType}</p>
+                        <p>{restaurant.foodType && restaurant.foodType.map((type)=>(<span>  {type} </span>))}</p>
                     </div>
 
                     <div className="restCard__infoBarItem">
@@ -94,74 +95,74 @@ const SingleRestaurantPage = () => {
                         <p>{restaurant.address}</p>
                     </div>
                 </div>
-                <div>
+                <div className="restaurant-description">
                     <p>{restaurant.description}</p>
+                 
                 </div>
-                <div className="restaurant-menu">
-                    
-                    <h3>Starters</h3>
-                    {isLoading === false && restaurant.menuStarters && restaurant.menuStarters.length > 0 ? 
+
+                <h3>Starters</h3>
+                    {isLoading === false && restaurant.menuStarters && restaurant.menuStarters.length > 0 ?
                         (
                             <p>
                                 {restaurant.menuStarters.map((el)=>{
-                                    return (<p><span>{el.menuStarters}</span>....<span>{el.price} €</span></p>) 
-                                })}   
+                                    return (<p><span>{el.menuStarters}</span>....<span>{el.price} €</span></p>)
+                                })}
                             </p>
                         ):<span>There are no starters yet</span>
                     }
-
                     <h3>Main Course</h3>
-                    {isLoading === false && restaurant.menuMain && restaurant.menuMain.length > 0 ? 
+                    {isLoading === false && restaurant.menuMain && restaurant.menuMain.length > 0 ?
                         (
                             <p>
                                 {restaurant.menuMain.map((el)=>{
-                                    return (<p><span>{el.menuMain}</span>....<span>{el.price} €</span></p>) 
-                                })}   
+                                    return (<p><span>{el.menuMain}</span>....<span>{el.price} €</span></p>)
+                                })}
                             </p>
                         ):<span>There are no main courses yet</span>
                     }
-
                     <h3>Deserts</h3>
-                    {isLoading === false && restaurant.menuDeserts && restaurant.menuDeserts.length > 0 ? 
+                    {isLoading === false && restaurant.menuDeserts && restaurant.menuDeserts.length > 0 ?
                         (
                             <p>
                                 {restaurant.menuDeserts.map((el)=>{
-                                    return (<p><span>{el.menuDeserts}</span>....<span>{el.price} €</span></p>) 
-                                })}   
+                                    return (<p><span>{el.menuDeserts}</span>....<span>{el.price} €</span></p>)
+                                })}
                             </p>
                         ):<span>There are no deserts yet</span>
                     }
-                    
-                    
+
+                <div className="singleRest__reservationButtonContainer">
+                    <div className="singleRest__reservationButton">
+                        <Link to={`/${resId}/reservation/new`} className="singleRest__link">Book a table</Link> 
+                    </div>
                 </div>
-                  <h2 className="singleRest__h2">{restaurant.name} Reviews</h2>
+                <div className="restaurantsReviews">
+                <h2 className="singleRest__h2">Reviews</h2>
                 {restaurant.reviews && restaurant.reviews.length > 0 ? restaurant.reviews.map((singleReview)=>{
                     return (
                         <BusinessReview review={singleReview} />
                     )
-                }): <span>Leave the first review!</span>}
-                {isLoggedIn && <div>
+                }):
+                <span>Leave the first review!</span>
+                }
+                </div>
+                {isLoggedIn && 
                     <form className="singleRest__reviewFormContainer" onSubmit={handleSubmit}>
                         <h2 className="singleRest__h2">Leave your review</h2>
                         <label for="review">Review</label>
                         <textarea name="reviewText" value={review.reviewText} onChange={handleInput} placeholder="Leave a review!" maxLength="150"></textarea>
                         <label for="rating">Rating</label>
                         <input type="number" name="rating" min="0" max="10" value={review.rating} onChange={handleInput} placeholder="/10"></input>                      
-                        <button type="submit">Send</button>
+                        <button className="review-button" type="submit">Send</button>
                         {messageError && <span>{messageError}</span>}
                     </form>
-                </div>}
-                <br/>
-                <br/>
-                <br/>
-                <div className="singleRest__reservationButtonContainer">
-                    <div className="singleRest__reservationButton">
-                        <Link to={`/${resId}/reservation/new`} className="singleRest__link">Book a table</Link> 
-                        {/* this link to the reservation isnt working */}
-                    </div>
-                </div>
+                }
+
+                
             </div>
+       
         </div>
+        
     )
 };
 

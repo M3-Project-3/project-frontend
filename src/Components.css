@@ -1,3 +1,39 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+a{
+    list-style: none;
+    text-decoration: none;
+    
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 /* BEM */
 /* Block Element Modifier */
 /* Block - is the entire encasing name for example button */
@@ -22,17 +58,13 @@
 .restCard__link {
   text-decoration: none;
 }
-.fav-button{
-  background-color: transparent;
-  border: none;
-}
 
 .restCard__bookmarkIconContainer {
   height: 50px;
   width: 50px;
   border-radius: 15px;
   position: relative;
-  top: -204px;
+  top: -171px;
   /* background-color: #ffffff; */
   display: flex;
   justify-content: center;
@@ -48,8 +80,17 @@
 .restCard__bookmarkIconButton{
     border-style: none;
     border-radius: 15px;
+    cursor: pointer;
     height: 48px;
     width: 60px;
+}
+
+.restCard__bookmarkIconButton:active{
+  background-color: rgb(61, 189, 45);
+  cursor: pointer;
+  border-radius: 15px;
+  height: 48px;
+  width: 60px;
 }
 
 .restCard__title {
@@ -62,6 +103,8 @@
 .restCard__img {
   width: 380px;
   border-radius: 25px 25px 0 0;
+  object-fit: cover;
+  height: 179px;
 }
 
 .restCard__bottomContainer {
@@ -69,7 +112,7 @@
   flex-direction: column;
   width: 380px;
   border-radius: 0 0 25px 25px;
-  background-color: #ffffff;
+  background-color: white;
   position: relative;
   top: -54px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -81,6 +124,8 @@
   width: 360px;
   margin-left: 20px;
   color: grey;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .restCard__icon {
@@ -103,7 +148,7 @@
 height: 1050px;
 top: -20px;
 position: relative;
-background-color: #F6F6F6;
+background-color: white;
 border-radius: 20px 20px 0 0;
 font-family: "Readex Pro", sans-serif;
 } 
@@ -122,20 +167,19 @@ font-family: "Readex Pro", sans-serif;
 }
 
 .singleRest__titleContainer {
-border-radius: 20px;
+  border-radius: 20px;
 }
 
 .singleRest__title {
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
-  
 }
 
 .singleRest__addressBar {
   display: flex;
   align-items: center;
-  padding-left: 16px;
+  margin-left: 20px;
   color: grey;
 }
 
@@ -151,65 +195,126 @@ border-radius: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
+  
 }
 
-.singleRest__reservationButton {
-  height: 50px;
-  width: 150px;
-  background-color: #cb9981;
-  border-radius: 15px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+.singleRest__reviewContainer {
+  background-color: white;
+  box-shadow: 0px 1px 2px gray;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
 }
 
-.singleRest__reviewContainer{
-    background-color: white;
-    box-shadow: 0px 1px 2px gray;
-    margin-bottom: 40px;
-    margin-left: 20px;
-    margin-right: 40px;
-}
-
-.singleRest__h2{
+.singleRest__h2 {
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
 }
 
-.singleRest__reviewFormContainer{
+.singleRest__reviewFormContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.singleRest__reviewFormContainer input, textarea{
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: "Readex Pro", sans-serif;
+
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
 
+.review-button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #202D3C;
+  color: white;
+  margin-bottom: 30%;
+}
+
+.singleRest__reservationButton {
+  padding: 15px 15px;
+  background-color: #21AC6B;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+}
+.singleRest__reservationButton a {
+ 
+  color: white;
+
+}
+.restaurant-description{
+  margin: 0 5%;
+}
+.restaurant-description p{
+  line-height: 1.5em;
+
+}
+.restaurantsReviews{
+  margin-left: 5%;
+}
+hr{
+  width: 90%;
+}
 /* RESERVATION PAGE */
+
+.reservationForm form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+.SingleDatePicker{
+  
+}
+
+.reservationForm input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 
 .reservationCard__container {
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 90%;
   margin: auto;
   text-align: center;
-  font-family: "Readex Pro", sans-serif;
-  text-decoration: none;
-  border-style: solid;
-  border-color: #000000;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  padding-bottom: 20px;
+  border: 10px solid #C2D5E8;
+  border-radius: 10px;
+  background-color: #C2D5E8;
 }
 
-.reservationCard__statusContainer{
+.reservationCard__statusContainer {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.reservationCard__statusBar{
+.reservationCard__statusBar {
   height: 50px;
   width: 150px;
-  background-color: #cb9981;
+  background-color: #f3f3f3;
   border-radius: 15px;
   position: relative;
   display: flex;
@@ -218,54 +323,56 @@ border-radius: 20px;
 }
 
 
-/* RESERVATION PAGE */
+
 
 .reservationPage__font {
-  font-family: "Readex Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.reservationCard__ImgContainer{
+.reservationCard__ImgContainer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+ 
   
 }
 
-.reservationCard__reservationImg{
+.reservationCard__reservationImg {
   height: 25px;
 }
 
-.reservationCard__date{
+.reservationCard__date {
   margin-left: 10px;
 }
 
-.reservationCard__hour{
+.reservationCard__hour {
   margin-left: 10px;
 }
 
-.reservationCard__people{
+.reservationCard__people {
   margin-left: 10px;
 }
 
 /* SEARCH BAR */
 
-.searchBar{
-  width:85%;
+.searchBar {
+  width: 85%;
   margin: 10% 0;
-
   height: 50px;
   font-size: 1em;
   border-radius: 10px;
   border: 1px solid white;
-   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .searchBar__container{
   display:flex;
-  justify-content: center;
+  align-items: center;
   padding-bottom: 40px;
   padding-top: 40px;
+  
 }
 
 /* BOTTOM NAVBAR */
@@ -273,81 +380,463 @@ border-radius: 20px;
 .bottomNavbar__mainContainer {
   background: white;
   color: #777;
-  box-shadow: 0px 1px 2px gray;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 1px 2px grey;
   width: 100%;
-  height: 50px;
-  align-items: center;
   position: fixed;
   bottom: 0;
-  height: 80px;
-  font-family: "Readex Pro", sans-serif;
-  font-size: small;
+  left: 0;
+  z-index: 1;
+  height: 10%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .bottomNavbar__textIconContainer{
-  display: flex;
-  justify-content: space-between;
   width:60px;
-  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  
 }
 
-.bottomNavbar__icon{
-  padding-left: 20px;
-}
 
-.bottomNavbar__text{
-  color: #777;
-}
 
-.bottomNavbar__icon{
+
+.bottomNavbar__icon {
   height: 35px;
   display: flex;
+ 
 }
 
-.bottomNavbar__favIcon{
+.bottomNavbar__favIcon {
   height: 25px;
   display: flex;
 }
 
-.bottomNavbar__profileIcon{
+.bottomNavbar__profileIcon {
   height: 35px;
   display: flex;
 }
 
-.bottomNavbar__Container{
+.bottomNavbar__Container {
   display: flex;
 }
 
 /* HOMEPAGE */
 
-.homepage__container{
+.homepage__container {
   padding-bottom: 80px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #f5f5f5;
 }
 
 /* LOGIN PAGE CONTAINER */
 
 .loginPage__container{
-  font-family: "Readex Pro", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  padding-bottom: 5%;
 }
 
-.loginPage__titleContiner{
+.loginPage__form input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.loginPage__form button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #202D3C;
+  color: white;
+}
+
+/* FAVOURITE PAGE */
+
+#delete-button{
+  background-color: white;
+  border: 4px solid white;
+  padding: 2 8px;
+  border-radius: 14px;
+}
+#delete-button:hover{
+  background-color: rgb(223, 82, 82);
+  border: 4px solid rgb(223, 82, 82);
+  border-radius: 14px;
+}
+
+/*Sign up */
+
+.SignupPage{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 12%;
+  padding-bottom: 5%;
+}
+.SignupPage input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.SignupPage button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #202D3C;
+  color: white;
 }
 
-.loginPage__title{
+.login-text{
+  margin-top: 9%;
+}
+
+.signup-text{
+  margin-bottom: 9%;
+}
+
+
+/*BUSINESS SIGN UP */
+
+.loginPageBusiness__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  padding-bottom: 5%;
+}
+
+
+
+.loginPageBusiness__title{
   width: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginPage__form{
+.loginPageBusiness__form input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.loginPageBusiness__form button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #21AC6B;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #21AC6B;
+  color: white;
+}
+
+.businessButton button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #21AC6B;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #21AC6B;
+  color: white;
+
+}
+
+.profileContainer{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-info{
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  padding-bottom: 5%;
+}
+.profile-info span{
+margin-left: 5%;
+margin-top:5% ;
+
+}
+
+.profile-info h3{
+  font-size: 1.5em;
+  margin-bottom: 0;
+  margin-left: 4%;
+  margin-top: 4%;
+  
+  
+}
+.profileReservations{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  align-items: flex-start;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  padding-bottom: 5%;
+
+}
+.profileReservations p{
+  margin-left: 5%;
+  margin-top:0 ;
+  margin-bottom: 0;
+  
+  }
+  .profileReservations h3{
+    color: #202D3C;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    margin-left: 4%;
+    margin-top: 4%;
+    
+    
+  }
+  .reservationCard{
+    border: 10px solid #E9EFF6;
+    border-radius: 10px;
+    background-color: #E9EFF6;
+  }
+  #pending{
+    color: grey
+  }
+  #accepted{
+    color: #21AC6B
+  }
+  #declined{
+    color: #be403c
+  }
+
+  .reservationsList{
+    margin-left: 4%;
+    width: 90%;
+  }
+
+  .profile-buttons{
+    margin-bottom: 200px;
+    margin-top: 5%;
+    
+
+  }
+  .profile-buttons a{
+    text-decoration: none;
+    
+  }
+  .profile-buttons button{
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-right: 20px;
+    margin-top: 10%;
+    border: none;
+    background-color: #202D3C;
+    color: white;
+    font-size: 1em;
+    border: 1px solid #202D3C;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+    
+    
+  }
+  .hourField{
+    margin-top: 2%;
+
+    text-align: center;
+  }
+.select{
+  width: 180px;
+  margin-bottom: 15%;
+  margin-top: 5%;
+}
+.bookButton{
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #202D3C;
+  color: white;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+
+}
+  /* EDIT RESTAURANT PAGE / BUSINESS */
+
+.editRest__base {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Readex Pro", sans-serif;
+  height:1000px;
+}
+
+.editRest__header {
+  align-self: center;
+}
+
+.editRest__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.editRest__fieldContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+/* first child / last child / nth child are selectors (ways of targeting elements without classes  */
+
+.editRest__label {
+  width: 20%;
+}
+
+.editRest__input {
+  width: 300px;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer {
+  width: 100%;
+}
+
+.editRest__addTypeContainer--dropdown {
+  width: 300px;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
+  width: 20%;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :nth-child(2) {
+  width: 30%;
+}
+
+.editRest__fieldContainer :last-child .addOne__itemContainer :last-child {
+  width: 30%;
+}
+
+.editRest__fieldContainer--fullWidth :first-child {
+  width: 100%;
+}
+
+.editRest__addTypeContainer {
+  margin-left: 10px;
+}
+
+.editRest__submitButton{
+  width: 110px;
+}
+
+.addOne__base {
+  display: flex;
+  flex-direction: column;
+}
+
+.addOne__itemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.addOne__itemContainer :first-child {
+  width: 20%;
+}
+
+.addOne__itemContainer :last-child {
+  width: 60%;
+}
+
+/* NAVBAR */
+
+.navBar__logInButton{
+    color: white;
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    margin-top: 24px;
+    margin-right: 19px;
+    font-size: 18px;
+}
+
+.navBar__logInButtonContainer{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.navBar__logo{ 
+
+}
+
+.navBar__img{
+  position: relative;
+  width: 267px;
+  top: -100px;
 }
 

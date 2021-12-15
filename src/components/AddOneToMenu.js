@@ -18,10 +18,17 @@ const AddOneToMenu= (props)=>{
  
     return (
         <>  
-            <input onChange={handleInput} type="text" name={props.name} value={value.name} />
-            <label htmlFor="price">Price</label>
-            <input onChange={handleInput} type="number" name="price" value={value.price} />
-            <button onClick={handleSubmit}>Add</button>
+            <div className="addOne__base">
+                <div className="addOne__itemContainer">
+                <label htmlFor={props.name}>Name</label>
+                    <input onChange={handleInput} type="text" name={props.name} value={value[name]} />
+                </div>
+                <div className="addOne__itemContainer">
+                    <label htmlFor="price">Price</label>
+                    <input onChange={handleInput} type="number" name="price" value={value.price} />
+                    <button className="addOne__addButton" onClick={handleSubmit}>Add</button>
+                </div>
+            </div>
         </>
     )
 }

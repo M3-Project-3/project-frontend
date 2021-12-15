@@ -19,21 +19,21 @@ const FavouritesCard = (props) => {
                 </div>
             </Link>
                 <div className="restCard__bookmarkIconContainer">
-                    <button  onClick={removeFavourite}> <img className="restCard__bookmarkImg" src="/delete-icon.png" alt=''></img></button>
+                    <button id='delete-button'  onClick={removeFavourite}> <img className="restCard__bookmarkImg" src="/delete-icon.png" alt=''></img></button>
                 </div>
                 <div className="restCard__bottomContainer">
                     <h2 className="restCard__title">{restaurant.name}</h2>
                     <div className="restCard__infoBar">
                         <div className="restCard__infoBarItem">
-                            <img className="restCard__icon" src="tray.png" alt=''></img>
+                            <img className="restCard__icon" src="/tray.png" alt=''></img>
                             <p>{restaurant.resType}</p>
                         </div>
                         <div className="restCard__infoBarItem">
-                            <img className="restCard__icon" src="restaurant.png" alt=''></img>
+                            <img className="restCard__icon" src="/restaurant.png" alt=''></img>
                             <p>{restaurant.foodType}</p>
                         </div>
                         <div className="restCard__infoBarItem">
-                        <img className="restCard__icon" src="dollar-tag.png" alt=''></img>
+                        <img className="restCard__icon" src="/dollar-tag.png" alt=''></img>
                             <p>{restaurant.priceRange}</p>
                         </div>
                     </div>

@@ -7,18 +7,32 @@ const BottomNavbar = () => {
     // Subscribe to the AuthContext to gain access to
     // the values from AuthContext.Provider `value` prop
     const {
-      
+        isLoading,
        isLoggedIn,
-
-      business:businessIsLoggedIn,
+       businessIsLoggedIn,
+       businessIsLoading,
     } = useContext(AuthContext);
   
     return (
-        
         <>
-     {isLoggedIn ? <BottomNavbarUser /> : <BottomNavbarBusiness />}
-     </>
+      { (businessIsLoading === false && businessIsLoggedIn) ? (
+    <>
+       
+      {businessIsLoggedIn &&<BottomNavbarBusiness />}
+   
+
+    </>)
+
+  : (
+    <>
+   <BottomNavbarUser/>
+    </>
+  )
+    }
+      </>
     );
   }
   
   export default BottomNavbar;
+
+ 

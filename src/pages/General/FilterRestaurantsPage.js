@@ -6,12 +6,14 @@ import RestaurantCard from '../../components/RestaurantCard';
 import NotFoundImg from '../../not-found.jpeg'
 
 
+
 const API_URI = process.env.REACT_APP_API_URI;
 
 const FilterRestaurantsPage = () => {
 
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    
 
 
     useEffect(() => {
@@ -59,6 +61,8 @@ const FilterRestaurantsPage = () => {
                     return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
                 }
             }))}
+            
+          
         </div>
     )
 }

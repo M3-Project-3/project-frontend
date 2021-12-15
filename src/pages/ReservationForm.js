@@ -79,27 +79,27 @@ const posibleHourRange = []
     
    
     return (
-        <div>
+        <div className='reservationForm'>
         <form onSubmit={handleSubmit}>
-            <label>Name:</label>
-            <input type="text" name="name" value={formState.name} onChange={handleInput} />
 
-            <label>Surname:</label>
-            <input type="text" name="surname" value={formState.surname} onChange={handleInput} />
+            <input placeholder='Name' required type="text" name="name" value={formState.name} onChange={handleInput} />
 
-            <label>Day:</label>
-            <Calendar date={date} setDate={setDate}/>
-            <label>Hour:</label>
+       
+            <input placeholder='Surname' required type="text" name="surname" value={formState.surname} onChange={handleInput} />
 
+            <input placeholder='Nº of people' required type="number" name="people" value={formState.people} onChange={handleInput} />
 
-            {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
-
-            <label>People:</label>
-            <input type="number" name="people" value={formState.people} onChange={handleInput} />
+         
+            <Calendar required date={date} setDate={setDate}/>
+            <div className='hourField'>
+                <label>Hour:</label> 
+                {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
+            </div>
+          
 
            
 
-            <button type="submit">Book!</button>
+            <button className='bookButton' type="submit">Book!</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
        
