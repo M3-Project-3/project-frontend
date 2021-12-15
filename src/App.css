@@ -1,8 +1,11 @@
-/* .App {
-  text-align: center;
+ .App {
+  font-family: "Readex Pro", sans-serif;
   background-color: #f6f6f6;
 }
-
+body{
+  background-color: #f6f6f6;
+}
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;

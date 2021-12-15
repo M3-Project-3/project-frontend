@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useParams} from "react-router-dom";
+import { useState, useEffect  } from "react";
 import axios from "axios";
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -9,9 +9,19 @@ const API_URI = process.env.REACT_APP_API_URI;
 export default function EditPageUser() {
     const { id } = useParams();
 
-    const [formState, setFormState] = useState({})
+    const [formState, setFormState] = useState({
+    
+    })
     const history = useHistory();
 
+    useEffect(() => {
+      axios
+          .get(`${API_URI}/user/${id}`)
+          .then((response) => {
+        
+              setFormState(response.data)
+          })
+  }, [] );
     
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,35 +29,32 @@ export default function EditPageUser() {
       .put(`${API_URI}/user/${id}/edit`, formState)
       .then((response) => {
         setFormState({})
-        history.push("/")
+        history.push(`/${id}/profile`)
       })
       .catch(console.log);
   }
 
   function handleInput(e) {
-    if (e.target.type === "select-multiple"){
-        let valueInput = e.target.valueInput
-        let value = []
-        for(let i=0; i < valueInput.length ; i++){
-            if(valueInput[i].selected) value.push(valueInput[i].value)
-        }
-        setFormState({...formState, [e.target.name] : value} );
-    }   
+    setFormState({...formState, [e.target.name] : e.target.value} );   
   }
 
     return(
-        <div>
-              <h2>Edit User Profile</h2>
+      <div className="loginPage__container">
+          <div className="loginPage__titleContainer">
+            <h2 className="loginPage__title">Update your profile!</h2>
+          </div>
+          <div className="loginPage__form">
               <form onSubmit={handleSubmit}>
-                    <label>Name</label>
+               
                     <input
+                    
                     type="text"
                     name="name"
                     onChange={handleInput} 
                     value={formState.name}
                     />
 
-                    <label>Surname</label>
+               
                     <input
                     type="text"
                     name="surname"
@@ -55,17 +62,12 @@ export default function EditPageUser() {
                     value={formState.surname}
                     />
 
-                    <label>Favourites</label>
 
-                    <label>Picture</label>
-                    <input
-                    type="text"
-                    name="picture"
-                    onChange={handleInput} 
-                    value={formState.picture}
-                    />
+                    <button>Update</button>
+
 
               </form>
+              </div>
 
         </div>
     )

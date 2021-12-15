@@ -20,7 +20,7 @@ export default function RestaurantCard(props) {
     }
 console.log("testpics", restaurant)
     return (
-        
+
         <div className="restCard__container">
             
                 <div className="restCard__topContainer">
@@ -38,11 +38,11 @@ console.log("testpics", restaurant)
                     <div className="restCard__infoBar">
                         <div className="restCard__infoBarItem">
                             <img className="restCard__icon" src="tray.png" alt="restaurant type"></img>
-                            <p>{restaurant.resType}</p>
+                            <p>{restaurant.resType[0]}</p>
                         </div>
                         <div className="restCard__infoBarItem">
                             <img className="restCard__icon" src="restaurant.png" alt="food type"></img>
-                            <p>{restaurant.foodType}</p>
+                            <p>{restaurant.foodType[0]}</p>
                         </div>
                         <div className="restCard__infoBarItem">
                         <img className="restCard__icon" src="dollar-tag.png" alt="price"></img>

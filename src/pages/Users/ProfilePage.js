@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useParams} from "react-router-dom"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import Reservation from '../../components/Reservation';
 
 
 const API_URI = process.env.REACT_APP_API_URI;
@@ -12,36 +13,97 @@ function ProfilePage(props) {
     const {user, logOutUser } = useContext(AuthContext);
     const {id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
-
-
+    const [profile, setProfile] = useState({})
+    const [reservations, setReservations] = useState()
+    const [pending, setPending] = useState()
+    const [accepted, setAccepted] = useState()
+    const [declined, setDeclined] = useState()
+    
+    
     useEffect(() => {
         axios
             .get(`${API_URI}/user/${id}`)
             .then((response) => {
                 setIsLoading(false)
+                setProfile(response.data)
             })
     }, [] );
 
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5005/user/${id}/reservations`)
+            .then((response) => {
+                setReservations(response.data.data)
+                setIsLoading(false)
+            })
+    }, [] );
+
+    useEffect(()=>{
+        if(isLoading === false){
+            if(reservations){
+                let statusPending = reservations.filter((el)=>el.status === "pending")
+                setPending(statusPending)
+            }if(reservations){
+                let statusAccepted = reservations.filter((el)=>el.status === "accepted")
+                setAccepted(statusAccepted)
+            }if(reservations){
+                let statusDeclined = reservations.filter((el)=>el.status === "declined")
+                setDeclined(statusDeclined)
+            }
+        }
+    },[reservations])
+
 return (
     <div>
-        <h2>Profile</h2>
-       
+        
+
         {isLoading === false &&
-                <div>
-                    <img src={user.picture} alt={user.name} height="200px"></img>
-                    <div>
-                        <div>Name: {user.name} {user.surname} </div>
-                        <div>{user.email}</div>
-                        <div>{user.favourites}</div>
-                        <div> <Link to={`/user/${user._id}/edit`}><button>User Edit</button> </Link></div>
-                        <button onClick={logOutUser}>Logout</button>
-                    </div>
+        <>
+            <div className="profileContainer">
+            <h2>Welcome {profile.name}!</h2>
+                <div className="profile-info">
+                    <h3> Profile information</h3>
+                    <span> <strong>Name:</strong>  {profile.name} </span>
+                    <span><strong>Surname:</strong>  {profile.surname} </span>
+                    <span><strong>Email:</strong> {profile.email}</span>
+                 
+                   
                 </div>
-            }
+           
+           <div className="profileReservations">
+            <div >
+            <h3> Your Reservations</h3>
+                <span>Pending reservations:</span>
+                {pending && pending.length > 0 ? pending.map(el=>{
+                    console.log(el)
+                    return <Reservation reservation={el}/>
+                }): <span>No pending reservations</span>
+                }
+            </div>
+            <div>
+                <span>Accepted reservations:</span>
+                {accepted && accepted.length > 0 ? accepted.map(el=>{
+                    return <Reservation reservation={el}/>
+                }):<span>No accepted reservations</span>
+                }
+            </div>
+            <div>
+                <span>Declined reservations:</span>
+                {declined && declined.length > 0 ? declined.map(el=>{
+                   return <Reservation reservation={el}/>
+                }): <span>No declined reservations</span>
+                }
+            </div>
+            </div>
+            
+            <div> <Link to={`/${profile._id}/profile/edit`}><button>User Edit</button> </Link></div>
+            <button onClick={logOutUser}>Logout</button>
+            </div>
+            
+        </>
+        }
         
     </div>
 )
 }
-
-
 export default ProfilePage;

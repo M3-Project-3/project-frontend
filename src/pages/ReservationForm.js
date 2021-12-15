@@ -21,9 +21,9 @@ export default function ReservationForm(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
     useEffect(()=>{
-        axios.get(`${API_URL}/business/${businessId}/reservations`)
+        axios.get(`http://localhost:5005/business/${businessId}/details`)
         .then(response=>{
-            setHoursSelected(response.data.data[0].businessId.timetable)
+            setHoursSelected(response.data.data.timetable)
             setIsLoading(false)
         })  
     },[])
@@ -76,20 +76,20 @@ const posibleHourRange = []
         <div>
         <form onSubmit={handleSubmit}>
             <label>Name:</label>
-            <input type="text" name="name" value={formState.name} onChange={handleInput} />
+            <input required type="text" name="name" value={formState.name} onChange={handleInput} />
 
             <label>Surname:</label>
-            <input type="text" name="surname" value={formState.surname} onChange={handleInput} />
+            <input required type="text" name="surname" value={formState.surname} onChange={handleInput} />
 
             <label>Day:</label>
-            <Calendar date={date} setDate={setDate}/>
+            <Calendar required date={date} setDate={setDate}/>
             <label>Hour:</label>
 
 
             {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
 
             <label>People:</label>
-            <input type="number" name="people" value={formState.people} onChange={handleInput} />
+            <input required type="number" name="people" value={formState.people} onChange={handleInput} />
 
            
 

@@ -38,36 +38,41 @@ function SignupPage(props) {
 
   return (
     <div className="SignupPage">
-      <h1>User Sign Up</h1>
+      <h1>Sign Up</h1>
+      <div className="SignForm">
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        
+        <input required placeholder="Name" type="text" name="name" value={name} onChange={handleName} />
 
-        <label>Surname:</label>
-        <input type="text" name="surname" value={surname} onChange={handleSurname} />
+    
+        <input required placeholder="Surname" type="text" name="surname" value={surname} onChange={handleSurname} />
 
-        <label>Email:</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <input required placeholder="Email address" type="text" name="email" value={email} onChange={handleEmail} />
+
+  
         <input
+          placeholder="Choose password..."
+          required
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
+        <br/>
 
         <button type="submit">Sign Up</button>
       </form>
+      </div>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
+      <p className="login-text">Already have account?</p>
       <Link to={"/login"}> Login</Link>
 
-      <p>Are you a business?</p>
-      <Link to={"/business/signup"}>Sign Up Your Business Here</Link>
+      <p> Are you a business? <img width="30px" src="/restaurant-icon.png" alt="" /></p>
+      <Link className="signup-text" to={"/business/signup"}>Sign Up Here</Link>
 
       
     </div>

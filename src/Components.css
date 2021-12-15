@@ -22,10 +22,6 @@
 .restCard__link {
   text-decoration: none;
 }
-.fav-button {
-  background-color: transparent;
-  border: none;
-}
 
 .restCard__bookmarkIconContainer {
   height: 50px;
@@ -45,8 +41,17 @@
   height: 31px;
 }
 
-.restCard__bookmarkIconButton {
-  border-style: none;
+.restCard__bookmarkIconButton{
+    border-style: none;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 48px;
+    width: 60px;
+}
+
+.restCard__bookmarkIconButton:active{
+  background-color: rgb(61, 189, 45);
+  cursor: pointer;
   border-radius: 15px;
   height: 48px;
   width: 60px;
@@ -71,7 +76,7 @@
   flex-direction: column;
   width: 380px;
   border-radius: 0 0 25px 25px;
-  background-color: #ffffff;
+  background-color: white;
   position: relative;
   top: -54px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -83,6 +88,8 @@
   width: 360px;
   margin-left: 20px;
   color: grey;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .restCard__icon {
@@ -101,14 +108,14 @@
 /* .singleRest__container {
 } */
 
-.singleRest__bottomContainer {
-  height: 1050px;
-  top: -20px;
-  position: relative;
-  background-color: #f6f6f6;
-  border-radius: 20px 20px 0 0;
-  font-family: "Readex Pro", sans-serif;
-}
+ .singleRest__bottomContainer{
+height: 1050px;
+top: -20px;
+position: relative;
+background-color: white;
+border-radius: 20px 20px 0 0;
+font-family: "Readex Pro", sans-serif;
+} 
 
 .singleRest__link {
   text-decoration: none;
@@ -253,18 +260,18 @@
 .searchBar {
   width: 85%;
   margin: 10% 0;
-
   height: 50px;
   font-size: 1em;
   border-radius: 10px;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.searchBar__container {
-  display: flex;
-  justify-content: center;
+.searchBar__container{
+  display:flex;
+  align-items: center;
   padding-bottom: 40px;
   padding-top: 40px;
+  
 }
 
 /* BOTTOM NAVBAR */
@@ -272,35 +279,33 @@
 .bottomNavbar__mainContainer {
   background: white;
   color: #777;
-  box-shadow: 0px 1px 2px gray;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 1px 2px grey;
   width: 100%;
-  height: 50px;
-  align-items: center;
   position: fixed;
   bottom: 0;
-  height: 80px;
-  font-family: "Readex Pro", sans-serif;
-  font-size: small;
+  left: 0;
+  z-index: 1;
+  height: 10%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.bottomNavbar__textIconContainer {
+.bottomNavbar__textIconContainer{
+  width:60px;
   display: flex;
-  justify-content: space-between;
-  width: 60px;
-  margin-left: 50px;
+  justify-content: center;
+  
 }
 
-.bottomNavbar__icon {
-  padding-left: 20px;
-}
 
-.bottomNavbar__text {
-  color: #777;
-}
+
 
 .bottomNavbar__icon {
   height: 35px;
   display: flex;
+ 
 }
 
 .bottomNavbar__favIcon {
@@ -321,125 +326,221 @@
 
 .homepage__container {
   padding-bottom: 80px;
-  background-color: #f5f5f5;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
 }
 
 /* LOGIN PAGE CONTAINER */
 
-.loginPage__container {
-  font-family: "Readex Pro", sans-serif;
+.loginPage__container{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  padding-bottom: 5%;
 }
 
-.loginPage__titleContiner {
+.loginPage__form input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.loginPage__form button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #202D3C;
+  color: white;
+}
+
+/* FAVOURITE PAGE */
+
+#delete-button{
+  background-color: white;
+  border: 4px solid white;
+  padding: 2 8px;
+  border-radius: 14px;
+}
+#delete-button:hover{
+  background-color: rgb(223, 82, 82);
+  border: 4px solid rgb(223, 82, 82);
+  border-radius: 14px;
+}
+
+/*Sign up */
+
+.SignupPage{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 12%;
+  padding-bottom: 5%;
+}
+.SignupPage input{
+  font-size: 1em;
+  border-radius: 10px;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.SignupPage button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #202D3C;
+  color: white;
 }
 
-.loginPage__title {
+.login-text{
+  margin-top: 9%;
+}
+
+.signup-text{
+  margin-bottom: 9%;
+}
+
+
+/*BUSINESS SIGN UP */
+
+.loginPageBusiness__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  padding-bottom: 5%;
+}
+
+
+
+.loginPageBusiness__title{
   width: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginPage__form {
-  display: flex;
-}
-
-/* EDIT RESTAURANT PAGE / BUSINESS */
-
-.editRest__base {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: "Readex Pro", sans-serif;
-  height:1200px;
-}
-
-.editRest__header {
-  align-self: center;
-}
-
-.editRest__container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  margin: 0 10px;
-}
-
-.editRest__fieldContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-/* first child / last child / nth child are selectors (ways of targeting elements without classes  */
-
-.editRest__label {
-  width: 20%;
-}
-
-.editRest__input {
-  width: 300px;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer {
-  width: 100%;
-}
-
-.editRest__addTypeContainer--dropdown {
-  width: 300px;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
-  width: 20%;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer :nth-child(2) {
-  width: 30%;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer :last-child {
-  width: 30%;
-}
-
-.editRest__fieldContainer--fullWidth :first-child {
-  width: 100%;
-}
-
-.editRest__addTypeContainer {
-  margin-left: 10px;
-}
-
-/* ADD ONE COMPONENT */
-
-.addOne__base {
-  display: flex;
-  flex-direction: column;
-}
-
-.addOne__itemContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-.addOne__itemContainer :first-child {
-  width: 20%;
-}
-
-.addOne__itemContainer :last-child {
+.loginPageBusiness__form input{
+  font-size: 1em;
+  border-radius: 10px;
   width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.loginPageBusiness__form button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #21AC6B;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #21AC6B;
+  color: white;
 }
 
-.addOne_addButton{
-  width: 60px;
+.businessButton button{
+  font-size: 0.8em;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 3%;
+  padding: 8px 6px;
+  font-size: 1em;
+  border: 1px solid #21AC6B;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #21AC6B;
+  color: white;
+
 }
 
+.profileContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-info{
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  padding-bottom: 5%;
+}
+.profile-info span{
+margin-left: 5%;
+margin-top:5% ;
+
+}
+
+.profile-info h3{
+  font-size: 1.5em;
+  margin-bottom: 0;
+  margin-left: 4%;
+  margin-top: 4%;
+  
+  
+}
+.profileReservations{
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  width: 90%;
+  padding-bottom: 5%;
+}
+.profileReservations span{
+  margin-left: 5%;
+  margin-top:5% ;
+  
+  }
