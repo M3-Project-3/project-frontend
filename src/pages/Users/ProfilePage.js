@@ -19,12 +19,13 @@ function ProfilePage(props) {
     const [accepted, setAccepted] = useState()
     const [declined, setDeclined] = useState()
     
-
+    
     useEffect(() => {
         axios
             .get(`${API_URI}/user/${id}`)
             .then((response) => {
                 setIsLoading(false)
+                setProfile(response.data)
             })
     }, [] );
 
@@ -54,22 +55,25 @@ function ProfilePage(props) {
 
 return (
     <div>
-        <h2>Profile</h2>
+        
 
         {isLoading === false &&
         <>
-            <div>
-                <img src={profile.picture} alt={profile.name} height="200px"></img>
-                <div>
-                    <div>Name: {profile.name} {profile.surename} </div>
-                    <div>{profile.email}</div>
-                    <div>{profile.favourites}</div>
-                    <div> <Link to={`/${profile._id}/profile/edit`}><button>User Edit</button> </Link></div>
-                    <button onClick={logOutUser}>Logout</button>
+            <div className="profileContainer">
+            <h2>Welcome {profile.name}!</h2>
+                <div className="profile-info">
+                    <h3> Profile information</h3>
+                    <span> <strong>Name:</strong>  {profile.name} </span>
+                    <span><strong>Surname:</strong>  {profile.surname} </span>
+                    <span><strong>Email:</strong> {profile.email}</span>
+                 
+                   
                 </div>
-            </div>
-            <div>
-                <span>Pending reservations</span>
+           
+           <div className="profileReservations">
+            <div >
+            <h3> Your Reservations</h3>
+                <span>Pending reservations:</span>
                 {pending && pending.length > 0 ? pending.map(el=>{
                     console.log(el)
                     return <Reservation reservation={el}/>
@@ -77,18 +81,23 @@ return (
                 }
             </div>
             <div>
-                <span>Accepted reservations</span>
+                <span>Accepted reservations:</span>
                 {accepted && accepted.length > 0 ? accepted.map(el=>{
                     return <Reservation reservation={el}/>
                 }):<span>No accepted reservations</span>
                 }
             </div>
             <div>
-                <span>Declined reservations</span>
+                <span>Declined reservations:</span>
                 {declined && declined.length > 0 ? declined.map(el=>{
                    return <Reservation reservation={el}/>
                 }): <span>No declined reservations</span>
                 }
+            </div>
+            </div>
+            
+            <div> <Link to={`/${profile._id}/profile/edit`}><button>User Edit</button> </Link></div>
+            <button onClick={logOutUser}>Logout</button>
             </div>
             
         </>
