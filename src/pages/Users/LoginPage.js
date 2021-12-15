@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth.context";
 
 const API_URI  = process.env.REACT_APP_API_URI;
 
-function LoginPage(props) {
+const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -15,23 +15,21 @@ function LoginPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    const requestBody = { email, password };
+  const handleLoginSubmit = async (e) => {
+    try{
+      e.preventDefault();
+      const requestBody = { email, password };
 
-    axios
-      .post(`${API_URI}/auth/login`, requestBody)
-      .then((response) => {
-       
+      const userLogin = await axios.post(`${API_URI}/auth/login`, requestBody)
+      const JWTToken = userLogin.data.authToken;
+      logInUser(JWTToken);
+      props.history.push("/");
 
-        const JWTToken = response.data.authToken;
-        logInUser(JWTToken);
-        props.history.push("/");
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+    }
+    catch(error){
+      const errorDescription = error.response.data.message;
+      setErrorMessage(errorDescription);
+    }
   };
 
   return (

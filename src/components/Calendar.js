@@ -30,9 +30,7 @@ const Calendar = (props) => {
         numberOfMonths={1}
         onDateChange={(newdate)=>props.setDate(newdate)}
         focused={focused}
-        onFocusChange={focused=>{
-            setFocused(true)
-        }}
+        onFocusChange={()=>setFocused(focused => !focused)}
         id="dob"
       />
     </>

@@ -8,7 +8,7 @@ import Reservation from '../../components/Reservation';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-function ProfilePage(props) {
+const ProfilePage = (props) => {
 
     const {user, logOutUser } = useContext(AuthContext);
     const {id} = useParams()
@@ -21,20 +21,20 @@ function ProfilePage(props) {
     
 
     useEffect(() => {
-        axios
-            .get(`${API_URI}/user/${id}`)
-            .then((response) => {
-                setIsLoading(false)
-            })
-    }, [] );
+        const userProfile = async () => {
+            const getProfile = await axios.get(`${API_URI}/user/${id}`)
+            setIsLoading(false)
+        }
+        userProfile()
+    }, []);
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:5005/user/${id}/reservations`)
-            .then((response) => {
-                setReservations(response.data.data)
-                setIsLoading(false)
-            })
+        const getUserReservations = async () => {
+            const reservations = await axios.get(`http://localhost:5005/user/${id}/reservations`)
+            setReservations(reservations.data.data)
+            setIsLoading(false)
+        }
+        getUserReservations()
     }, [] );
 
     useEffect(()=>{
@@ -71,7 +71,6 @@ return (
             <div>
                 <span>Pending reservations</span>
                 {pending && pending.length > 0 ? pending.map(el=>{
-                    console.log(el)
                     return <Reservation reservation={el}/>
                 }): <span>No pending reservations</span>
                 }

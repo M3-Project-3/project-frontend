@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "./../context/auth.context";
 import { Redirect, Route } from "react-router-dom";
 
-function AnonRouteBusiness(props) {
+const AnonRouteBusiness= (props) => {
   const { to, exact, Component, ...restProps } = props;
 
   const { businessIsLoggedIn, businessIsLoading } = useContext(AuthContext);

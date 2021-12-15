@@ -5,28 +5,35 @@ import FavouritesCard from "./FavouritesCard";
 
 const API_URL = process.env.REACT_APP_API_URI
 
-export default function Favorites(){
+const Favorites = () => {
     const [favourites, setFavourites] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
   
     const {userId} = useParams();
 
-    console.log(favourites)
     useEffect(()=>{
-        axios.get(`${API_URL}/user/${userId}/favourites`)
-        .then((response)=>{
-            setFavourites(response.data)
-            setIsLoading(false)           
-        })
+        const apiRequest = async () => {
+            try{
+                const request = await axios.get(`${API_URL}/user/${userId}/favourites`)
+                setFavourites(request.data)
+                setIsLoading(false)           
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        apiRequest()
     }, [userId])
 
-    const handleInput = (restaurantId) =>{
-        axios.delete(`${API_URL}/user/${userId}/favourites/${restaurantId}` )      
-        .then((response)=>{
-            console.log(response.data.data)
-            setFavourites(response.data.data)
-        })    
+    const handleInput = async (restaurantId) =>{
+        try{
+            const deleteFav = await axios.delete(`${API_URL}/user/${userId}/favourites/${restaurantId}` )
+            setFavourites(deleteFav.data.data)
+        }
+        catch(error){
+            console.log(error)
+        }  
     }
 
 
@@ -42,3 +49,5 @@ export default function Favorites(){
         </div>
     )
 }
+
+export default Favorites

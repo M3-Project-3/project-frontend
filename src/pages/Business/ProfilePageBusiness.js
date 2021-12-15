@@ -9,8 +9,7 @@ import Reservation from '../../components/Reservation';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-function ProfilePageBusiness(props) {
-    
+const ProfilePageBusiness = (props) => {
 
     const {
         business,
@@ -30,22 +29,31 @@ function ProfilePageBusiness(props) {
     const [statusUpdated, setStatusUpdated] = useState(false)
 
     useEffect(() => {
-        axios
-            .get(`${API_URI}/business/${id}/details`)
-            .then((response) => {
-                
-                setProfile(response.data.data)
+        const getBusinessDetails = async () => {
+            try{
+                const businessDetails = await axios.get(`${API_URI}/business/${id}/details`)
+                setProfile(businessDetails.data.data)
                 setBusinessIsLoading(false)
-            })
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        getBusinessDetails()
     },[] );
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:5005/business/${id}/reservations`)
-            .then((response) => {
-                setReservations(response.data.data)
+        const getBusinessReservations = async () => {
+            try{
+                const businessReservations = await axios.get(`http://localhost:5005/business/${id}/reservations`)
+                setReservations(businessReservations.data.data)
                 setBusinessIsLoading(false)
-            })
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        getBusinessReservations()
     }, [statusUpdated] );
 
     useEffect(()=>{
@@ -64,19 +72,27 @@ function ProfilePageBusiness(props) {
          
     },[reservations])
 
-    const decline = (id) =>{
-        setStatusUpdated(false)
-        const status = "declined"
-        axios.put(`http://localhost:5005/reservations/${id}`, {status})
-        .then(res=>setStatusUpdated(true))
-        .catch(error=>console.log(error))
+    const decline = async (id) =>{
+        try{
+            setStatusUpdated(false)
+            const status = "declined"
+            const apiRequest = await axios.put(`http://localhost:5005/reservations/${id}`, {status})
+            setStatusUpdated(true)
+        }
+        catch(error){
+            console.log(error)
+        }
     }
-    const accept = (id) =>{
-        setStatusUpdated(false)
-        const status = "accepted"
-        axios.put(`http://localhost:5005/reservations/${id}`, {status})
-        .then(res=>setStatusUpdated(true))
-        .catch(error=>console.log(error))
+    const accept = async (id) =>{
+        try{
+            setStatusUpdated(false)
+            const status = "accepted"
+            const apiRequest = await axios.put(`http://localhost:5005/reservations/${id}`, {status})
+            setStatusUpdated(true)
+        }
+        catch(error){
+            console.log(error)
+        }
     }
 
 return (
@@ -117,7 +133,7 @@ return (
         {businessIsLoading === false &&     
             <>
                 <h2>Reviews</h2>
-                {profile.reviews.length > 0 ? profile.reviews.map((singleReview)=>{
+                {profile.reviews && profile.reviews.length > 0 ? profile.reviews.map((singleReview)=>{
                     return (
                         <>  
                             <BusinessReview review={singleReview} />

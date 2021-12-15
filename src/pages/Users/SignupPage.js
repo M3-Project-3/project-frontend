@@ -5,7 +5,7 @@ import axios from "axios";
 const API_URI = process.env.REACT_APP_API_URI;
 
 
-function SignupPage(props) {
+const SignupPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -19,21 +19,22 @@ function SignupPage(props) {
   const handleSurname = (e) => setSurname(e.target.value);
 
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email, password, name, surname };
-    
-    // Make an axios request to the API
-    // If POST request is successful redirect to login page
-    // If the request resolves with an error, set the error message in the state
-    axios
-      .post(`${API_URI}/auth/signup`, requestBody)
-      .then((response) => props.history.push("/login"))
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+  const handleSignupSubmit = async (e) => {
+    try{
+      e.preventDefault();
+      // Create an object representing the request body
+      const requestBody = { email, password, name, surname };
+      
+      // Make an axios request to the API
+      // If POST request is successful redirect to login page
+      // If the request resolves with an error, set the error message in the state
+      const apiRequest = await axios.post(`${API_URI}/auth/signup`, requestBody)
+      props.history.push("/login")
+    }
+    catch(error){
+      const errorDescription = error.response.data.message;
+      setErrorMessage(errorDescription);
+    }
   };
 
   return (

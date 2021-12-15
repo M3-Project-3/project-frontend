@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const API_URL =  process.env.REACT_APP_API_URI;
 
 
-export default function ReservationForm(props) {
+const ReservationForm = (props) => {
     const {businessId} = useParams()
     const history = useHistory()
     const [formState, setFormState] = useState({})
@@ -21,46 +21,52 @@ export default function ReservationForm(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
     useEffect(()=>{
-        axios.get(`http://localhost:5005/business/${businessId}/details`)
-        .then(response=>{
-            setHoursSelected(response.data.data.timetable)
-            setIsLoading(false)
-        })  
+        const apiRequest = async () => {
+            try{
+                const businessDetails = await axios.get(`http://localhost:5005/business/${businessId}/details`)
+                setHoursSelected(businessDetails.data.data.timetable)
+                setIsLoading(false)
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        apiRequest()
     },[])
     
     
 
-    function handleSubmit(event){
-        event.preventDefault()
-
-        if(!formState.name || !formState.surname || !date._d || !selectedHourRange.value || !formState.people || !user._id || !businessId){
-            setErrorMessage("All fields are required")
-        }
-        else{
-        const objToSend = {
-            name: formState.name,
-            surname: formState.surname,
-            date: date._d,
-            hour: selectedHourRange.value,
-            people: formState.people,
-            userId: user._id,
-            businessId : businessId
-        }
-
-        axios.post(
-            `${API_URL}/reservations/${businessId}/new`,
-            objToSend
-        )
-        .then((response)=>{
-            
+    const handleSubmit = async (event) => {
+        try{
+            event.preventDefault()
+    
+            if(!formState.name || !formState.surname || !date._d || !selectedHourRange.value || !formState.people || !user._id || !businessId){
+                setErrorMessage("All fields are required")
+            }
+            else{
+            const objToSend = {
+                name: formState.name,
+                surname: formState.surname,
+                date: date._d,
+                hour: selectedHourRange.value,
+                people: formState.people,
+                userId: user._id,
+                businessId : businessId
+            }
+            const newRes = await axios.post(
+                `${API_URL}/reservations/${businessId}/new`,
+                objToSend
+            )
             setFormState({})
             history.push("/")
-        })
-        .catch(console.log)
-    }
+            } 
+        }
+        catch(error){
+            console.log(error)
+        }
 }
 
-function handleInput(event){
+const handleInput = (event) => {
     setFormState({...formState, [event.target.name]: event.target.value })// setFormState(Object.assign({}, formState, {[ecen.name]: event.value}))
    
 }
@@ -101,6 +107,8 @@ const posibleHourRange = []
         </div>
     )
 }
+
+export default ReservationForm
 
 
 

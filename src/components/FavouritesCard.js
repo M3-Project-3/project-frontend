@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
-export default function FavouritesCard(props) {
+const FavouritesCard = (props) => {
 
     const { restaurant } = props;
   
@@ -42,3 +42,5 @@ export default function FavouritesCard(props) {
         </div>
     )
 }
+
+export default FavouritesCard

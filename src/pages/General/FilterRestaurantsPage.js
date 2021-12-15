@@ -8,38 +8,42 @@ import NotFoundImg from '../../not-found.jpeg'
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-export default function FilterRestaurantsPage() {
+const FilterRestaurantsPage = () => {
 
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
-    axios
-        .get(`${API_URI}/business`)
-        .then((response) => {
-      
-            setFilteredRestaurants(response.data.data)
-            setIsLoading(false)
-        });
+        const getAllBusiness = async () => {
+            try{
+                const allBusiness = await axios.get(`http://localhost:5005/business`)
+                setFilteredRestaurants(allBusiness.data.data)
+                setIsLoading(false)
+                const setBusinessToShow = filteredRestaurants.find(el=>el.isProfileComplete === true)
+                console.log(filteredRestaurants)
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        getAllBusiness()
     }, [] );
 
-    function handleFilter( string){
-
-        const params = {
-            name: string,
-            resType: string,
-            foodType: string
-          }; 
-  
-        axios
-            .get(`${API_URI}/business/search`,{params})
-            .then((response) => { 
-                
-                setIsLoading(false)
-                setFilteredRestaurants(response.data)
-            });   
-                
+    const handleFilter = async (string) => {
+        try{
+            const params = {
+                name: string,
+                resType: string,
+                foodType: string
+              }; 
+            const search = await axios.get(`${API_URI}/business/search`,{params})
+            setIsLoading(false)
+            setFilteredRestaurants(search.data)
+        }
+        catch(error){
+            console.log(error)
+        }              
     }
 
 
@@ -48,11 +52,15 @@ export default function FilterRestaurantsPage() {
     
             <SearchBar filter={handleFilter} />
 
-            {isLoading === true &&<p>Loading...</p>}
-            {isLoading === false && filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
-            {filteredRestaurants.map((restaurant => {
-                return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+            {isLoading === true && <p>Loading...</p>}
+            {isLoading === false && filteredRestaurants && filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
+            {isLoading === false && filteredRestaurants && filteredRestaurants.map((restaurant => {
+                if(restaurant.isProfileComplete === true){
+                    return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+                }
             }))}
         </div>
     )
 }
+
+export default FilterRestaurantsPage

@@ -6,20 +6,24 @@ import ReservationCard from '../../components/ReservationCard';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
- export default function ReservationListPageUser() {
+const ReservationListPageUser = () => {
     const [reservations, setReservations] = useState({});
     const [query, setQuery] = useState('');
     const { id: userId } = useParams()
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        axios
-            .get(`${API_URI}/user/${userId}/reservations`)
-            .then((response) => {
-        
-                setReservations(response.data.data)
+        const getReservations = async () =>{
+            try{
+                const apiRequest = await axios.get(`http://localhost:5005/user/${userId}/reservations`)
+                setReservations(apiRequest.data.data)
                 setIsLoading(false)
-            })
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        getReservations()
     }, [query] );
 
 return (
@@ -29,5 +33,6 @@ return (
             return <ReservationCard reservation={reservation} key={reservation._id} />
         }))}
     </div>
-)
- }
+)}
+
+export default ReservationListPageUser

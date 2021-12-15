@@ -24,7 +24,7 @@ import Favorites from "./components/Favorites";
 
 
 
-function App() {
+const App=()=> {
 
   return (
     <div className="App">

@@ -7,13 +7,13 @@ import { AuthContext } from "./../context/auth.context";
 
 const API_URL =  process.env.REACT_APP_API_URI;
 
-export default function RestaurantCard(props) {
+const RestaurantCard = (props) => {
 
     const { restaurant } = props;
 
     const {user} = useContext(AuthContext);
 
-    function addFavorite(){
+    const addFavorite = () => {
         axios.put(`${API_URL}/user/${user._id}/favourites/${restaurant._id}` )      
 
     }
@@ -52,3 +52,5 @@ export default function RestaurantCard(props) {
         </div>
     )
 }
+
+export default RestaurantCard

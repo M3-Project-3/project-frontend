@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context"; // <== IMPORT
 
-export default function BottomNavbarBusiness(props){
+const BottomNavbarBusiness = (props) => {
 
 
     const {
@@ -36,3 +36,5 @@ export default function BottomNavbarBusiness(props){
         </div>
     )
 }
+
+export default BottomNavbarBusiness

@@ -1,4 +1,4 @@
-export default function BusinessReview(props){
+const BusinessReview = (props) => {
     
     const review = props.review
     
@@ -14,3 +14,4 @@ export default function BusinessReview(props){
         </>
     )
 }
+export default BusinessReview

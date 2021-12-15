@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context"; // <== IMPORT
 
-function NavbarBusiness() {
+const NavbarBusiness = () => {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const {

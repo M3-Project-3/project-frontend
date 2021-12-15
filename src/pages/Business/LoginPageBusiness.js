@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth.context";
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-function LoginPageBusiness(props) {
+const LoginPageBusiness = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -15,23 +15,20 @@ function LoginPageBusiness(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    const requestBody = { email, password };
+  const handleLoginSubmit = async (e) => {
+    try{
+      e.preventDefault();
+      const requestBody = { email, password };
 
-    axios
-      .post(`${API_URI}/auth/business/login`, requestBody)
-      .then((response) => {
-    
-
-        const JWTToken = response.data.authToken;
+      const login = await axios.post(`${API_URI}/auth/business/login`, requestBody)
+      const JWTToken = login.data.authToken;
         logInBusiness(JWTToken);
         props.history.push("/");
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+    }
+    catch(error){
+      const errorDescription = error.response.data.message;
+      setErrorMessage(errorDescription);
+    }
   };
 
   return (

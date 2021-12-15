@@ -3,7 +3,7 @@ import { AuthContext } from "../context/auth.context"; // <== IMPORT
 import NavbarUser from "./NavbarUser";
 import NavbarBusiness from "./NavbarBusiness";
 
-function Navbar() {
+const Navbar = () => {
     // Subscribe to the AuthContext to gain access to
     // the values from AuthContext.Provider `value` prop
     const {
