@@ -86,14 +86,14 @@ const posibleHourRange = []
          
             <Calendar required date={date} setDate={setDate}/>
             <div className='hourField'>
-                <span> <label>Hour:</label> </span>
+                <label>Hour:</label> 
                 {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
             </div>
           
 
            
 
-            <button type="submit">Book!</button>
+            <button className='bookButton' type="submit">Book!</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
        

@@ -705,8 +705,22 @@ margin-top:5% ;
 
     text-align: center;
   }
+.select{
+  width: 180px;
+  margin-bottom: 15%;
+  margin-top: 5%;
+}
+.bookButton{
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #202D3C;
+  color: white;
+  font-size: 1em;
+  border: 1px solid #202D3C;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
 
-
+}
   /* EDIT RESTAURANT PAGE / BUSINESS */
 
 .editRest__base {
@@ -815,3 +829,4 @@ margin-top:5% ;
   justify-content: flex-end;
   margin-right: 20px;
 }
+

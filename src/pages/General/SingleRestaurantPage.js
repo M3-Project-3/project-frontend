@@ -19,6 +19,7 @@ export default function SingleRestaurantPage() {
     const [review, setReview] = useState({})
     const [messageError, setMessageError] = useState()
     const [reviewAdded, setReviewAdded] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
     axios
@@ -91,10 +92,40 @@ export default function SingleRestaurantPage() {
                  
                 </div>
 
+                <h3>Starters</h3>
+                    {isLoading === false && restaurant.menuStarters && restaurant.menuStarters.length > 0 ?
+                        (
+                            <p>
+                                {restaurant.menuStarters.map((el)=>{
+                                    return (<p><span>{el.menuStarters}</span>....<span>{el.price} €</span></p>)
+                                })}
+                            </p>
+                        ):<span>There are no starters yet</span>
+                    }
+                    <h3>Main Course</h3>
+                    {isLoading === false && restaurant.menuMain && restaurant.menuMain.length > 0 ?
+                        (
+                            <p>
+                                {restaurant.menuMain.map((el)=>{
+                                    return (<p><span>{el.menuMain}</span>....<span>{el.price} €</span></p>)
+                                })}
+                            </p>
+                        ):<span>There are no main courses yet</span>
+                    }
+                    <h3>Deserts</h3>
+                    {isLoading === false && restaurant.menuDeserts && restaurant.menuDeserts.length > 0 ?
+                        (
+                            <p>
+                                {restaurant.menuDeserts.map((el)=>{
+                                    return (<p><span>{el.menuDeserts}</span>....<span>{el.price} €</span></p>)
+                                })}
+                            </p>
+                        ):<span>There are no deserts yet</span>
+                    }
+
                 <div className="singleRest__reservationButtonContainer">
                     <div className="singleRest__reservationButton">
                         <Link to={`/${resId}/reservation/new`} className="singleRest__link">Book a table</Link> 
-                        {/* this link to the reservation isnt working */}
                     </div>
                 </div>
                 <div className="restaurantsReviews">

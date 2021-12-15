@@ -14,7 +14,8 @@ export default class AddHourRange extends Component {
   render() {
     return (
       <>
-        <Select
+   
+        <Select className="select"
           options={this.props.options}
           value={this.props.selectedHourRange}
           onChange={this.handleChange}
