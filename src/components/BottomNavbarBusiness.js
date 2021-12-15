@@ -20,13 +20,13 @@ export default function BottomNavbarBusiness(props){
                     <>
                     
                     <Link className="login" to={`/business/${business._id}/reservations`}>
-                    {" "}
-                    <p className="bottomNavbar__text" >Reservations</p>{" "}
+    
+                    <img className="bottomNavbar__icon" src="/reservation.png" alt="" />
                     </Link>
 
                     <Link to={`/${business._id}/businessProfile`}>
-                    {" "}
-                    <p className="bottomNavbar__text">Profile</p>{" "}
+                    
+                    <img className="bottomNavbar__profileIcon" src="/userProfile.png" alt="" />
                     </Link>
                     </>
                 
