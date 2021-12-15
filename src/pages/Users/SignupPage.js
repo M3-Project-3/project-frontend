@@ -38,7 +38,8 @@ function SignupPage(props) {
 
   return (
     <div className="SignupPage">
-      <h1>User Sign Up</h1>
+      <h1>Sign Up</h1>
+      <div className="SignForm">
 
       <form onSubmit={handleSignupSubmit}>
         
@@ -63,14 +64,15 @@ function SignupPage(props) {
 
         <button type="submit">Sign Up</button>
       </form>
+      </div>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
+      <p className="login-text">Already have account?</p>
       <Link to={"/login"}> Login</Link>
 
-      <p>Are you a business?</p>
-      <Link to={"/business/signup"}>Sign Up Your Business Here</Link>
+      <p> Are you a business? <img width="30px" src="/restaurant-icon.png" alt="" /></p>
+      <Link className="signup-text" to={"/business/signup"}>Sign Up Here</Link>
 
       
     </div>
