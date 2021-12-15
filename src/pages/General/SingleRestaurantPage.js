@@ -10,7 +10,7 @@ import BottomNavbarUser from "../../components/BottomNavbarUser";
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-export default function SingleRestaurantPage() {
+const SingleRestaurantPage = () => {
 
     const [restaurant, setRestaurant] = useState({});
     const { id: resId } = useParams()
@@ -159,3 +159,5 @@ export default function SingleRestaurantPage() {
         
     )
 };
+
+export default SingleRestaurantPage

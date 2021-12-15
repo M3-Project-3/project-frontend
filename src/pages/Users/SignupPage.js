@@ -5,7 +5,7 @@ import axios from "axios";
 const API_URI = process.env.REACT_APP_API_URI;
 
 
-function SignupPage(props) {
+const SignupPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

@@ -5,14 +5,13 @@ import FavouritesCard from "./FavouritesCard";
 
 const API_URL = process.env.REACT_APP_API_URI
 
-export default function Favorites(){
+const Favorites = () => {
     const [favourites, setFavourites] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
   
     const {userId} = useParams();
 
-    console.log(favourites)
     useEffect(()=>{
         axios.get(`${API_URL}/user/${userId}/favourites`)
         .then((response)=>{
@@ -35,10 +34,14 @@ export default function Favorites(){
             <h1>Favourites</h1>
             <div className="homepage__container">
 
-            {isLoading=== false && favourites.map((restaurant => {
+            {isLoading === false && favourites.length > 0 ? favourites.map((restaurant => {
                 return <FavouritesCard handleInput={handleInput} restaurant={restaurant} key={restaurant._id}  />
-            }))}
+            }))
+                : <span>You don't have any favourite yet!</span>
+            }
         </div>
         </div>
     )
 }
+
+export default Favorites

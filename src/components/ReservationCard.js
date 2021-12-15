@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ReservationCard(props) {
+const ReservationCard = (props) => {
     const { reservation } = props;
     console.log(reservation.businessId.name)
 
@@ -38,3 +38,5 @@ export default function ReservationCard(props) {
         </div>
     )
 }
+
+export default ReservationCard
