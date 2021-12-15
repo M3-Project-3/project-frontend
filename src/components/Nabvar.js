@@ -12,10 +12,12 @@ function Navbar() {
     return (
         
       <nav>
-        <img className="navBar__logo" src="/Mesa-logos_transparent.png" alt="">
-
-        </img>
-        </nav> 
+        <NavLink to="/" className="navBar__logo">
+          <a href="" className="navBar__logoLink" />
+            <img className="navBar__img" src="/logo.png" alt="">
+            </img>
+          </NavLink>
+        </nav>
      
     );
   }
