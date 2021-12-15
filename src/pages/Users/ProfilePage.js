@@ -19,12 +19,13 @@ function ProfilePage(props) {
     const [accepted, setAccepted] = useState()
     const [declined, setDeclined] = useState()
     
-
+    
     useEffect(() => {
         axios
             .get(`${API_URI}/user/${id}`)
             .then((response) => {
                 setIsLoading(false)
+                setProfile(response.data)
             })
     }, [] );
 
@@ -54,15 +55,16 @@ function ProfilePage(props) {
 
 return (
     <div>
-        <h2>Profile</h2>
+        
 
         {isLoading === false &&
         <>
             <div>
-                <img src={profile.picture} alt={profile.name} height="200px"></img>
-                <div>
-                    <div>Name: {profile.name} {profile.surename} </div>
-                    <div>{profile.email}</div>
+            <h2>Welcome {profile.name}!</h2>
+                <div className="profile-info">
+                    <span>Name: {profile.name} </span>
+                    <span>Surname: {profile.surname} </span>
+                    <span>{profile.email}</span>
                     <div>{profile.favourites}</div>
                     <div> <Link to={`/${profile._id}/profile/edit`}><button>User Edit</button> </Link></div>
                     <button onClick={logOutUser}>Logout</button>

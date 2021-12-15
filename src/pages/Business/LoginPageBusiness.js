@@ -38,8 +38,8 @@ function LoginPageBusiness(props) {
     <>
   
   <div className="loginPageBusiness__container">
-      <div className="loginPageBusiness__titleContainer">
-        <h1>Business Login</h1>
+      <div className="loginPage__titleContainer">
+        <h1 className="loginPage__title">Business Login</h1>
       </div>
       <div className="loginPageBusiness__form"> 
       <form onSubmit={handleLoginSubmit}>

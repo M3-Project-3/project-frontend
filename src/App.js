@@ -17,7 +17,6 @@ import ProfilePageBusiness from "./pages/Business/ProfilePageBusiness"
 import BottomNavbar from "./components/BottomNavbar"
 import AnonRouteBusiness from "./components/AnonRouteBusiness"
 import EditPageUser from "./pages/Users/EditPageUser";
-import { AuthContext } from "./context/auth.context";
 //import ReservationListPageBusiness from "./pages/Business/ReservationListPageBusiness";
 import ReservationListPageUser from "./pages/Users/ReservationListPageUser";
 import Favorites from "./components/Favorites";
