@@ -83,9 +83,43 @@ function ProfilePageBusiness(props) {
 
             {businessIsLoading === false &&
                 <>
+                    <div className="profileReservations">
+                        <div className="reservationsList" >
+                            <h4 id="pending">Pending reservations</h4>
+                            {pending && pending.length > 0 ? pending.map((el) => {
+                                return (
+                                    <>
+                                        <Reservation reservation={el} />
+                                        <button onClick={() => accept(el._id)}>Accept</button>
+                                        <button onClick={() => decline(el._id)}>Decline</button>
+                                    </>
+                                )
+                            }) : <span>There are no new reservations</span>
+                            }
+                            <h4 id="accepted">Accepted reservations</h4>
+                            {accepted && accepted.length > 0 ? accepted.map((el) => {
+                                return (
+                                    <Reservation reservation={el} />
+                                )
+                            }) : <span>No reservations accepted</span>
+                            }
+                            <h4 id="declined">Declined reservations</h4>
+                            {declined && declined.length > 0 ? declined.map((el) => {
+                                return (
+                                    <Reservation reservation={el} />
+                                )
+                            }) : <span>No reservations declined</span>
+                            }
+                        </div>
+                    </div>
+                </>
+            }
+            <div className='businessReviews'>
+            {businessIsLoading === false &&
+                <>
                     <div className='business-buttons'>
                         <Link to={`/business/${business._id}/edit`}><button>Business Edit</button> </Link>
-                       
+
                         <button onClick={logOutBusiness}>Logout</button>
                     </div>
                     <h2>Your reviews</h2>
@@ -103,6 +137,7 @@ function ProfilePageBusiness(props) {
 
                 </>
             }
+            </div>
         </div>
     )
 }

@@ -872,5 +872,19 @@ flex-direction: row;
   color: white;
   font-size: 1em;
   border: 1px solid #21AC6B;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+  margin-right: 20px;   
+
+  }
+  .business-buttons{
+    margin-bottom: 5%;
+    margin-top: 5%;
+  
+  }
+  .reservationsBusiness h1{
+    text-align: center;
+  }
+
+  .businessReviews{
+    margin-bottom: 100px;
   }
