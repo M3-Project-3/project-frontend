@@ -23,7 +23,6 @@ const EditPageUser = () => {
           })
   }, [] );
     
-<<<<<<< HEAD
   const handleSubmit = async (e) => {
     try{
       e.preventDefault();
@@ -34,17 +33,6 @@ const EditPageUser = () => {
     catch(error){
       console.log(error)
     }
-=======
-  function handleSubmit(e) {
-    e.preventDefault();
-    axios
-      .put(`${API_URI}/user/${id}/edit`, formState)
-      .then((response) => {
-        setFormState({})
-        history.push(`/${id}/profile`)
-      })
-      .catch(console.log);
->>>>>>> 772d31d0e5f48eab7acdbc8bd9b67d6603f28a98
   }
 
   const handleInput = (e) => {
