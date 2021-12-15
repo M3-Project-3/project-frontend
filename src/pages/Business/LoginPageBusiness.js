@@ -24,7 +24,7 @@ function LoginPageBusiness(props) {
       .then((response) => {
     
 
-        const JWTToken = response.data.authToken;
+        const JWTToken = response.data.authTokenBusiness;
         logInBusiness(JWTToken);
         props.history.push("/");
       })
