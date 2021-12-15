@@ -830,12 +830,15 @@ margin-top:5% ;
   margin-right: 20px;
 }
 
-.navBar__logo{ 
- position: relative;
-width: 267px;
-top: -100px;
-}
+
 .menuContainer{
  margin-left: 5%;
  margin-bottom: 30px;
 }
+
+.navBar__img{
+  position: relative;
+  width: 267px;
+  top: -100px;
+}
+
