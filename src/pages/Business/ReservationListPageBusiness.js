@@ -22,7 +22,8 @@ const API_URI = process.env.REACT_APP_API_URI;
     }, [] );
 
 return (
-    <div>
+    <div className='reservationsBusiness'>
+    
         <h1>List of Reservations</h1>
         
         {isLoading === false && reservations.map((reservation => {
