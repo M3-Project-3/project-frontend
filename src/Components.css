@@ -689,3 +689,9 @@ margin-top:5% ;
   justify-content: flex-end;
   margin-right: 20px;
 }
+
+.navBar__logo{ 
+ position: relative;
+width: 267px;
+top: -100px;
+}
