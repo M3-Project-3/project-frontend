@@ -52,7 +52,7 @@ export default function SingleRestaurantPage() {
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src="/stockrestimg.png" alt="Restaurant"></img>
+                <img className="singleRest__img" src={restaurant.pictures} alt="Restaurant"></img>
             </div>
 
             <div className="singleRest__bottomContainer">
@@ -86,7 +86,22 @@ export default function SingleRestaurantPage() {
                     </div>
                 </div>
                 <div>
-                    <p>{restaurant.description}</p>
+                    <div>
+                        <p>{restaurant.description}</p>
+                    </div>
+                    {/* <div>
+                        <h2>Our Menu</h2>
+                        <h3>Starters</h3>
+                        <p>{restaurant.menuStarters}</p>
+                        <h3>Main Courses</h3>
+                        <p>{restaurant.menuMain}</p>
+                        <h3>Deserts</h3>
+                        <p>{restaurant.menuDeserts}</p>
+                    </div> */}
+
+
+
+
                   <h2 className="singleRest__h2">Reviews</h2>
                 </div>
                 {restaurant.reviews && restaurant.reviews.length > 0 ? restaurant.reviews.map((singleReview)=>{

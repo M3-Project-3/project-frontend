@@ -196,24 +196,26 @@ function handleFileInput(e){
 
       <form className="editRest__container" onSubmit={handleSubmit}>
         <div className="editRest__fieldContainer">
-          <label className="editRest__label" className="editRest__label">Name</label>
+          <label className="editRest__label" className="editRest__label"></label>
           <input
             className="editRest__input"
             type="text"
             name="name"
             onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
             value={formState.name}
+            placeholder="Name"
           />
         </div>
 
         <div className="editRest__fieldContainer">
-          <label className="editRest__label">Address</label>
+          <label className="editRest__label"></label>
           <input
             className="editRest__input"
             type="text"
             name="address"
             onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
             value={formState.address}
+            placeholder="Address"
           />
         </div>
 
@@ -232,7 +234,7 @@ function handleFileInput(e){
         </div>
 
         <div className="editRest__fieldContainer">
-          <label className="editRest__label">Starters</label>
+          <label className="editRest__label"></label>
           {isLoading === false && starters && starters.map((el, index)=>{
             return (
               <>
@@ -244,7 +246,7 @@ function handleFileInput(e){
         </div>
 
         <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
-          <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters"/>
+          <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters" />
         </div>
 
         <div className="editRest__fieldContainer">
@@ -297,7 +299,7 @@ function handleFileInput(e){
         
         <div className="editRest__fieldContainer">
           <label className="editRest__label" for="description">Description</label>
-          <textarea name="description" value={formState.description} onChange={handleInput} />
+          <textarea name="description" value={formState.description} onChange={handleInput}  />
         </div>
 
         <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
