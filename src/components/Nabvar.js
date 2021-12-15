@@ -17,26 +17,10 @@ function Navbar() {
     return (
         
       <nav>
-        <img className="navBar__logo" src="/Mesa-logos_transparent.png">
+        <img className="navBar__logo" src="/Mesa-logos_transparent.png" alt="">
 
         </img>
-        </nav>
-      
-      /* {(isLoading === false && isLoggedIn) || (businessIsLoading === false && businessIsLoggedIn) ? (
-        <>
-          <button onClick={logOutUser || logOutBusiness}>Logout</button>
-       
-  
-        </>
-      ) : (
-        <>
-          <Link to="/login" className="navBar__logInButton">
-            {" "}
-            <Link>Login</Link>{" "}
-          </Link>
-        </>
-      )} */
-   
+        </nav> 
      
     );
   }

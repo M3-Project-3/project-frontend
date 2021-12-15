@@ -83,8 +83,9 @@ const posibleHourRange = []
 
             <input placeholder='Nº of people' required type="number" name="people" value={formState.people} onChange={handleInput} />
 
-         
+         <div>
             <Calendar required date={date} setDate={setDate}/>
+            </div>
             <div className='hourField'>
                 <label>Hour:</label> 
                 {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}

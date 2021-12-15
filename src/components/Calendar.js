@@ -28,6 +28,7 @@ const Calendar = (props) => {
         date={props.date}
         // {...input}
         numberOfMonths={1}
+        withPortal={true}
         onDateChange={(newdate)=>props.setDate(newdate)}
         focused={focused}
         onFocusChange={focused=>{
