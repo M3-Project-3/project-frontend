@@ -532,7 +532,7 @@ margin-top:5% ;
 .profileReservations{
   display: flex;
   flex-direction: column;
-
+  margin-top: 5%;
   align-items: flex-start;
   border: 2px solid white;
   border-radius: 10px;
@@ -540,9 +540,64 @@ margin-top:5% ;
   background-color: white;
   width: 90%;
   padding-bottom: 5%;
+
 }
-.profileReservations span{
+.profileReservations p{
   margin-left: 5%;
-  margin-top:5% ;
+  margin-top:0 ;
+  margin-bottom: 0;
   
+  }
+  .profileReservations h3{
+    color: #202D3C;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    margin-left: 4%;
+    margin-top: 4%;
+    
+    
+  }
+  .reservationCard{
+    border: 10px solid #E9EFF6;
+    border-radius: 10px;
+    background-color: #E9EFF6;
+  }
+  #pending{
+    color: grey
+  }
+  #accepted{
+    color: #21AC6B
+  }
+  #declined{
+    color: #be403c
+  }
+
+  .reservationsList{
+    margin-left: 4%;
+    width: 90%;
+  }
+
+  .profile-buttons{
+    margin-bottom: 200px;
+    margin-top: 5%;
+    
+
+  }
+  .profile-buttons a{
+    text-decoration: none;
+    
+  }
+  .profile-buttons button{
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-right: 20px;
+    margin-top: 10%;
+    border: none;
+    background-color: #202D3C;
+    color: white;
+    font-size: 1em;
+    border: 1px solid #202D3C;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+    
+    
   }

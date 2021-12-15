@@ -11,13 +11,13 @@ export default function Reservation(props){
         <div className="reservationCard">
             <div>
                 
-                <span>Restaurant: {businessId.name}</span>
-                <br></br>
-                <span>Address: {businessId.address}</span>
-                <br></br>
-                <span>Date: {finalDate} at {hour}</span>
-                <br></br>
-                <span>Number of persons: {people}</span>
+                <p> <strong> Restaurant:</strong> {businessId.name}</p>
+                <br/>
+                <p><strong> Address:</strong>  {businessId.address}</p>
+                <br/>
+                <p><strong> Date:</strong> {finalDate} at {hour}</p>
+                <br/>
+                <p><strong> Nº of people:</strong> {people}</p>
             </div>
         </div>
     )
