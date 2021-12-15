@@ -14,6 +14,9 @@ export default function RestaurantCard(props) {
 
     const {user} = useContext(AuthContext);
 
+    console.log('######################################');
+    console.log(user);
+
     function addFavorite(){
         axios.put(`${API_URL}/user/${user._id}/favourites/${restaurant._id}` )      
 
@@ -29,9 +32,15 @@ console.log("testpics", restaurant)
                     <img className="restCard__img" src={restaurant.pictures[0]} alt={restaurant.name}/>
                     }
                     </Link>
+                
                 <div className="restCard__bookmarkIconContainer">
+                {user ?
                     <button className="restCard__bookmarkIconButton"  onClick={addFavorite}> <img className="restCard__bookmarkImg" src="bookmark.png" alt='bookmark'></img></button>
+                    :
+                    <div></div>
+                }
                 </div>
+                
                 </div>
                 <div className="restCard__bottomContainer">
                     <h2 className="restCard__title">{restaurant.name}</h2>
