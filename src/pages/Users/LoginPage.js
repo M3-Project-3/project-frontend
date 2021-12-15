@@ -63,7 +63,7 @@ function LoginPage(props) {
       <div >
         <p>Don't have an account yet?</p>
         <Link to={"/signup"}> Sign Up</Link>
-        <p>Are you a business?</p>
+        <p>Are you a business? <img width="30px" src="/restaurant-icon.png" alt="" /></p>
         <Link to={"/business/login"}>Login In Here</Link>
       </div>
 
