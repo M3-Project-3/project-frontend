@@ -766,9 +766,7 @@ hr{
 }
 
 .menuContainer {
-  margin: 20px 0;
-
-  border: 16px solid #e9eff6;
+    border: 16px solid #e9eff6;
   border-radius: 6px;
   background-color: #e9eff6;
   display: flex;
@@ -778,6 +776,8 @@ hr{
   width: 80%;
   text-align: center;
   margin-left: 0;
+  display: block;
+  margin: 0 auto;
 }
 .menuContainer label {
   font-size: 1.2em;
@@ -929,6 +929,7 @@ hr{
 .reservationButtons {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 .reviewsContainer {
   width: 85%;
