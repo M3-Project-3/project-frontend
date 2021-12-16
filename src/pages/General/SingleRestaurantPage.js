@@ -55,7 +55,7 @@ const SingleRestaurantPage = () => {
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src={restaurant.pictures[0]} alt="Restaurant"></img>
+             {restaurant.pictures && restaurant.pictures.length > 0 && <img className="singleRest__img" src={restaurant.pictures[0]} alt="Restaurant"></img>}
             </div>
 
 
