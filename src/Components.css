@@ -297,12 +297,14 @@ hr{
 .reservationCard__container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 80%;
   margin: auto;
   text-align: center;
   border: 10px solid #C2D5E8;
   border-radius: 10px;
   background-color: #C2D5E8;
+  margin-bottom: 30px;
+
 }
 
 .reservationCard__statusContainer {
@@ -329,6 +331,7 @@ hr{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 100px;
 }
 
 .reservationCard__ImgContainer {
@@ -408,8 +411,6 @@ hr{
   
   
 }
-
-
 
 
 .bottomNavbar__icon {
@@ -648,6 +649,7 @@ margin-top:5% ;
   background-color: white;
   width: 90%;
   padding-bottom: 5%;
+  margin-bottom: 100px;
 
 }
 .profileReservations p{
@@ -669,15 +671,19 @@ margin-top:5% ;
     border: 10px solid #E9EFF6;
     border-radius: 10px;
     background-color: #E9EFF6;
+    margin-bottom: 20px;
   }
   #pending{
-    color: grey
+    color: grey;
+    font-size: 1.2em;
   }
   #accepted{
-    color: #21AC6B
+    color: #21AC6B;
+    font-size: 1.2em;
   }
   #declined{
-    color: #be403c
+    color: #be403c;
+    font-size: 1.2em;
   }
 
   .reservationsList{
@@ -749,7 +755,6 @@ margin-top:5% ;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
- 
 }
 
 .editRest__fieldContainer {
@@ -865,6 +870,7 @@ margin-top:5% ;
 .business-buttons{
 display: flex;
 flex-direction: row;
+justify-content: center;
 }
 
 .business-buttons button{
@@ -888,6 +894,38 @@ flex-direction: row;
     text-align: center;
   }
 
+
+
+  .accept-button{
+    padding: 10px 15px;
+    border: 1px solid #21AC6B;
+    background-color: #21AC6B;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 6px;
+  }
+  .decline-button{
+    padding: 10px 13px;
+    border: 1px solid #ac2b2b;
+    background-color: #ac2b2b;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 6px;
+
+  }
   .businessReviews{
     margin-bottom: 100px;
+  }
+  .reservationButtons{
+   display: flex;
+   justify-content: space-evenly;
+  }
+  .reviewsContainer{
+ 
+    width: 85%;
+    display: block;
+    margin: 0 auto
+  }
+  .reviewsContainer h2{
+   margin-top: 10%;
   }

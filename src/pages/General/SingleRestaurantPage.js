@@ -26,7 +26,7 @@ const SingleRestaurantPage = () => {
         .get(`${API_URI}/business/${resId}/details`)
         .then((response) => {
             setRestaurant(response.data.data)
-            console.log(response.data.data.menuMain)
+            setIsLoading(false)
         });
     }, [reviewAdded] );
 
