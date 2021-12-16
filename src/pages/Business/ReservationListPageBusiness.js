@@ -1,35 +1,120 @@
-import { useState, useEffect } from 'react';
-import {useParams } from 'react-router-dom';
+import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-import React from 'react';
-import ReservationCard from '../../components/ReservationCard';
+import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/auth.context";
+import BusinessReview from '../../components/BusinessReview'
+import Reservation from '../../components/Reservation';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
  export default function ReservationListPageBusiness() {
-    const [reservations, setReservations] = useState({});
-    const [query, setQuery] = useState('');
-    const { id: resId } = useParams()
-    const [isLoading, setIsLoading] = useState(true)
+ 
+    const {
+        business,
+        logOutBusiness,
+    } = useContext(AuthContext);
+
+    const { id } = useParams()
+
+    const [businessIsLoading, setBusinessIsLoading] = useState(true)
+    const [profile, setProfile] = useState({})
+    const [reservations, setReservations] = useState()
+    const [pending, setPending] = useState()
+    const [accepted, setAccepted] = useState()
+    const [declined, setDeclined] = useState()
+    const [statusUpdated, setStatusUpdated] = useState(false)
 
     useEffect(() => {
         axios
-            .get(`${API_URI}/business/${resId}/reservations`)
+            .get(`${API_URI}/business/${id}/details`)
+            .then((response) => {
+
+                setProfile(response.data.data)
+                setBusinessIsLoading(false)
+            })
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get(`${API_URI}/business/${id}/reservations`)
             .then((response) => {
                 setReservations(response.data.data)
-                setIsLoading(false)
+                setBusinessIsLoading(false)
             })
-    }, [] );
+    }, [statusUpdated]);
 
-return (
-    <div className='reservationsBusiness'>
-    
-        <h1>List of Reservations</h1>
-        
-        {isLoading === false && reservations.map((reservation => {
-            
-            return <ReservationCard reservation={reservation} key={reservation._id}/>
-        }))}
-    </div>
-)
+    useEffect(() => {
+        if (businessIsLoading === false) {
+            if (reservations) {
+                let statusPending = reservations.filter((el) => el.status === "pending")
+                setPending(statusPending)
+            } if (reservations) {
+                let statusAccepted = reservations.filter((el) => el.status === "accepted")
+                setAccepted(statusAccepted)
+            } if (reservations) {
+                let statusDeclined = reservations.filter((el) => el.status === "declined")
+                setDeclined(statusDeclined)
+            }
+        }
+
+    }, [reservations])
+
+    const decline = (id) => {
+        setStatusUpdated(false)
+        const status = "declined"
+        axios.put(`http://localhost:5005/reservations/${id}`, { status })
+            .then(res => setStatusUpdated(true))
+            .catch(error => console.log(error))
+    }
+    const accept = (id) => {
+        setStatusUpdated(false)
+        const status = "accepted"
+        axios.put(`http://localhost:5005/reservations/${id}`, { status })
+            .then(res => setStatusUpdated(true))
+            .catch(error => console.log(error))
+    }
+
+    return (
+        <div className='businessProfile'>
+            <h2>Hello {profile.name}</h2>
+
+            {businessIsLoading === false &&
+                <>
+                    <div className="profileReservations">
+                        <div className="reservationsList" >
+                            <h4 id="pending">Pending reservations</h4>
+                            {pending && pending.length > 0 ? pending.map((el) => {
+                                return (
+                                    <>
+                                        <Reservation reservation={el} />
+                                        <div className="reservationButtons">
+                                            <button className="accept-button" onClick={() => accept(el._id)}>Accept</button>
+                                            <button className="decline-button" onClick={() => decline(el._id)}>Decline</button>
+                                        </div>
+                                    </>
+                                )
+                            }) : <span>There are no new reservations</span>
+                            }
+                            <h4 id="accepted">Accepted reservations</h4>
+                            {accepted && accepted.length > 0 ? accepted.map((el) => {
+                                return (
+                                    <Reservation reservation={el} />
+                                )
+                            }) : <span>No reservations accepted</span>
+                            }
+                            <h4 id="declined">Declined reservations</h4>
+                            {declined && declined.length > 0 ? declined.map((el) => {
+                                return (
+                                    <Reservation reservation={el} />
+                                )
+                            }) : <span>No reservations declined</span>
+                            }
+                        </div>
+                    </div>
+                </>
+            }
+           
+        </div>
+    )
  }
