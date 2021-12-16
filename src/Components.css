@@ -3,36 +3,46 @@
    License: none (public domain)
 */
 
-
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-a{
-    list-style: none;
-    text-decoration: none;
-    
+a {
+  list-style: none;
+  text-decoration: none;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
 
 /* BEM */
 /* Block Element Modifier */
@@ -77,15 +87,15 @@ table {
   height: 31px;
 }
 
-.restCard__bookmarkIconButton{
-    border-style: none;
-    border-radius: 15px;
-    cursor: pointer;
-    height: 48px;
-    width: 60px;
+.restCard__bookmarkIconButton {
+  border-style: none;
+  border-radius: 15px;
+  cursor: pointer;
+  height: 48px;
+  width: 60px;
 }
 
-.restCard__bookmarkIconButton:active{
+.restCard__bookmarkIconButton:active {
   background-color: rgb(61, 189, 45);
   cursor: pointer;
   border-radius: 15px;
@@ -144,14 +154,14 @@ table {
 /* .singleRest__container {
 } */
 
- .singleRest__bottomContainer{
-height: 1050px;
-top: -20px;
-position: relative;
-background-color: white;
-border-radius: 20px 20px 0 0;
-font-family: "Readex Pro", sans-serif;
-} 
+.singleRest__bottomContainer {
+  height: 1050px;
+  top: -20px;
+  position: relative;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  font-family: "Readex Pro", sans-serif;
+}
 
 .singleRest__link {
   text-decoration: none;
@@ -195,10 +205,7 @@ font-family: "Readex Pro", sans-serif;
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
-
-
 
 .singleRest__reviewContainer {
   background-color: white;
@@ -219,34 +226,42 @@ font-family: "Readex Pro", sans-serif;
   flex-direction: column;
   align-items: center;
 }
-.singleRest__reviewFormContainer input, textarea{
+.singleRest-Container input,
+textarea {
   font-size: 1em;
   border-radius: 10px;
   font-family: "Readex Pro", sans-serif;
-
   width: 60%;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
 }
 
-.review-button{
+.singleRest-Container > textarea {
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: "Readex Pro", sans-serif;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.review-button {
   font-size: 0.8em;
   border-radius: 10px;
   width: 30%;
   margin-top: 3%;
   padding: 8px 6px;
   font-size: 1em;
-  border: 1px solid #202D3C;
+  border: 1px solid #202d3c;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #202D3C;
+  background-color: #202d3c;
   color: white;
   margin-bottom: 30%;
 }
 
 .singleRest__reservationButton {
   padding: 15px 15px;
-  background-color: #21AC6B;
+  background-color: #21ac6b;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 15px;
   position: relative;
@@ -254,29 +269,25 @@ font-family: "Readex Pro", sans-serif;
   justify-content: center;
   align-items: center;
   color: white;
-
 }
 .singleRest__reservationButton a {
- 
   color: white;
-
 }
-.restaurant-description{
+.restaurant-description {
   margin: 0 5%;
 }
-.restaurant-description p{
+.restaurant-description p {
   line-height: 1.5em;
-
 }
-.restaurantsReviews{
+.restaurantsReviews {
   margin-left: 5%;
 }
-hr{
+hr {
   width: 90%;
 }
 /* RESERVATION PAGE */
 
-.reservationForm form{
+.reservationForm form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,7 +297,7 @@ hr{
   
 } */
 
-.reservationForm input{
+.reservationForm input {
   font-size: 1em;
   border-radius: 10px;
   width: 60%;
@@ -300,11 +311,10 @@ hr{
   width: 80%;
   margin: auto;
   text-align: center;
-  border: 10px solid #C2D5E8;
+  border: 10px solid #c2d5e8;
   border-radius: 10px;
-  background-color: #C2D5E8;
+  background-color: #c2d5e8;
   margin-bottom: 30px;
-
 }
 
 .reservationCard__statusContainer {
@@ -324,9 +334,6 @@ hr{
   align-items: center;
 }
 
-
-
-
 .reservationPage__font {
   display: flex;
   flex-direction: column;
@@ -339,8 +346,6 @@ hr{
   display: flex;
   justify-content: center;
   align-items: center;
- 
-  
 }
 
 .reservationCard__reservationImg {
@@ -370,12 +375,11 @@ hr{
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.searchBar__container{
-  display:flex;
+.searchBar__container {
+  display: flex;
   align-items: center;
   padding-bottom: 40px;
   padding-top: 40px;
-  
 }
 
 /* BOTTOM NAVBAR */
@@ -395,7 +399,7 @@ hr{
   align-items: center;
 }
 
-.businessBottomNav{
+.businessBottomNav {
   background: white;
   display: flex;
   flex-direction: row;
@@ -408,15 +412,11 @@ hr{
   height: 10%;
   justify-content: space-evenly;
   align-items: center;
-  
-  
 }
-
 
 .bottomNavbar__icon {
   height: 35px;
   display: flex;
- 
 }
 
 .bottomNavbar__favIcon {
@@ -437,7 +437,7 @@ hr{
 
 .homepage__container {
   padding-bottom: 80px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f5;
@@ -445,7 +445,7 @@ hr{
 
 /* LOGIN PAGE CONTAINER */
 
-.loginPage__container{
+.loginPage__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -462,35 +462,35 @@ hr{
   padding-bottom: 5%;
 }
 
-.loginPage__form input{
+.loginPage__form input {
   font-size: 1em;
   border-radius: 10px;
   width: 60%;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.loginPage__form button{
+.loginPage__form button {
   font-size: 0.8em;
   border-radius: 10px;
   width: 30%;
   margin-top: 3%;
   padding: 8px 6px;
   font-size: 1em;
-  border: 1px solid #202D3C;
+  border: 1px solid #202d3c;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #202D3C;
+  background-color: #202d3c;
   color: white;
 }
 
 /* FAVOURITE PAGE */
 
-#delete-button{
+#delete-button {
   background-color: white;
   border: 4px solid white;
   padding: 2 8px;
   border-radius: 14px;
 }
-#delete-button:hover{
+#delete-button:hover {
   background-color: rgb(223, 82, 82);
   border: 4px solid rgb(223, 82, 82);
   border-radius: 14px;
@@ -498,7 +498,7 @@ hr{
 
 /*Sign up */
 
-.SignupPage{
+.SignupPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -514,38 +514,37 @@ hr{
   margin-top: 12%;
   padding-bottom: 5%;
 }
-.SignupPage input{
+.SignupPage input {
   font-size: 1em;
   border-radius: 10px;
   width: 60%;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.SignupPage button{
+.SignupPage button {
   font-size: 0.8em;
   border-radius: 10px;
   width: 30%;
   margin-top: 3%;
   padding: 8px 6px;
   font-size: 1em;
-  border: 1px solid #202D3C;
+  border: 1px solid #202d3c;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #202D3C;
+  background-color: #202d3c;
   color: white;
 }
 
-.login-text{
+.login-text {
   margin-top: 9%;
 }
 
-.signup-text{
+.signup-text {
   margin-bottom: 9%;
 }
 
-
 /*BUSINESS SIGN UP */
 
-.loginPageBusiness__container{
+.loginPageBusiness__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -562,56 +561,53 @@ hr{
   padding-bottom: 5%;
 }
 
-
-
-.loginPageBusiness__title{
+.loginPageBusiness__title {
   width: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginPageBusiness__form input{
+.loginPageBusiness__form input {
   font-size: 1em;
   border-radius: 10px;
   width: 60%;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.loginPageBusiness__form button{
+.loginPageBusiness__form button {
   font-size: 0.8em;
   border-radius: 10px;
   width: 30%;
   margin-top: 3%;
   padding: 8px 6px;
   font-size: 1em;
-  border: 1px solid #21AC6B;
+  border: 1px solid #21ac6b;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #21AC6B;
+  background-color: #21ac6b;
   color: white;
 }
 
-.businessButton button{
+.businessButton button {
   font-size: 0.8em;
   border-radius: 10px;
   width: 30%;
   margin-top: 3%;
   padding: 8px 6px;
   font-size: 1em;
-  border: 1px solid #21AC6B;
+  border: 1px solid #21ac6b;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #21AC6B;
+  background-color: #21ac6b;
   color: white;
-
 }
 
-.profileContainer{
+.profileContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.profile-info{
+.profile-info {
   display: flex;
   flex-direction: column;
 
@@ -624,21 +620,18 @@ hr{
   width: 90%;
   padding-bottom: 5%;
 }
-.profile-info span{
-margin-left: 5%;
-margin-top:5% ;
-
+.profile-info span {
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
-.profile-info h3{
+.profile-info h3 {
   font-size: 1.5em;
   margin-bottom: 0;
   margin-left: 4%;
   margin-top: 4%;
-  
-  
 }
-.profileReservations{
+.profileReservations {
   display: flex;
   flex-direction: column;
   margin-top: 5%;
@@ -650,282 +643,281 @@ margin-top:5% ;
   width: 90%;
   padding-bottom: 5%;
   margin-bottom: 100px;
-
 }
-.profileReservations p{
+.profileReservations p {
   margin-left: 5%;
-  margin-top:0 ;
+  margin-top: 0;
   margin-bottom: 0;
-  
-  }
-  .profileReservations h3{
-    color: #202D3C;
-    font-size: 1.5em;
-    margin-bottom: 0;
-    margin-left: 4%;
-    margin-top: 4%;
-    
-    
-  }
-  .reservationCard{
-    border: 10px solid #E9EFF6;
-    border-radius: 10px;
-    background-color: #E9EFF6;
-    margin-bottom: 20px;
-  }
-  #pending{
-    color: grey;
-    font-size: 1.2em;
-  }
-  #accepted{
-    color: #21AC6B;
-    font-size: 1.2em;
-  }
-  #declined{
-    color: #be403c;
-    font-size: 1.2em;
-  }
+}
+.profileReservations h3 {
+  color: #202d3c;
+  font-size: 1.5em;
+  margin-bottom: 0;
+  margin-left: 4%;
+  margin-top: 4%;
+}
+.reservationCard {
+  border: 10px solid #e9eff6;
+  border-radius: 10px;
+  background-color: #e9eff6;
+  margin-bottom: 20px;
+}
+#pending {
+  color: grey;
+  font-size: 1.2em;
+}
+#accepted {
+  color: #21ac6b;
+  font-size: 1.2em;
+}
+#declined {
+  color: #be403c;
+  font-size: 1.2em;
+}
 
-  .reservationsList{
-    margin-left: 4%;
-    width: 90%;
-  }
+.reservationsList {
+  margin-left: 4%;
+  width: 90%;
+}
 
-  .profile-buttons{
-    margin-bottom: 200px;
-    margin-top: 5%;
-    
+.profile-buttons {
+  margin-bottom: 200px;
+  margin-top: 5%;
+}
+.profile-buttons a {
+  text-decoration: none;
+}
+.profile-buttons button {
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-right: 20px;
+  margin-top: 10%;
+  border: none;
+  background-color: #202d3c;
+  color: white;
+  font-size: 1em;
+  border: 1px solid #202d3c;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.hourField {
+  margin-top: 2%;
 
-  }
-  .profile-buttons a{
-    text-decoration: none;
-    
-  }
-  .profile-buttons button{
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin-right: 20px;
-    margin-top: 10%;
-    border: none;
-    background-color: #202D3C;
-    color: white;
-    font-size: 1em;
-    border: 1px solid #202D3C;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
-    
-    
-  }
-  .hourField{
-    margin-top: 2%;
-
-    text-align: center;
-  }
-.select{
+  text-align: center;
+}
+.select {
   width: 180px;
   margin-bottom: 15%;
   margin-top: 5%;
 }
-.bookButton{
+.bookButton {
   border-radius: 10px;
   padding: 10px 15px;
   border: none;
-  background-color: #202D3C;
+  background-color: #202d3c;
   color: white;
   font-size: 1em;
-  border: 1px solid #202D3C;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
-
+  border: 1px solid #202d3c;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-  /* EDIT RESTAURANT PAGE / BUSINESS */
+/* EDIT RESTAURANT PAGE / BUSINESS */
 
-.editRest__base {
+.editBusinesscontainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-family: "Readex Pro", sans-serif;
-  height:1000px;
+  margin-bottom: 100px;
 }
 
-.editRest__header {
+.editRest-title {
   align-self: center;
+  background-color: white;
 }
 
-.editRest__container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.editRest__fieldContainer {
+.editRestForm-Container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  background-color: white;
 }
 
-/* first child / last child / nth child are selectors (ways of targeting elements without classes  */
-
-.editRest__label {
-  width: 20%;
-}
-
-.editRest__input {
-  width: 300px;
-  margin-bottom: 20px;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.editRest__addTypeContainer--dropdown {
-  width: 300px;
-  margin-bottom: 20px;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
-  width: 20%;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer :nth-child(2) {
-  width: 30%;
-}
-
-.editRest__fieldContainer :last-child .addOne__itemContainer :last-child {
-  width: 30%;
-}
-
-.editRest__fieldContainer--fullWidth :first-child {
-  width: 100%;
-}
-
-.editRest__addTypeContainer {
-  margin-left: 10px;
-}
-
-.editRest__submitButton{
-  width: 110px;
-}
-
-.addOne__base {
+.editRest-inputContainer {
   display: flex;
-  flex-direction: column;
-}
-
-.addOne__itemContainer {
-  display: flex;
-  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin-top: 5%;
 }
-
-.addOne__itemContainer :first-child {
-  width: 20%;
-}
-
-.addOne__itemContainer :last-child {
+.editRest-inputContainer input {
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: "Readex Pro", sans-serif;
   width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 70%;
 }
 
+.menuContainer {
+  margin: 20px 0;
+
+  border: 16px solid #e9eff6;
+  border-radius: 6px;
+  background-color: #e9eff6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1em;
+  width: 80%;
+  text-align: center;
+  margin-left: 0;
+}
+.menuContainer label {
+  font-size: 1.2em;
+}
+.menuContainer button {
+  background-color: #ac2b2b;
+  border: 1px solid #ac2b2b;
+  border-radius: 16px;
+  padding: 5px 9px;
+  margin-top: 14px;
+}
+
+.menuContainer img {
+  width: 30px;
+}
+.addDish {
+  display: flex;
+  flex-direction: column;
+}
+.addDish input {
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: "Readex Pro", sans-serif;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.addDish button {
+  background-color: #21ac6b;
+  border: 1px solid #21ac6b;
+  border-radius: 16px;
+  padding: 10px 15px;
+  font-size: 1em;
+  color: white;
+  margin-top: 14px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.openingHours {
+  font-size: 1.2em;
+}
+.openingInput {
+  margin-top: 25px;
+}
+.openingInput textarea {
+  width: 100%;
+  height: 100px;
+}
+.editBusinessButton button {
+  background-color: #21ac6b;
+  border: 1px solid #21ac6b;
+  border-radius: 16px;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  color: white;
+  margin-top: 14px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 /* NAVBAR */
 
-.navBar__logInButton{
-    color: white;
-    list-style: none;
-    color: white;
-    text-decoration: none;
-    margin-top: 24px;
-    margin-right: 19px;
-    font-size: 18px;
+.navBar__logInButton {
+  color: white;
+  list-style: none;
+  color: white;
+  text-decoration: none;
+  margin-top: 24px;
+  margin-right: 19px;
+  font-size: 18px;
 }
 
-.navBar__logInButtonContainer{
+.navBar__logInButtonContainer {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
 }
 
-
-.menuContainer{
- margin-left: 5%;
- margin-bottom: 30px;
-}
-
-.navBar__img{
+.navBar__img {
   position: relative;
   width: 247px;
   top: -19px;
 }
 
-
-.businessProfile{
+.businessProfile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-.business-buttons{
-display: flex;
-flex-direction: row;
-justify-content: center;
+.business-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.business-buttons button{
+.business-buttons button {
   border-radius: 10px;
   padding: 10px 15px;
   border: none;
-  background-color: #21AC6B;
+  background-color: #21ac6b;
   color: white;
   font-size: 1em;
-  border: 1px solid #21AC6B;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
-  margin-right: 20px;   
+  border: 1px solid #21ac6b;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-right: 20px;
+}
+.business-buttons {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+.reservationsBusiness h1 {
+  text-align: center;
+}
 
-  }
-  .business-buttons{
-    margin-bottom: 5%;
-    margin-top: 5%;
-  
-  }
-  .reservationsBusiness h1{
-    text-align: center;
-  }
-
-
-
-  .accept-button{
-    padding: 10px 15px;
-    border: 1px solid #21AC6B;
-    background-color: #21AC6B;
-    color: white;
-    font-size: 1.2em;
-    border-radius: 6px;
-  }
-  .decline-button{
-    padding: 10px 13px;
-    border: 1px solid #ac2b2b;
-    background-color: #ac2b2b;
-    color: white;
-    font-size: 1.2em;
-    border-radius: 6px;
-
-  }
-  .businessReviews{
-    margin-bottom: 100px;
-  }
-  .reservationButtons{
-   display: flex;
-   justify-content: space-evenly;
-  }
-  .reviewsContainer{
- 
-    width: 85%;
-    display: block;
-    margin: 0 auto
-  }
-  .reviewsContainer h2{
-   margin-top: 10%;
-  }
+.accept-button {
+  padding: 10px 15px;
+  border: 1px solid #21ac6b;
+  background-color: #21ac6b;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 6px;
+}
+.decline-button {
+  padding: 10px 13px;
+  border: 1px solid #ac2b2b;
+  background-color: #ac2b2b;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 6px;
+}
+.businessReviews {
+  margin-bottom: 100px;
+}
+.reservationButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.reviewsContainer {
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+}
+.reviewsContainer h2 {
+  margin-top: 10%;
+}

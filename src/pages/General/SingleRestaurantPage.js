@@ -141,7 +141,7 @@ const SingleRestaurantPage = () => {
                 }
                 </div>
                 {isLoggedIn && 
-                    <form className="singleRest__reviewFormContainer" onSubmit={handleSubmit}>
+                    <form className="singleRest-Container" onSubmit={handleSubmit}>
                         <h2 className="singleRest__h2">Leave your review</h2>
                         <label for="review">Review</label>
                         <textarea name="reviewText" value={review.reviewText} onChange={handleInput} placeholder="Leave a review!"></textarea>
