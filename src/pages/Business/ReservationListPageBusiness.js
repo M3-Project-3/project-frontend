@@ -6,7 +6,7 @@ import ReservationCard from '../../components/ReservationCard';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
- export default function ReservationListPageBusiness() {
+const ReservationListPageBusiness = () => {
     const [reservations, setReservations] = useState({});
     const [query, setQuery] = useState('');
     const { id: resId } = useParams()
@@ -33,3 +33,5 @@ return (
     </div>
 )
  }
+
+export default ReservationListPageBusiness

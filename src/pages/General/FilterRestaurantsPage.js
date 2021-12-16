@@ -9,7 +9,7 @@ import NotFoundImg from '../../not-found.jpeg'
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-export default function FilterRestaurantsPage() {
+const FilterRestaurantsPage = () => {
 
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -26,7 +26,7 @@ export default function FilterRestaurantsPage() {
         });
     }, [] );
 
-    function handleFilter( string){
+    const handleFilter = (string) => {
 
         const params = {
             name: string,
@@ -52,11 +52,15 @@ export default function FilterRestaurantsPage() {
 
             {isLoading === true &&<p>Loading...</p>}
             {isLoading === false && filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
-            {filteredRestaurants.map((restaurant => {
-                return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+            {isLoading === false && filteredRestaurants.map((restaurant => {
+                if(restaurant.isProfileComplete === true){
+                    return <RestaurantCard restaurant={restaurant} key={restaurant._id}  />
+                }
             }))}
             
           
         </div>
     )
 }
+
+export default FilterRestaurantsPage 

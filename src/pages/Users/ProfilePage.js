@@ -8,7 +8,7 @@ import Reservation from '../../components/Reservation';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
-function ProfilePage(props) {
+const ProfilePage = (props) => {
 
     const { user, logOutUser } = useContext(AuthContext);
     const { id } = useParams()
@@ -76,8 +76,7 @@ function ProfilePage(props) {
 
                                 <h4 id="pending">Pending reservations:</h4>
 
-                                {pending && pending.length > 0 ? pending.map(el => {
-                                    console.log(el)
+                                {isLoading === false && pending && pending.length > 0 ? pending.map(el => {
                                     return <Reservation reservation={el} />
                                 }) : <span>No pending reservations</span>
                                 }
