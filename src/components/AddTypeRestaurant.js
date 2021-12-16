@@ -2,22 +2,16 @@ import React, { Component, Fragment} from "react";
 import Select from "react-select";
 
 const options = [
-  { value: "allyoucaneat", label: "All You Can Eat" },
-  { value: "bakery", label: "Bakery" },
-  { value: "buffet", label: "Buffet" },
-  { value: "Brunch", label: "Brunch" },
-  { value: "cafe", label: "Cafe" },
+  { value: "fineDining", label: "Fine Dining" },
   { value: "casual", label: "Casual" },
   { value: "familyFriendly", label: "Family Friendly" },
-  { value: "Fancy", label: "Fancy" },
-  { value: "fineDining", label: "Fine Dining" },
+  { value: "cafe", label: "Cafe" },
+  { value: "buffet", label: "Buffet" },
   { value: "foodTruck", label: "Food Truck" },
-  { value: "outdoorseating", label: "Outdoor Seating" },
-  { value: "popUp", label: "Pop Up" },
+  { value: "popUp", label: "Pop up" },
   { value: "Sports Bar", label: "Sports Bar" },
   { value: "Bistro", label: "Bistro" },
   { value: "diner", label: "Diner" },
-  { value: "Terrace", label: "Terrace" },
   { value: "themeRestaurant", label: "Theme Restaurant" }
 ];
 
