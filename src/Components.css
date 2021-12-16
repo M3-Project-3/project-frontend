@@ -138,7 +138,6 @@ table {
 }
 
  .singleRest__bottomContainer{
-height: 1050px;
 top: -20px;
 position: relative;
 background-color: white;
@@ -772,7 +771,8 @@ hr{
   font-size: 1em;
   width: 80%;
   text-align: center;
-  margin-left: 0;
+  display: block;
+  margin: 0 auto;
 
   
 }
