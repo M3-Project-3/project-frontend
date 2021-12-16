@@ -150,10 +150,6 @@ font-family: "Readex Pro", sans-serif;
   text-decoration: none;
 }
 
-.singleRest__imgContainer {
-  display: flex;
-}
-
 .singleRest__img {
   background-color: #000000;
   width: 100%;
@@ -280,6 +276,7 @@ font-family: "Readex Pro", sans-serif;
 .restaurantsReviews {
   margin-left: 5%;
   background-color: white;
+  margin-bottom: 100px;
 }
 .restaurantsReviews p {
   width: 90%;
@@ -766,9 +763,7 @@ hr{
 }
 
 .menuContainer {
-  margin: 20px 0;
-
-  border: 16px solid #e9eff6;
+    border: 16px solid #e9eff6;
   border-radius: 6px;
   background-color: #e9eff6;
   display: flex;
@@ -778,6 +773,8 @@ hr{
   width: 80%;
   text-align: center;
   margin-left: 0;
+
+  
 }
 .menuContainer label {
   font-size: 1.2em;
@@ -929,6 +926,7 @@ hr{
 .reservationButtons {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 .reviewsContainer {
   width: 85%;
