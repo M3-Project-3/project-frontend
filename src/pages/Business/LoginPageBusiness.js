@@ -22,7 +22,7 @@ const requestBody = { email, password };
     
         const JWTToken = response.data.authTokenBusiness;
         logInBusiness(JWTToken);
-        props.history.push("/");
+        props.history.push("/:id/reservations");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
