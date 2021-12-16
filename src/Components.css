@@ -785,13 +785,17 @@ hr{
 .menuContainer button {
   background-color: #ac2b2b;
   border: 1px solid #ac2b2b;
+  border-top: 4px solid #ac2b2b;
   border-radius: 16px;
-  padding: 5px 9px;
-  margin-top: 14px;
+  margin-top:14px
+
+
 }
 
+
 .menuContainer img {
-  width: 30px;
+  width: 20px;
+  
 }
 .addDish {
   display: flex;
@@ -861,7 +865,7 @@ hr{
 }
 
 .menuContainer{
- margin-left: 5%;
+
  margin-bottom: 30px;
 }
 

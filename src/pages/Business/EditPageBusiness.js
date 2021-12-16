@@ -230,7 +230,8 @@ export default function EditPageBusiness() {
             {isLoading === false && main.map((el, index) => {
               return (
                 <>
-                  <span>{el.menuMain} <br/> {el.price} €</span><button onClick={(e) => removeMain(e, index)}><img src="/remove.png" width={"30px"} alt=""/></button>
+                  <span>{el.menuMain} <br/> {el.price} €</span>
+                  <button onClick={(e) => removeMain(e, index)}><img src="/remove.png" width={"30px"} alt=""/></button>
                   <br></br>
                 </>
               )
@@ -247,7 +248,7 @@ export default function EditPageBusiness() {
             {isLoading === false && deserts.map((el, index) => {
               return (
                 <>
-                  <span>{el.menuDeserts} <br/> {el.price} €</span><button onClick={(e) => removeDesert(e, index)}><img src="/remove.png" width={"30px"} alt=""/></button>
+                  {el.menuDeserts} <br/> {el.price} €<button onClick={(e) => removeDesert(e, index)}><img src="/remove.png" width={"30px"} alt=""/></button>
                   <br></br>
                 </>
               )
