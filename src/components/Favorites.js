@@ -28,7 +28,7 @@ const Favorites = () => {
 
     return (
         <div>
-            <h1>Favourites</h1>
+            <h1 className="favTitle">Favourites</h1>
             <div className="homepage__container">
                 {isLoading === false && favourites.length > 0 ? favourites.map((restaurant => {
                 return <FavouritesCard handleInput={handleInput} restaurant={restaurant} key={restaurant._id}  />
