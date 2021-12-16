@@ -219,6 +219,12 @@ font-family: "Readex Pro", sans-serif;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.singleRest-Container  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .singleRest-Container > textarea {
   font-size: 1em;
   border-radius: 10px;
@@ -227,7 +233,14 @@ font-family: "Readex Pro", sans-serif;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-
+.singleRest-Container > input {
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: "Readex Pro", sans-serif;
+  width: 60%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 .review-button {
   font-size: 0.8em;
   border-radius: 10px;
@@ -252,6 +265,7 @@ font-family: "Readex Pro", sans-serif;
   justify-content: center;
   align-items: center;
   color: white;
+  margin-bottom: 5%;
 }
 
 .singleRest__reservationButton a {
@@ -265,6 +279,10 @@ font-family: "Readex Pro", sans-serif;
 }
 .restaurantsReviews {
   margin-left: 5%;
+  background-color: white;
+}
+.restaurantsReviews p {
+  width: 90%;
 }
 
 hr{
@@ -672,7 +690,7 @@ hr{
 
 .profile-buttons {
   margin-bottom: 200px;
-  margin-top: 5%;
+  margin-top: -20%;
 }
 .profile-buttons a {
   text-decoration: none;
