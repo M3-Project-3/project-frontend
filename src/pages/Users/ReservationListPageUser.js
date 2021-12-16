@@ -6,7 +6,7 @@ import ReservationCard from '../../components/ReservationCard';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
- export default function ReservationListPageUser() {
+const ReservationListPageUser = () => {
     const [reservations, setReservations] = useState({});
     const [query, setQuery] = useState('');
     const { id: userId } = useParams()
@@ -25,9 +25,13 @@ const API_URI = process.env.REACT_APP_API_URI;
 return (
     <div className="reservationPage__font">
         <h1>My Reservations</h1>
-        { isLoading === false && reservations.map((reservation => {
+        { isLoading === false && reservations.length > 0 ? reservations.map((reservation => {
             return <ReservationCard reservation={reservation} key={reservation._id} />
-        }))}
+        }))
+            : <span>There are no reservations yet!</span>
+        }
     </div>
 )
- }
+}
+
+export default ReservationListPageUser
