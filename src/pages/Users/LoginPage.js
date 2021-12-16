@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth.context";
 
 const API_URI  = process.env.REACT_APP_API_URI;
 
-function LoginPage(props) {
+const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);

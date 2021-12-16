@@ -6,7 +6,7 @@ import axios from "axios";
 const API_URI = process.env.REACT_APP_API_URI;
 
 
-export default function EditPageUser() {
+const EditPageUser = () => {
     const { id } = useParams();
 
     const [formState, setFormState] = useState({
@@ -23,7 +23,7 @@ export default function EditPageUser() {
           })
   }, [] );
     
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .put(`${API_URI}/user/${id}/edit`, formState)
@@ -34,7 +34,7 @@ export default function EditPageUser() {
       .catch(console.log);
   }
 
-  function handleInput(e) {
+  const handleInput = (e) => {
     setFormState({...formState, [e.target.name] : e.target.value} );   
   }
 
@@ -72,3 +72,5 @@ export default function EditPageUser() {
         </div>
     )
 }
+
+export default EditPageUser

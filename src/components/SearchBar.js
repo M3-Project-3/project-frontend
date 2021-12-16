@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-export default function SearchBar(props) {
+const SearchBar = (props) => {
     
     const [string, stringState] = useState("")
 
-    function handleSearch(event){
+    const handleSearch = (event) => {
 
         stringState(event.target.value)
         props.filter(event.target.value)
@@ -15,3 +15,5 @@ export default function SearchBar(props) {
 
     )
 }
+
+export default SearchBar
