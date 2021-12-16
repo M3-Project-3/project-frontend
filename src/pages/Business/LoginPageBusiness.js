@@ -1,9 +1,12 @@
 import { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";import axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 const API_URI = process.env.REACT_APP_API_URI;
+
+
+
 const LoginPageBusiness = (props) => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -11,17 +14,11 @@ const [errorMessage, setErrorMessage] = useState(undefined);
 const { logInBusiness } = useContext(AuthContext);
 const handleEmail = (e) => setEmail(e.target.value);
 const handlePassword = (e) => setPassword(e.target.value);
-const history = useHistory()
-
-
-
 const handleLoginSubmit = (e) => {
     e.preventDefault();
-
+    console.log(logInBusiness._id)
 
 const requestBody = { email, password };
-
-  
 
     axios
       .post(`${API_URI}/auth/business/login`, requestBody)
@@ -29,7 +26,7 @@ const requestBody = { email, password };
     
         const JWTToken = response.data.authTokenBusiness;
         logInBusiness(JWTToken);
-        history.push(`/business/${logInBusiness._id}/reservations`);
+        props.history.push(`/${logInBusiness._id}/reservations`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
