@@ -37,7 +37,7 @@ const Favorites = () => {
             {isLoading === false && favourites.length > 0 ? favourites.map((restaurant => {
                 return <FavouritesCard handleInput={handleInput} restaurant={restaurant} key={restaurant._id}  />
             }))
-                : <span>You don't have any favourite yet!</span>
+                : <span>You don't have any favourites yet!</span>
             }
         </div>
         </div>
