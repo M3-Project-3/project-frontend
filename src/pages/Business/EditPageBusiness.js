@@ -119,7 +119,7 @@ export default function EditPageBusiness() {
     axios
       .put(`${API_URL}/business/${id}/edit`, {formState, hourRanges, resType, foodType, menuStarters, menuMain, menuDeserts})
       .then((response) => {
-        history.push("/") 
+        history.push("/:id/reservations") 
       })
       .catch(console.log);
   }

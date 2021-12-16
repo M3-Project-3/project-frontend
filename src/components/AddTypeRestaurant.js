@@ -2,23 +2,23 @@ import React, { Component, Fragment} from "react";
 import Select from "react-select";
 
 const options = [
-  { value: "allyoucaneat", label: "All You Can Eat" },
-  { value: "bakery", label: "Bakery" },
-  { value: "buffet", label: "Buffet" },
+  { value: "All You Can Eat", label: "All You Can Eat" },
+  { value: "Bakery", label: "Bakery" },
+  { value: "Buffet", label: "Buffet" },
   { value: "Brunch", label: "Brunch" },
-  { value: "cafe", label: "Cafe" },
-  { value: "casual", label: "Casual" },
-  { value: "familyFriendly", label: "Family Friendly" },
+  { value: "Cafe", label: "Cafe" },
+  { value: "Casual", label: "Casual" },
+  { value: "Family Friendly", label: "Family Friendly" },
   { value: "Fancy", label: "Fancy" },
-  { value: "fineDining", label: "Fine Dining" },
-  { value: "foodTruck", label: "Food Truck" },
-  { value: "outdoorseating", label: "Outdoor Seating" },
-  { value: "popUp", label: "Pop Up" },
+  { value: "Fine Dining", label: "Fine Dining" },
+  { value: "Food Truck", label: "Food Truck" },
+  { value: "Outdoor Seating", label: "Outdoor Seating" },
+  { value: "Pop Up", label: "Pop Up" },
   { value: "Sports Bar", label: "Sports Bar" },
   { value: "Bistro", label: "Bistro" },
-  { value: "diner", label: "Diner" },
+  { value: "Diner", label: "Diner" },
   { value: "Terrace", label: "Terrace" },
-  { value: "themeRestaurant", label: "Theme Restaurant" }
+  { value: "Theme Restaurant", label: "Theme Restaurant" }
 ];
 
 export default class AddTypeRestaurant extends Component {
