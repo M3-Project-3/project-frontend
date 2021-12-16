@@ -14,6 +14,7 @@ const handlePassword = (e) => setPassword(e.target.value);
 const handleLoginSubmit = (e) => {
     e.preventDefault();
 
+
 const requestBody = { email, password };
 
     axios
@@ -22,7 +23,7 @@ const requestBody = { email, password };
     
         const JWTToken = response.data.authTokenBusiness;
         logInBusiness(JWTToken);
-        props.history.push("/:id/reservations");
+        props.history.push(`/${logInBusiness._id}/reservations`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
