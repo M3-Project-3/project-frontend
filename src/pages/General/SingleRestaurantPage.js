@@ -5,6 +5,9 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 import BusinessReview from "../../components/BusinessReview";
+import BottomNavbarUser from "../../components/BottomNavbarUser";
+import ImageCarousel from "../../components/ImageCarousel"
+
 
 const API_URI = process.env.REACT_APP_API_URI;
 
@@ -47,12 +50,13 @@ const SingleRestaurantPage = () => {
             })
         }
     }
-
     return(
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src={restaurant.pictures} alt="Restaurant"></img>
+                {isLoading === false && restaurant.pictures && 
+                    <ImageCarousel images={restaurant.pictures} />
+                }
             </div>
 
             <div className="singleRest__bottomContainer">

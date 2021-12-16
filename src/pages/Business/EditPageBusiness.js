@@ -20,6 +20,7 @@ export default function EditPageBusiness() {
   const [starters, setStarters] = useState()
   const [main, setMain] = useState()
   const [deserts, setDeserts] = useState()
+  const [menuUpdated, setMenuUpdated] = useState(false)
 
   useEffect(() => {
     const getBusiness = async () => {
@@ -27,8 +28,7 @@ export default function EditPageBusiness() {
         const allBusiness = await axios.get(`${API_URL}/business`)
         setFormState(allBusiness.data.data.find(el => el._id === id))
         setIsLoading(false)
-        if (formState.menuStarters) {
-
+        if(formState.menuStarters) {
           setStarters(formState.menuStarters)
         }
         if (formState.menuMain) {
@@ -45,20 +45,20 @@ export default function EditPageBusiness() {
     getBusiness()
   }, [])
 
-  useEffect(() => {
-    if (formState.menuStarters) {
-      setStarters(formState.menuStarters)
-    }
-    if (formState.menuMain) {
-      setMain(formState.menuMain)
-    }
-    if (formState.menuDeserts) {
-      setDeserts(formState.menuDeserts)
-    }
-  }, [formState])
-
-  const handleSubmit = async (e) => {
-    try {
+  useEffect( ()=>{
+      if(formState.menuStarters && menuUpdated===false) {
+        setStarters(formState.menuStarters)
+      }
+      if(formState.menuMain && menuUpdated===false){
+        setMain(formState.menuMain)
+      }
+      if(formState.menuDeserts && menuUpdated===false){
+        setDeserts(formState.menuDeserts)
+      }
+  },[formState])
+  
+  const handleSubmit= async (e)=> {
+    try{
 
       e.preventDefault();
       let hourRanges = []
@@ -135,40 +135,40 @@ export default function EditPageBusiness() {
       return foodTypeSelected.push({ value: el, label: el })
     })
   }
-  const removeStarter = (e, index) => {
-    e.preventDefault()
-    const list = [...starters];
-    list.splice(index, 1);
-    setStarters(list);
-  }
-  const removeMain = (e, index) => {
-    e.preventDefault()
-    const list = [...main];
-    list.splice(index, 1);
-    setMain(list);
-  }
-  const removeDesert = (e, index) => {
-    e.preventDefault()
-    const list = [...deserts];
-    list.splice(index, 1);
-    setDeserts(list);
-  }
+const removeStarter = (e, index)=>{
+  e.preventDefault()
+  const list = [...starters];
+  list.splice(index, 1);
+  setStarters(list);
+}
+const removeMain = (e, index) => {
+  e.preventDefault()
+  const list = [...main];
+  list.splice(index, 1);
+  setMain(list);
+}
+const removeDesert = (e, index) => {
+  e.preventDefault()
+  const list = [...deserts];
+  list.splice(index, 1);
+  setDeserts(list);
+}
 
-  function handleFileInput(e) {
+function handleFileInput(e){
 
-    const pictureUploadForm = new FormData();
-    pictureUploadForm
-      .append("pictures", e.target.files[0]);
-
-    service
-      .uploadPictures(pictureUploadForm)
-      .then(response => {
-        let pictures
-        if (!formState.pictures) pictures = []
-        else pictures = [...formState.pictures]
-        pictures.push(response.secure_url)
-
-        setFormState({ ...formState, pictures });
+  const pictureUploadForm = new FormData();
+  pictureUploadForm
+  .append("pictures", e.target.files[0]);
+  
+  service
+  .uploadPictures(pictureUploadForm)
+  .then(response => {
+    let pictures
+    if(!formState.pictures) pictures=[]
+    else pictures = [...formState.pictures]
+    pictures.push(response.secure_url)
+    
+    setFormState({...formState, pictures});
       })
       .catch(err => console.log("Error while uploading the file: ", err));
   };
@@ -228,7 +228,7 @@ export default function EditPageBusiness() {
           </div>
 
           <div >
-            <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters" />
+            <AddOneToMenu addOne={starters} setAddOne={setStarters} setFlag={setMenuUpdated} name="menuStarters" />
           </div>
 
           <div className="menuContainer" >
@@ -246,7 +246,7 @@ export default function EditPageBusiness() {
           </div>
 
           <div >
-            <AddOneToMenu addOne={main} setAddOne={setMain} name="menuMain" />
+            <AddOneToMenu addOne={main} setAddOne={setMain} setFlag={setMenuUpdated} name="menuMain" />
           </div>
 
           <div className="menuContainer" >
@@ -263,7 +263,7 @@ export default function EditPageBusiness() {
           </div>
 
           <div >
-            <AddOneToMenu addOne={deserts} setAddOne={setDeserts} name="menuDeserts" />
+            <AddOneToMenu addOne={deserts} setAddOne={setDeserts} setFlag={setMenuUpdated} name="menuDeserts" />
           </div>
 
           <div className="openingHours">
