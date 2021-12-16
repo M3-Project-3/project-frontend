@@ -2,7 +2,7 @@ import React from 'react'
 
 const ReservationCard = (props) => {
     const { reservation } = props;
-    console.log(reservation.businessId.name)
+    
 
 
     return (

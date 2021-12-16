@@ -23,7 +23,7 @@ const Favorites = () => {
     const handleInput = (restaurantId) =>{
         axios.delete(`${API_URL}/user/${userId}/favourites/${restaurantId}` )      
         .then((response)=>{
-            console.log(response.data.data)
+          
             setFavourites(response.data.data)
         })    
     }

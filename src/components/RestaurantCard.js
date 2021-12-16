@@ -10,7 +10,6 @@ const API_URL =  process.env.REACT_APP_API_URI;
 const RestaurantCard = (props) => {
 
     const { restaurant } = props;
-    console.log('props',props.restaurant.pictures)
 
     const {user} = useContext(AuthContext);
 
