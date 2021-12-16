@@ -1,4 +1,3 @@
-
 import React, { Component, Fragment} from "react";
 import Select from "react-select";
 
@@ -10,6 +9,7 @@ const options = [
     { value: "Catalan", label: "Catalan" },
     { value: "Chinese", label: "Chinese" },
     { value: "European", label: "European" },
+    { value: "Fusion", label: "Fusion" },
     { value: "German", label: "German" },
     { value: "Greek", label: "Greek" },
     { value: "Indian", label: "Indian" },

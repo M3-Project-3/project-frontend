@@ -65,14 +65,14 @@ const API_URI = process.env.REACT_APP_API_URI;
         const status = "declined"
         axios.put(`http://localhost:5005/reservations/${id}`, { status })
             .then(res => setStatusUpdated(true))
-            .catch(error => console.log(error))
+            .catch(error => (error))
     }
     const accept = (id) => {
         setStatusUpdated(false)
         const status = "accepted"
         axios.put(`http://localhost:5005/reservations/${id}`, { status })
             .then(res => setStatusUpdated(true))
-            .catch(error => console.log(error))
+            .catch(error => (error))
     }
 
     return (

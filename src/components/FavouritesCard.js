@@ -1,11 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-
 const FavouritesCard = (props) => {
 
     const { restaurant } = props;
-  
     const removeFavourite = ()=>{
         props.handleInput(restaurant._id)
     }
@@ -37,7 +35,6 @@ const FavouritesCard = (props) => {
                         </div>
                     </div>
                 </div>
-            
         </div>
     )
 }

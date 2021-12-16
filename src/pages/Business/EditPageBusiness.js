@@ -9,8 +9,7 @@ import AddOneToMenu from "../../components/AddOneToMenu"
 import service from "../../api/service";
 
 const API_URL = process.env.REACT_APP_API_URI;
-
-const EditPageBusiness = () => {
+export default function EditPageBusiness() {
   const { id } = useParams();
   const history = useHistory();
   const [formState, setFormState] = useState({});
@@ -21,6 +20,8 @@ const EditPageBusiness = () => {
   const [starters, setStarters] = useState()
   const [main, setMain] = useState()
   const [deserts, setDeserts] = useState()
+
+
 
   useEffect( ()=>{
     const getBusiness = async () =>{
@@ -57,95 +58,115 @@ const EditPageBusiness = () => {
         setDeserts(formState.menuDeserts)
       }
   },[formState])
+  //make this dynamic
   
-  const handleSubmit= async (e)=> {
-    try{
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    let hourRanges = []
+    if(selectedHourRange){
+      for(let el of selectedHourRange) {
+        hourRanges.push(el.value)
+      }
+    }else{
+      if(formState.timetable){
+        for(let el of formState.timetable) {
+          hourRanges.push(el)
+        }
+      }
+    }
 
-      e.preventDefault();
-      let hourRanges = []
-      if(selectedHourRange){
-
-        let orderedHourRange = selectedHourRange.map((el)=> el.value.split("-")[0].split(":")[0]).sort((a,b)=>a-b)
-        hourRanges = orderedHourRange.map((el)=>`${el}:00`)
-      
-      }else{
-        if(formState.timetable){
-          hourRanges = formState.timetable.map((el)=>el)
+    let resType = []
+    if(selectedResType){
+      for(let el of selectedResType) {
+        resType.push(el.value)
+      }
+    }else{
+      if(formState.resType){
+        for(let el of formState.resType) {
+          resType.push(el)
         }
       }
-      let resType = []
-      if(selectedResType){
-        resType = selectedResType.map((el)=>el.value)
-      }else{
-        if(formState.resType){
-          resType = formState.resType.map((el)=>el)
+    }
+    let foodType = []
+    if(selectedFoodType){
+      for(let el of selectedFoodType) {
+        foodType.push(el.value)
+      }
+    }else{
+      if(formState.foodType){
+        for(let el of formState.foodType) {
+          foodType.push(el)
         }
       }
-      let foodType = []
-      if(selectedFoodType){
-        foodType = selectedFoodType.map((el)=>el.value)
-      }else{
-        if(formState.foodType){
-          foodType = formState.foodType.map((el)=>el)
-        }
-      }
-      let menuStarters;
-      starters ? menuStarters = starters : menuStarters = []
-      
-      let menuMain;
-      main ? menuMain = main : menuMain = []
-      
-      let menuDeserts;
-      deserts ? menuDeserts = deserts : menuDeserts = []
-      
-      const editBusiness = await axios
+    }
+    let menuStarters;
+    if(starters){
+        menuStarters = starters
+    }else{
+        menuStarters = []
+    }
+    let menuMain;
+    if(main){
+        menuMain = main
+    }else{
+        menuMain = []
+    }
+    let menuDeserts;
+    if(deserts){
+        menuDeserts = deserts
+    }else{
+        menuDeserts = []
+    }
+    
+    axios
       .put(`${API_URL}/business/${id}/edit`, {formState, hourRanges, resType, foodType, menuStarters, menuMain, menuDeserts})
-      history.push("/") //path where to go when you click submit
-    }
-    catch(error){
-      console.log(error)
-    }
-  }
-
-  const handleInput = (e) => {  
-    setFormState({...formState, [e.target.name]: e.target.value });
+      .then((response) => {
+        history.push("/") 
+      })
+      .catch(console.log);
   }
 
   const hoursSelected = []
   if(isLoading === false && formState.timetable ){
     formState.timetable.map((el)=>{
-      return hoursSelected.push({value:el, label: el})
+      hoursSelected.push({value:el, label: el})
     })
   }
   const resTypeSelected = []
   if(isLoading === false && formState.resType ){
     formState.resType.map((el)=>{
-      return resTypeSelected.push({value:el, label: el})
+      resTypeSelected.push({value:el, label: el})
     })
   }
   const foodTypeSelected = []
   if(isLoading === false && formState.foodType ){
     formState.foodType.map((el)=>{
-      return foodTypeSelected.push({value:el, label: el})
+      foodTypeSelected.push({value:el, label: el})
     })
   }
-  const removeStarter = (e, index)=>{
+  function removeStarter(e, index){
     e.preventDefault()
     const list = [...starters];
     list.splice(index, 1);
     setStarters(list);
 }
-const removeMain = (e, index) => {
+function removeMain(e, index){
   e.preventDefault()
   const list = [...main];
   list.splice(index, 1);
   setMain(list);
 }
-const removeDesert = (e, index) => {
+function removeDesert(e, index){
   e.preventDefault()
   const list = [...deserts];
   list.splice(index, 1);
   setDeserts(list);
+}
+  
+
+function handleInput(e) {  
+  setFormState({...formState, [e.target.name]: e.target.value });
 }
 
 function handleFileInput(e){
@@ -289,6 +310,4 @@ function handleFileInput(e){
     </div>
     </>
   );
-}
-
-export default EditPageBusiness
+      }
