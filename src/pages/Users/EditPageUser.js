@@ -4,8 +4,6 @@ import { useState, useEffect  } from "react";
 import axios from "axios";
 
 const API_URI = process.env.REACT_APP_API_URI;
-
-
 const EditPageUser = () => {
     const { id } = useParams();
 
@@ -54,7 +52,6 @@ const EditPageUser = () => {
                     value={formState.name}
                     />
 
-               
                     <input
                     type="text"
                     name="surname"
@@ -62,13 +59,10 @@ const EditPageUser = () => {
                     value={formState.surname}
                     />
 
-
                     <button>Update</button>
-
 
               </form>
               </div>
-
         </div>
     )
 }

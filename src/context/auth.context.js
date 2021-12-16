@@ -15,9 +15,6 @@ const AuthProviderWrapper = (props) => {
   const [business, setBusiness] = useState(null);
   const history = useHistory();
   
-  
-
-
   const verifyToken = () => {
     const localJWTToken = localStorage.getItem("authToken");
 
@@ -38,23 +35,19 @@ const AuthProviderWrapper = (props) => {
           setIsLoading(false);
         });
     } else {
-      // The token is not in the localStorage
       setIsLoading(false);
     }
   };
 
   const logInUser = (JWTToken) => {
     localStorage.setItem("authToken", JWTToken);
-    verifyToken(); // I do not pass it her because verify will read for localStorage.
-    // This way I save subsequent requests to the back
-   
+    verifyToken(); 
   };
 
   const logOutUser = () => {
-    // Upon logout, remove the token from the localStorage
+   
     localStorage.removeItem("authToken");
 
-    // Update the state variables
     setIsLoggedIn(false);
     setUser(null);
     history.push("/")
@@ -77,7 +70,7 @@ const verifyBusinessToken = () => {
       })
       .then((response) => {
         const userJWT = response.data;
-        setBusiness(userJWT); // this is essential to create the context for auth
+        setBusiness(userJWT); 
         businessSetIsLoading(false);
         businessSetIsLoggedIn(true);
       })
@@ -87,29 +80,23 @@ const verifyBusinessToken = () => {
         businessSetIsLoading(false);
       });
   } else {
-    // The token is not in the localStorage
     businessSetIsLoading(false);
   }
 };
 
 const logInBusiness = (JWTToken) => {
   localStorage.setItem("authTokenBusiness", JWTToken);
-  verifyBusinessToken(); // I do not pass it her because verify will read for localStorage.
-  // This way I save subsequent requests to the back
+  verifyBusinessToken(); 
 };
 
 const logOutBusiness = () => {
-  // Upon logout, remove the token from the localStorage
   
   localStorage.removeItem("authTokenBusiness");
   
-  // Update the state variables
   businessSetIsLoggedIn(false);
   setBusiness(null);
   history.push("/")
   window.location.reload()
-
-
 };
 
 useEffect(() => {
