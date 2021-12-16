@@ -766,14 +766,17 @@ margin-top:5% ;
 
 .editRest__input {
   width: 300px;
+  margin-bottom: 20px;
 }
 
 .editRest__fieldContainer :last-child .addOne__itemContainer {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .editRest__addTypeContainer--dropdown {
   width: 300px;
+  margin-bottom: 20px;
 }
 
 .editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
