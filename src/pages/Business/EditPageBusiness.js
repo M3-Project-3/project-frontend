@@ -21,6 +21,7 @@ const EditPageBusiness = () => {
   const [starters, setStarters] = useState()
   const [main, setMain] = useState()
   const [deserts, setDeserts] = useState()
+  const [menuUpdated, setMenuUpdated] = useState(false)
 
   useEffect( ()=>{
     const getBusiness = async () =>{
@@ -29,7 +30,6 @@ const EditPageBusiness = () => {
         setFormState(allBusiness.data.data.find(el=> el._id===id))
         setIsLoading(false)
         if(formState.menuStarters) {
-
           setStarters(formState.menuStarters)
         }
         if(formState.menuMain){
@@ -47,13 +47,13 @@ const EditPageBusiness = () => {
   },[])
 
   useEffect( ()=>{
-      if(formState.menuStarters) {
+      if(formState.menuStarters && menuUpdated===false) {
         setStarters(formState.menuStarters)
       }
-      if(formState.menuMain){
+      if(formState.menuMain && menuUpdated===false){
         setMain(formState.menuMain)
       }
-      if(formState.menuDeserts){
+      if(formState.menuDeserts && menuUpdated===false){
         setDeserts(formState.menuDeserts)
       }
   },[formState])
@@ -108,6 +108,7 @@ const EditPageBusiness = () => {
   }
 
   const handleInput = (e) => {  
+    console.log(formState)
     setFormState({...formState, [e.target.name]: e.target.value });
   }
 
@@ -129,11 +130,11 @@ const EditPageBusiness = () => {
       return foodTypeSelected.push({value:el, label: el})
     })
   }
-  const removeStarter = (e, index)=>{
-    e.preventDefault()
-    const list = [...starters];
-    list.splice(index, 1);
-    setStarters(list);
+const removeStarter = (e, index)=>{
+  e.preventDefault()
+  const list = [...starters];
+  list.splice(index, 1);
+  setStarters(list);
 }
 const removeMain = (e, index) => {
   e.preventDefault()
@@ -175,7 +176,7 @@ function handleFileInput(e){
 
       <form className="editRest__container" onSubmit={handleSubmit}>
         <div className="editRest__fieldContainer">
-          <label className="editRest__label" className="editRest__label"></label>
+          <label className="editRest__label"></label>
           <input
             className="editRest__input"
             type="text"
@@ -225,7 +226,7 @@ function handleFileInput(e){
         </div>
 
         <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
-          <AddOneToMenu addOne={starters} setAddOne={setStarters} name="menuStarters" />
+          <AddOneToMenu addOne={starters} setAddOne={setStarters} setFlag={setMenuUpdated} name="menuStarters" />
         </div>
 
         <div className="editRest__fieldContainer">
@@ -241,7 +242,7 @@ function handleFileInput(e){
         </div>
 
         <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
-          <AddOneToMenu addOne={main} setAddOne={setMain} name="menuMain"/>
+          <AddOneToMenu addOne={main} setAddOne={setMain}  setFlag={setMenuUpdated} name="menuMain"/>
         </div>
 
         <div className="editRest__fieldContainer">
@@ -257,7 +258,7 @@ function handleFileInput(e){
         </div>
 
         <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
-          <AddOneToMenu addOne={deserts} setAddOne={setDeserts} name="menuDeserts"/>
+          <AddOneToMenu addOne={deserts} setAddOne={setDeserts} setFlag={setMenuUpdated} name="menuDeserts"/>
         </div>
 
         <div className="editRest__fieldContainer">

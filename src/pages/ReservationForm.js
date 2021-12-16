@@ -83,7 +83,7 @@ const posibleHourRange = []
        
             <input placeholder='Surname' required type="text" name="surname" value={formState.surname} onChange={handleInput} />
 
-            <input placeholder='Nº of people' required type="number" name="people" value={formState.people} onChange={handleInput} />
+            <input placeholder='Nº of people' required type="number" min="1" name="people" value={formState.people} onChange={handleInput} />
 
          <div>
             <Calendar required date={date} setDate={setDate}/>

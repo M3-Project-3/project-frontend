@@ -7,6 +7,7 @@ const AddOneToMenu = (props) => {
         if(props.name && value.price) {
             props.setAddOne([...props.addOne, value])
             const newObj = {[name]:"", price:""}
+            props.setFlag(true)
             setValue(newObj)
         }
         
@@ -14,6 +15,7 @@ const AddOneToMenu = (props) => {
     const handleInput = (e) => {
         setValue({...value, [e.target.name]: e.target.value });
     }
+    console.log(props.addOne)
     
  
     return (
