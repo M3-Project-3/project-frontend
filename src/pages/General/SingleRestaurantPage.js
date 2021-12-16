@@ -50,11 +50,15 @@ const SingleRestaurantPage = () => {
             })
         }
     }
+    let lastImage;
+    if(restaurant.pictures && restaurant.pictures.length > 0) {
+          lastImage = restaurant.pictures.length -1
+    }
     return(
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                <img className="singleRest__img" src={restaurant.pictures} alt="Restaurant"></img>
+                <img className="singleRest__img" src={restaurant.pictures[lastImage]} alt="Restaurant"></img>
             </div>
 
 

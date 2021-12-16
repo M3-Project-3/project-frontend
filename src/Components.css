@@ -771,7 +771,7 @@ hr{
   font-size: 1em;
   width: 80%;
   text-align: center;
-  margin-top: ;
+  margin-top: 10px;
   
 }
 .menuContainer label {
@@ -933,4 +933,7 @@ hr{
 }
 .reviewsContainer h2 {
   margin-top: 10%;
+}
+.not-found{
+  width: 80%;
 }

@@ -99,7 +99,7 @@ export default function EditPageBusiness() {
 
       const editBusiness = await axios
         .put(`${API_URL}/business/${id}/edit`, { formState, hourRanges, resType, foodType, menuStarters, menuMain, menuDeserts })
-      history.push("/") //path where to go when you click submit
+      history.push(`/${id}/businessProfile`) //path where to go when you click submit
     }
     catch (error) {
       console.log(error)
