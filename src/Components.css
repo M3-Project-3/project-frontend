@@ -771,9 +771,7 @@ hr{
   font-size: 1em;
   width: 80%;
   text-align: center;
-  display: block;
-  margin: 0 auto;
-
+  margin-top: 10px;
   
 }
 .menuContainer label {
