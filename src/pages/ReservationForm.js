@@ -9,8 +9,7 @@ import AddHoursToForm from '../components/AddHoursToForm';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const API_URL =  process.env.REACT_APP_API_URI;
 
-
-export default function ReservationForm(props) {
+const ReservationForm = (props) => {
     const {businessId} = useParams()
     const history = useHistory()
     const [formState, setFormState] = useState({})
@@ -20,6 +19,7 @@ export default function ReservationForm(props) {
     const [hoursSelected, setHoursSelected] = useState()
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
+
     useEffect(()=>{
         axios.get(`http://localhost:5005/business/${businessId}/details`)
         .then(response=>{
@@ -27,10 +27,8 @@ export default function ReservationForm(props) {
             setIsLoading(false)
         })  
     },[])
-    
-    
 
-    function handleSubmit(event){
+    const handleSubmit = (event) => {
         event.preventDefault()
 
         if(!formState.name || !formState.surname || !date._d || !selectedHourRange.value || !formState.people || !user._id || !businessId){
@@ -60,47 +58,45 @@ export default function ReservationForm(props) {
     }
 }
 
-function handleInput(event){
+const handleInput = (event) => {
     setFormState({...formState, [event.target.name]: event.target.value })// setFormState(Object.assign({}, formState, {[ecen.name]: event.value}))
-   
 }
+
 const posibleHourRange = []
     if(hoursSelected){
         hoursSelected.map(a=>{
-           return posibleHourRange.push({value:a, label: a})
+           return posibleHourRange.push({value: a, label: a})
         })
     }
     
-   
     return (
-        <div>
+        <div className='reservationForm'>
         <form onSubmit={handleSubmit}>
-            <label>Name:</label>
-            <input required type="text" name="name" value={formState.name} onChange={handleInput} />
 
-            <label>Surname:</label>
-            <input required type="text" name="surname" value={formState.surname} onChange={handleInput} />
+            <input placeholder='Name' required type="text" name="name" value={formState.name} onChange={handleInput} />
 
-            <label>Day:</label>
+       
+            <input placeholder='Surname' required type="text" name="surname" value={formState.surname} onChange={handleInput} />
+
+            <input placeholder='Nº of people' required type="number" name="people" value={formState.people} onChange={handleInput} />
+
+         <div>
             <Calendar required date={date} setDate={setDate}/>
-            <label>Hour:</label>
-
-
-            {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
-
-            <label>People:</label>
-            <input required type="number" name="people" value={formState.people} onChange={handleInput} />
-
-           
-
-            <button type="submit">Book!</button>
+            </div>
+            <div className='hourField'>
+                <label>Hour:</label> 
+                {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
+            </div>
+          
+            <button className='bookButton' type="submit">Book!</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-       
-            
+         
         </div>
     )
 }
+
+export default ReservationForm 
 
 
 
