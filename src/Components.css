@@ -749,7 +749,7 @@ margin-top:5% ;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  margin: 0 10px;
+ 
 }
 
 .editRest__fieldContainer {
@@ -767,14 +767,17 @@ margin-top:5% ;
 
 .editRest__input {
   width: 300px;
+  margin-bottom: 20px;
 }
 
 .editRest__fieldContainer :last-child .addOne__itemContainer {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .editRest__addTypeContainer--dropdown {
   width: 300px;
+  margin-bottom: 20px;
 }
 
 .editRest__fieldContainer :last-child .addOne__itemContainer :first-child {
