@@ -21,8 +21,6 @@ export default function EditPageBusiness() {
   const [main, setMain] = useState()
   const [deserts, setDeserts] = useState()
 
-
-
   useEffect( ()=>{
     const getBusiness = async () =>{
       try{
@@ -58,7 +56,6 @@ export default function EditPageBusiness() {
         setDeserts(formState.menuDeserts)
       }
   },[formState])
-  //make this dynamic
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -164,13 +161,11 @@ function removeDesert(e, index){
   setDeserts(list);
 }
   
-
 function handleInput(e) {  
   setFormState({...formState, [e.target.name]: e.target.value });
 }
 
 function handleFileInput(e){
-
   const pictureUploadForm = new FormData();
   pictureUploadForm
   .append("pictures", e.target.files[0]);
@@ -188,7 +183,6 @@ function handleFileInput(e){
       .catch(err => console.log("Error while uploading the file: ", err));
   };
   
-
   return (
     <>
     <div className="editRest__base">
@@ -201,7 +195,7 @@ function handleFileInput(e){
             className="editRest__input"
             type="text"
             name="name"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+            onChange={handleInput} 
             value={formState.name}
             placeholder="Name"
           />
@@ -213,7 +207,7 @@ function handleFileInput(e){
             className="editRest__input"
             type="text"
             name="address"
-            onChange={handleInput} // onChange={(e) => setHeadline(e.target.value)}
+            onChange={handleInput} 
             value={formState.address}
             placeholder="Address"
           />
@@ -293,7 +287,7 @@ function handleFileInput(e){
           <input
             type="file"
             name="tables"
-            onChange={handleFileInput} // onChange={(e) => setHeadline(e.target.value)}
+            onChange={handleFileInput} 
           />
         </div>
         
@@ -305,7 +299,6 @@ function handleFileInput(e){
         <div className="editRest__fieldContainer editRest__fieldContainer--fullWidth">
           <button classtype="editRest__submitButton">Submit</button>
         </div>
-
       </form>
     </div>
     </>

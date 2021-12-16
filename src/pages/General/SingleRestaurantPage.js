@@ -5,8 +5,6 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context"
 import BusinessReview from "../../components/BusinessReview";
-import BottomNavbarUser from "../../components/BottomNavbarUser";
-
 
 const API_URI = process.env.REACT_APP_API_URI;
 
@@ -48,8 +46,8 @@ const SingleRestaurantPage = () => {
                 setReviewAdded(true)
             })
         }
-        
     }
+
     return(
 
         <div className="singleRest__container">
@@ -91,9 +89,9 @@ const SingleRestaurantPage = () => {
                     <p>{restaurant.description}</p>
                  
                 </div>
-        <div className="menuContainer">
-                <h3>Starters</h3>
-                    {isLoading === false && restaurant.menuStarters && restaurant.menuStarters.length > 0 ?
+                    <div className="menuContainer">
+                        <h3>Starters</h3>
+                            {isLoading === false && restaurant.menuStarters && restaurant.menuStarters.length > 0 ?
                         (
                             <p>
                                 {restaurant.menuStarters.map((el)=>{
@@ -151,12 +149,8 @@ const SingleRestaurantPage = () => {
                         {messageError && <span>{messageError}</span>}
                     </form>
                 }
-
-                
             </div>
-       
         </div>
-        
     )
 };
 

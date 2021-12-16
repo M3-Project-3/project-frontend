@@ -33,18 +33,6 @@ table {
 	border-spacing: 0;
 }
 
-
-/* BEM */
-/* Block Element Modifier */
-/* Block - is the entire encasing name for example button */
-/* Element - is something specific inside the block for example text */
-/* Modifier - is something that modifies the block element for example white */
-/* Block and Element are separated by double underscore __ and a modifier is separated by double dash -- */
-/* Put together this example class would look like button__text--white */
-/* You always need the Block and Element but you don't always need the Modifier */
-
-/* REST CARD */
-
 .restCard__container {
   display: flex;
   flex-direction: column;
@@ -65,7 +53,6 @@ table {
   border-radius: 15px;
   position: relative;
   top: -171px;
-  /* background-color: #ffffff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,11 +126,6 @@ table {
   margin-right: 30px;
 }
 
-/* REST PAGE  */
-
-/* .singleRest__container {
-} */
-
  .singleRest__bottomContainer{
 height: 1050px;
 top: -20px;
@@ -195,10 +177,7 @@ font-family: "Readex Pro", sans-serif;
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
-
-
 
 .singleRest__reviewContainer {
   background-color: white;
@@ -219,6 +198,7 @@ font-family: "Readex Pro", sans-serif;
   flex-direction: column;
   align-items: center;
 }
+
 .singleRest__reviewFormContainer input, textarea{
   font-size: 1em;
   border-radius: 10px;
@@ -227,7 +207,6 @@ font-family: "Readex Pro", sans-serif;
   width: 60%;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
 }
 
 .review-button{
@@ -254,26 +233,27 @@ font-family: "Readex Pro", sans-serif;
   justify-content: center;
   align-items: center;
   color: white;
-
 }
+
 .singleRest__reservationButton a {
- 
   color: white;
-
 }
+
 .restaurant-description{
   margin: 0 5%;
 }
-.restaurant-description p{
-  line-height: 1.5em;
 
+.restaurant-description p {
+  line-height: 1.5em;
 }
 .restaurantsReviews{
   margin-left: 5%;
 }
+
 hr{
   width: 90%;
 }
+
 /* RESERVATION PAGE */
 
 .reservationForm form{
@@ -282,6 +262,7 @@ hr{
   align-items: center;
   margin-top: 10%;
 }
+
 /* .SingleDatePicker{
   
 } */
@@ -304,7 +285,6 @@ hr{
   border-radius: 10px;
   background-color: #C2D5E8;
   margin-bottom: 30px;
-
 }
 
 .reservationCard__statusContainer {
@@ -324,9 +304,6 @@ hr{
   align-items: center;
 }
 
-
-
-
 .reservationPage__font {
   display: flex;
   flex-direction: column;
@@ -339,8 +316,6 @@ hr{
   display: flex;
   justify-content: center;
   align-items: center;
- 
-  
 }
 
 .reservationCard__reservationImg {
@@ -370,12 +345,12 @@ hr{
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
 .searchBar__container{
   display:flex;
   align-items: center;
   padding-bottom: 40px;
   padding-top: 40px;
-  
 }
 
 /* BOTTOM NAVBAR */
@@ -408,15 +383,12 @@ hr{
   height: 10%;
   justify-content: space-evenly;
   align-items: center;
-  
-  
 }
 
 
 .bottomNavbar__icon {
   height: 35px;
   display: flex;
- 
 }
 
 .bottomNavbar__favIcon {
@@ -490,6 +462,7 @@ hr{
   padding: 2 8px;
   border-radius: 14px;
 }
+
 #delete-button:hover{
   background-color: rgb(223, 82, 82);
   border: 4px solid rgb(223, 82, 82);
@@ -542,7 +515,6 @@ hr{
   margin-bottom: 9%;
 }
 
-
 /*BUSINESS SIGN UP */
 
 .loginPageBusiness__container{
@@ -561,8 +533,6 @@ hr{
   margin-top: 20%;
   padding-bottom: 5%;
 }
-
-
 
 .loginPageBusiness__title{
   width: 170px;
@@ -602,7 +572,6 @@ hr{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: #21AC6B;
   color: white;
-
 }
 
 .profileContainer{
@@ -624,10 +593,10 @@ hr{
   width: 90%;
   padding-bottom: 5%;
 }
+
 .profile-info span{
 margin-left: 5%;
 margin-top:5% ;
-
 }
 
 .profile-info h3{
@@ -635,9 +604,8 @@ margin-top:5% ;
   margin-bottom: 0;
   margin-left: 4%;
   margin-top: 4%;
-  
-  
 }
+
 .profileReservations{
   display: flex;
   flex-direction: column;
@@ -650,37 +618,39 @@ margin-top:5% ;
   width: 90%;
   padding-bottom: 5%;
   margin-bottom: 100px;
-
 }
+
 .profileReservations p{
   margin-left: 5%;
   margin-top:0 ;
   margin-bottom: 0;
-  
   }
+
   .profileReservations h3{
     color: #202D3C;
     font-size: 1.5em;
     margin-bottom: 0;
     margin-left: 4%;
-    margin-top: 4%;
-    
-    
+    margin-top: 4%; 
   }
+
   .reservationCard{
     border: 10px solid #E9EFF6;
     border-radius: 10px;
     background-color: #E9EFF6;
     margin-bottom: 20px;
   }
+
   #pending{
     color: grey;
     font-size: 1.2em;
   }
+
   #accepted{
     color: #21AC6B;
     font-size: 1.2em;
   }
+
   #declined{
     color: #be403c;
     font-size: 1.2em;
@@ -694,13 +664,12 @@ margin-top:5% ;
   .profile-buttons{
     margin-bottom: 200px;
     margin-top: 5%;
-    
-
   }
+
   .profile-buttons a{
     text-decoration: none;
-    
   }
+
   .profile-buttons button{
     border-radius: 10px;
     padding: 10px 15px;
@@ -712,19 +681,19 @@ margin-top:5% ;
     font-size: 1em;
     border: 1px solid #202D3C;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
-    
-    
   }
+
   .hourField{
     margin-top: 2%;
-
     text-align: center;
   }
+
 .select{
   width: 180px;
   margin-bottom: 15%;
   margin-top: 5%;
 }
+
 .bookButton{
   border-radius: 10px;
   padding: 10px 15px;
@@ -733,11 +702,10 @@ margin-top:5% ;
   color: white;
   font-size: 1em;
   border: 1px solid #202D3C;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
-
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-  /* EDIT RESTAURANT PAGE / BUSINESS */
 
+  /* EDIT RESTAURANT PAGE / BUSINESS */
 .editRest__base {
   display: flex;
   flex-direction: column;
@@ -847,7 +815,6 @@ margin-top:5% ;
   margin-right: 20px;
 }
 
-
 .menuContainer{
  margin-left: 5%;
  margin-bottom: 30px;
@@ -859,7 +826,6 @@ margin-top:5% ;
   top: -19px;
 }
 
-
 .businessProfile{
   display: flex;
   flex-direction: column;
@@ -867,6 +833,7 @@ margin-top:5% ;
   align-items: center;
   width: 100%;
 }
+
 .business-buttons{
 display: flex;
 flex-direction: row;
@@ -883,18 +850,16 @@ justify-content: center;
   border: 1px solid #21AC6B;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
   margin-right: 20px;   
-
   }
+
   .business-buttons{
     margin-bottom: 5%;
     margin-top: 5%;
-  
   }
+
   .reservationsBusiness h1{
     text-align: center;
   }
-
-
 
   .accept-button{
     padding: 10px 15px;
@@ -904,6 +869,7 @@ justify-content: center;
     font-size: 1.2em;
     border-radius: 6px;
   }
+
   .decline-button{
     padding: 10px 13px;
     border: 1px solid #ac2b2b;
@@ -911,21 +877,23 @@ justify-content: center;
     color: white;
     font-size: 1.2em;
     border-radius: 6px;
-
   }
+
   .businessReviews{
     margin-bottom: 100px;
   }
+
   .reservationButtons{
    display: flex;
    justify-content: space-evenly;
   }
+
   .reviewsContainer{
- 
     width: 85%;
     display: block;
     margin: 0 auto
   }
+  
   .reviewsContainer h2{
    margin-top: 10%;
   }

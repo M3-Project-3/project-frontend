@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import Reservation from '../../components/Reservation';
 
-
 const API_URI = process.env.REACT_APP_API_URI;
 
 const ProfilePage = (props) => {
@@ -18,7 +17,6 @@ const ProfilePage = (props) => {
     const [pending, setPending] = useState()
     const [accepted, setAccepted] = useState()
     const [declined, setDeclined] = useState()
-
 
     useEffect(() => {
         axios
@@ -56,7 +54,6 @@ const ProfilePage = (props) => {
     return (
         <div>
 
-
             {isLoading === false &&
                 <>
                     <div className="profileContainer">
@@ -66,7 +63,6 @@ const ProfilePage = (props) => {
                             <span> <strong>Name:</strong>  {profile.name} </span>
                             <span><strong>Surname:</strong>  {profile.surname} </span>
                             <span><strong>Email:</strong> {profile.email}</span>
-
 
                         </div>
 
@@ -100,10 +96,8 @@ const ProfilePage = (props) => {
                             <button onClick={logOutUser}>Logout</button>
                         </div>
                     </div>
-
                 </>
             }
-
         </div>
     )
 }

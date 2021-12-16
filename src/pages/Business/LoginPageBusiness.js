@@ -4,26 +4,22 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 const API_URI = process.env.REACT_APP_API_URI;
-
 const LoginPageBusiness = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
-
-  const { logInBusiness } = useContext(AuthContext);
-
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-
-  const handleLoginSubmit = (e) => {
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [errorMessage, setErrorMessage] = useState(undefined);
+const { logInBusiness } = useContext(AuthContext);
+const handleEmail = (e) => setEmail(e.target.value);
+const handlePassword = (e) => setPassword(e.target.value);
+const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
+
+const requestBody = { email, password };
 
     axios
       .post(`${API_URI}/auth/business/login`, requestBody)
       .then((response) => {
     
-
         const JWTToken = response.data.authTokenBusiness;
         logInBusiness(JWTToken);
         props.history.push("/");
