@@ -1,26 +1,28 @@
-
 import React, { Component, Fragment} from "react";
 import Select from "react-select";
 
 const options = [
-  { value: "fineDining", label: "fineDining" },
-  { value: "casual", label: "casual" },
-  { value: "familyFriendly", label: "familyFriendly" },
-  { value: "foodFood", label: "foodFood" },
-  { value: "cafe", label: "cafe" },
-  { value: "buffet", label: "buffet" },
-  { value: "foodTruck", label: "foodTruck" },
-  { value: "popUp", label: "popUp" },
+  { value: "allyoucaneat", label: "All You Can Eat" },
+  { value: "bakery", label: "Bakery" },
+  { value: "buffet", label: "Buffet" },
+  { value: "Brunch", label: "Brunch" },
+  { value: "cafe", label: "Cafe" },
+  { value: "casual", label: "Casual" },
+  { value: "familyFriendly", label: "Family Friendly" },
+  { value: "Fancy", label: "Fancy" },
+  { value: "fineDining", label: "Fine Dining" },
+  { value: "foodTruck", label: "Food Truck" },
+  { value: "outdoorseating", label: "Outdoor Seating" },
+  { value: "popUp", label: "Pop Up" },
   { value: "Sports Bar", label: "Sports Bar" },
   { value: "Bistro", label: "Bistro" },
-  { value: "diner", label: "diner" },
-  { value: "themeRestaurant", label: "themeRestaurant" }
+  { value: "diner", label: "Diner" },
+  { value: "Terrace", label: "Terrace" },
+  { value: "themeRestaurant", label: "Theme Restaurant" }
 ];
 
 export default class AddTypeRestaurant extends Component {
   
-  
-
   handleChange = selectedOption => {
     this.props.setSelectedResType(selectedOption);
   };

@@ -2,8 +2,6 @@ import React from 'react'
 
 const ReservationCard = (props) => {
     const { reservation } = props;
-    
-
 
     return (
         <div className="reservationCard__container">

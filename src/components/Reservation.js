@@ -10,7 +10,6 @@ const Reservation = (props) => {
     return (
         <div className="reservationCard">
             <div>
-                
                 <p> <strong> Restaurant:</strong> {businessId.name}</p>
                 <br/>
                 <p><strong> Address:</strong>  {businessId.address}</p>

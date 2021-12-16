@@ -9,12 +9,10 @@ const AddOneToMenu = (props) => {
             const newObj = {[name]:"", price:""}
             setValue(newObj)
         }
-        
     }
     const handleInput = (e) => {
         setValue({...value, [e.target.name]: e.target.value });
     }
-    
  
     return (
         <>  
