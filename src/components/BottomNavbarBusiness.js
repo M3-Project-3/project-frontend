@@ -4,14 +4,12 @@ import { AuthContext } from "./../context/auth.context"; // <== IMPORT
 
 const BottomNavbarBusiness = (props) => {
 
-
     const {
         business,
         businessIsLoggedIn,
         businessIsLoading,
 
     } = useContext(AuthContext);
-
 
     return (
 
@@ -24,8 +22,6 @@ const BottomNavbarBusiness = (props) => {
 
                         <img className="bottomNavbar__icon" src="/reservation.png" alt="" />
                     </Link>
-
-
                 }
                 </div>
                 <div>
@@ -35,10 +31,8 @@ const BottomNavbarBusiness = (props) => {
 
                         <img className="bottomNavbar__profileIcon" src="/userProfile.png" alt="" />
                     </Link>
-
                 }
                 </div>
-         
         </div>
     )
 }

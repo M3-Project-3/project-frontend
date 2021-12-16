@@ -9,21 +9,16 @@ const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const { logInUser } = useContext(AuthContext);
-
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
-
     axios
       .post(`${API_URI}/auth/login`, requestBody)
       .then((response) => {
        
-
         const JWTToken = response.data.authToken;
         logInUser(JWTToken);
         props.history.push("/");
@@ -68,7 +63,6 @@ const LoginPage = (props) => {
       </div>
 
     </div>
-    
   );
 }
 

@@ -1,11 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-
 const FavouritesCard = (props) => {
 
     const { restaurant } = props;
-  
     const removeFavourite = ()=>{
         props.handleInput(restaurant._id)
     }
@@ -14,7 +12,7 @@ const FavouritesCard = (props) => {
         <div className="restCard__container">
             <Link to={`/restaurants/${restaurant._id}`} className="restCard__link">
                 <div className="restCard__topContainer">
-                    <img className="restCard__img" src="/stockrestimg.png" alt=''></img>
+                    <img className="restCard__img" src={restaurant.pictures[0]} alt=''></img>
                 </div>
             </Link>
                 <div className="restCard__bookmarkIconContainer">
@@ -37,7 +35,6 @@ const FavouritesCard = (props) => {
                         </div>
                     </div>
                 </div>
-            
         </div>
     )
 }

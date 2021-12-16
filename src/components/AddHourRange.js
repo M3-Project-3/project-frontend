@@ -1,5 +1,3 @@
-
-
 import React, { Component, Fragment } from "react";
 import Select from "react-select";
 
@@ -17,8 +15,6 @@ const options = [
 
 export default class AddHourRange extends Component {
   
-  
-
   handleChange = selectedOption => {
     this.props.setSelectedHourRange(selectedOption);
   };
@@ -35,7 +31,6 @@ export default class AddHourRange extends Component {
           defaultValue={this.props.restaurant}
         />  
       </>   
-
     );
   }
 }

@@ -1,4 +1,3 @@
-
 import React, { Component, Fragment} from "react";
 import Select from "react-select";
 
@@ -18,8 +17,6 @@ const options = [
 
 export default class AddTypeRestaurant extends Component {
   
-  
-
   handleChange = selectedOption => {
     this.props.setSelectedResType(selectedOption);
   };

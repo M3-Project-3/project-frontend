@@ -9,8 +9,7 @@ import AddOneToMenu from "../../components/AddOneToMenu"
 import service from "../../api/service";
 
 const API_URL = process.env.REACT_APP_API_URI;
-
-const EditPageBusiness = () => {
+export default function EditPageBusiness() {
   const { id } = useParams();
   const history = useHistory();
   const [formState, setFormState] = useState({});
@@ -288,6 +287,4 @@ const EditPageBusiness = () => {
       </div>
     </>
   );
-}
-
-export default EditPageBusiness
+      }
