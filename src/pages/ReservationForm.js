@@ -9,7 +9,6 @@ import AddHoursToForm from '../components/AddHoursToForm';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const API_URL =  process.env.REACT_APP_API_URI;
 
-
 const ReservationForm = (props) => {
     const {businessId} = useParams()
     const history = useHistory()
@@ -21,7 +20,6 @@ const ReservationForm = (props) => {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedHourRange, setSelectedHourRange] = useState()
 
-
     useEffect(()=>{
         axios.get(`http://localhost:5005/business/${businessId}/details`)
         .then(response=>{
@@ -29,8 +27,6 @@ const ReservationForm = (props) => {
             setIsLoading(false)
         })  
     },[])
-    
-    
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -73,7 +69,6 @@ const posibleHourRange = []
         })
     }
     
-   
     return (
         <div className='reservationForm'>
         <form onSubmit={handleSubmit}>
@@ -93,14 +88,10 @@ const posibleHourRange = []
                 {isLoading === false && <AddHoursToForm selectedHourRange={selectedHourRange} setSelectedHourRange={setSelectedHourRange} options={posibleHourRange} />}
             </div>
           
-
-           
-
             <button className='bookButton' type="submit">Book!</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-       
-            
+         
         </div>
     )
 }

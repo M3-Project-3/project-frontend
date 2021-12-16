@@ -9,24 +9,16 @@ const SignupPageBusiness = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  //const [surname, setSurname] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
-
+  
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
-  //const handleSurname = (e) => setSurname(e.target.value);
-
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    // Create an object representing the request body
     const requestBody = { email, password, name };
     
-    // Make an axios request to the API
-    // If POST request is successful redirect to login page
-    // If the request resolves with an error, set the error message in the state
     axios
       .post(`${API_URI}/auth/business/signup`, requestBody)
       .then((response) => props.history.push("/login"))
@@ -38,22 +30,15 @@ const SignupPageBusiness = (props) => {
 
   return (
     <>
-    
-   
     <div className="SignupPage">
       <h1> Business Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
        
         <input required placeholder="Business name" type="text" name="name" value={name} onChange={handleName} />
-
-        {/* <label>Surname:</label>
-        <input type="text" name="surname" value={surname} onChange={handleSurname} /> */}
-
         
         <input required placeholder="Email address" type="text" name="email" value={email} onChange={handleEmail} />
 
-    
         <input
           placeholder="Password"
           type="password"

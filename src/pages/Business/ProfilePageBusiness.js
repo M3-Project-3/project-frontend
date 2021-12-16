@@ -71,7 +71,6 @@ const ProfilePageBusiness = (props) => {
                                 </>)
                             }
                         </div>
-
                     </>
                 }
             </div>
