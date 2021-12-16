@@ -54,10 +54,9 @@ const SingleRestaurantPage = () => {
 
         <div className="singleRest__container">
             <div className="singleRest__imgContainer">
-                {isLoading === false && restaurant.pictures && 
-                    <ImageCarousel images={restaurant.pictures} />
-                }
+                <img className="singleRest__img" src={restaurant.pictures} alt="Restaurant"></img>
             </div>
+
 
             <div className="singleRest__bottomContainer">
                 <div className="singleRest__titleContainer">
