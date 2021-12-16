@@ -21,9 +21,6 @@ function ProfilePageBusiness(props) {
     const [businessIsLoading, setBusinessIsLoading] = useState(true)
     const [profile, setProfile] = useState({})
     const [reservations, setReservations] = useState()
-    const [pending, setPending] = useState()
-    const [accepted, setAccepted] = useState()
-    const [declined, setDeclined] = useState()
     const [statusUpdated, setStatusUpdated] = useState(false)
 
     useEffect(() => {
@@ -45,51 +42,38 @@ function ProfilePageBusiness(props) {
             })
     }, [statusUpdated]);
 
-    useEffect(() => {
-        if (businessIsLoading === false) {
-            if (reservations) {
-                let statusPending = reservations.filter((el) => el.status === "pending")
-                setPending(statusPending)
-            } if (reservations) {
-                let statusAccepted = reservations.filter((el) => el.status === "accepted")
-                setAccepted(statusAccepted)
-            } if (reservations) {
-                let statusDeclined = reservations.filter((el) => el.status === "declined")
-                setDeclined(statusDeclined)
-            }
-        }
 
-    }, [reservations])
 
- 
 
     return (
         <div className='businessProfile'>
             <h2>Hello {profile.name}</h2>
 
             <div className='businessReviews'>
-            {businessIsLoading === false &&
-                <>
-                    <div className='business-buttons'>
-                        <Link to={`/business/${business._id}/edit`}><button>Business Edit</button> </Link>
+                {businessIsLoading === false &&
+                    <>
+                        <div className='business-buttons'>
+                            <Link to={`/business/${business._id}/edit`}><button>Business Edit</button> </Link>
 
-                        <button onClick={logOutBusiness}>Logout</button>
-                    </div>
-                    <h2>Your reviews</h2>
-                    {profile.reviews && profile.reviews.length > 0 ? profile.reviews.map((singleReview) => {
-                        return (
-                            <>
-                                <BusinessReview review={singleReview} />
-                            </>
-                        )
-                    }) : (
-                        <>
-                            <p>There is no reviews yet!</p>
-                        </>)
-                    }
+                            <button onClick={logOutBusiness}>Logout</button>
+                        </div>
+                        <div className="reviewsContainer">
+                            <h2>Your reviews</h2>
+                            {profile.reviews && profile.reviews.length > 0 ? profile.reviews.map((singleReview) => {
+                                return (
+                                    <>
+                                        <BusinessReview review={singleReview} />
+                                    </>
+                                )
+                            }) : (
+                                <>
+                                    <p>There is no reviews yet!</p>
+                                </>)
+                            }
+                        </div>
 
-                </>
-            }
+                    </>
+                }
             </div>
         </div>
     )

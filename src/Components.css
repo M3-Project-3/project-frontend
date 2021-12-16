@@ -868,6 +868,7 @@ margin-top:5% ;
 .business-buttons{
 display: flex;
 flex-direction: row;
+justify-content: center;
 }
 
 .business-buttons button{
@@ -891,9 +892,7 @@ flex-direction: row;
     text-align: center;
   }
 
-  .businessReviews{
-    margin-bottom: 100px;
-  }
+
 
   .accept-button{
     padding: 10px 15px;
@@ -912,7 +911,19 @@ flex-direction: row;
     border-radius: 6px;
 
   }
+  .businessReviews{
+    margin-bottom: 100px;
+  }
   .reservationButtons{
    display: flex;
    justify-content: space-evenly;
+  }
+  .reviewsContainer{
+ 
+    width: 85%;
+    display: block;
+    margin: 0 auto
+  }
+  .reviewsContainer h2{
+   margin-top: 10%;
   }
