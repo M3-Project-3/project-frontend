@@ -78,13 +78,13 @@ const ProfilePage = (props) => {
                                 }
 
                                 <h4 id="accepted">Accepted reservations:</h4>
-                                {accepted && accepted.length > 0 ? accepted.map(el => {
+                                {isLoading === false && accepted && accepted.length > 0 ? accepted.map(el => {
                                     return <Reservation reservation={el} />
                                 }) : <span>No accepted reservations</span>
                                 }
 
                                 <h4 id="declined">Declined reservations:</h4>
-                                {declined && declined.length > 0 ? declined.map(el => {
+                                { isLoading === false && declined && declined.length > 0 ? declined.map(el => {
                                     return <Reservation reservation={el} />
                                 }) : <span>No declined reservations</span>
                                 }
