@@ -29,7 +29,7 @@ const ProfilePage = (props) => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5005/user/${id}/reservations`)
+            .get(`${API_URI}/user/${id}/reservations`)
             .then((response) => {
                 setReservations(response.data.data)
                 setIsLoading(false)
