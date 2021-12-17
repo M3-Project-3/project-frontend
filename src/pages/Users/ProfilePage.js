@@ -31,8 +31,9 @@ const ProfilePage = (props) => {
         axios
             .get(`${API_URI}/user/${id}/reservations`)
             .then((response) => {
-                setReservations(response.data.data)
                 setIsLoading(false)
+                setReservations(response.data.data)
+                
             })
     }, []);
 
@@ -73,19 +74,19 @@ const ProfilePage = (props) => {
                                 <h4 id="pending">Pending reservations:</h4>
 
                                 {isLoading === false && pending && pending.length > 0 ? pending.map(el => {
-                                    return <Reservation reservation={el} />
+                                    return <Reservation reservation={el} profile="user"/>
                                 }) : <span>No pending reservations</span>
                                 }
 
                                 <h4 id="accepted">Accepted reservations:</h4>
                                 {isLoading === false && accepted && accepted.length > 0 ? accepted.map(el => {
-                                    return <Reservation reservation={el} />
+                                    return <Reservation reservation={el} profile="user"/>
                                 }) : <span>No accepted reservations</span>
                                 }
 
                                 <h4 id="declined">Declined reservations:</h4>
                                 { isLoading === false && declined && declined.length > 0 ? declined.map(el => {
-                                    return <Reservation reservation={el} />
+                                    return <Reservation reservation={el} profile="user"/>
                                 }) : <span>No declined reservations</span>
                                 }
                             </div>

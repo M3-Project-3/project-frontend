@@ -9,16 +9,19 @@ const Reservation = (props) => {
 
     return (
         <div className="reservationCard">
-            <div>
-                <p> <strong> Restaurant:</strong> {businessId.name}</p>
+        <div>
+            {props.profile === "business" && <p><strong>Client:</strong> {name} {surname}</p>}
+            {props.profile === "user" && (<>
+                <p><strong>Restaurant:</strong> {businessId.name}</p>
                 <br/>
-                <p><strong> Address:</strong>  {businessId.address}</p>
-                <br/>
-                <p><strong> Date:</strong> {finalDate} at {hour}</p>
-                <br/>
-                <p><strong> Nº of people:</strong> {people}</p>
-            </div>
+                <p><strong>Address:</strong>  {businessId.address}</p>
+            </>)}
+            <br/>
+            <p><strong>Date:</strong> {finalDate} at {hour}</p>
+            <br/>
+            <p><strong>Nº of people:</strong> {people}</p>
         </div>
+    </div>
     )
 }
 

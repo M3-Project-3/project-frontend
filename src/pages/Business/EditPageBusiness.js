@@ -65,8 +65,7 @@ export default function EditPageBusiness() {
       if (selectedHourRange) {
 
         let orderedHourRange = selectedHourRange.map((el) => el.value.split("-")[0].split(":")[0]).sort((a, b) => a - b)
-        hourRanges = orderedHourRange.map((el) => `${el}:00`)
-
+        hourRanges = orderedHourRange.map((el) => `${el}:00-${Number(el)+1}:00`)
       } else {
         if (formState.timetable) {
           hourRanges = formState.timetable.map((el) => el)

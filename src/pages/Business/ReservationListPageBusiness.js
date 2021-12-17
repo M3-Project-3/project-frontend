@@ -87,7 +87,7 @@ const API_URI = process.env.REACT_APP_API_URI;
                             {pending && pending.length > 0 ? pending.map((el) => {
                                 return (
                                     <>
-                                        <Reservation reservation={el} />
+                                    <Reservation reservation={el} profile="business"/>
                                         <div className="reservationButtons">
                                             <button className="accept-button" onClick={() => accept(el._id)}>Accept</button>
                                             <button className="decline-button" onClick={() => decline(el._id)}>Decline</button>
@@ -99,14 +99,14 @@ const API_URI = process.env.REACT_APP_API_URI;
                             <h4 id="accepted">Accepted reservations</h4>
                             {accepted && accepted.length > 0 ? accepted.map((el) => {
                                 return (
-                                    <Reservation reservation={el} />
+                                    <Reservation reservation={el} profile="business"/>
                                 )
                             }) : <span>No reservations accepted</span>
                             }
                             <h4 id="declined">Declined reservations</h4>
                             {declined && declined.length > 0 ? declined.map((el) => {
                                 return (
-                                    <Reservation reservation={el} />
+                                    <Reservation reservation={el} profile="business"/>
                                 )
                             }) : <span>No reservations declined</span>
                             }
