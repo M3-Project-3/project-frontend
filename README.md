@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Ironhack Final Project
+By Amy Davies, Carolina Romanos, David Guardia and Snehith Reddy.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Introduction**
 
-## Available Scripts
+Our app is based on the popular restaurant table-booking app "El Tenedor". We have made an app that allows users to search for restaurants by name, food type and ambience, make reservations, leave reviews and edit their details. For businesses they can also create a seperate account in order to promote their business. They can acceot or decline reservations and update their informtion.
 
-In the project directory, you can run:
+**Description**
 
-### `yarn start`
+The first page which loads is a list of all restaurants with a search bar at the top of the page. The search bar can be utilised to search 3 different types of criteria. The bottom nav bar is only for logged in users, so if a guest clicks on it, they will be redirected to the login page. Once logged in, a user can leave reviews and make reservations. For reservations, the user can choose a time, date, number of people at their own convenience and they can navigate the status of that reservation, but clicking on the reservation button on the bottom navbar. There are three status'; pending, accepted and declined. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For business users, they can upload images of their restaurant, which will be displayed in a carousel at the top of the page. They can also add their address, restaurant type, food type, opening times and a description. As well as that, they can also add menu items and prices so users can see what dishes they offer.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Technologies Used**
 
-### `yarn test`
+For this project we have used:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- React-Dates
+- React-Slick (to assemble the carousel model)
+- Slick-Carousel (CSS code to style the carousel)
+- JavaScript
+- HTML
+- CSS ( We used the BEM method)
+- MongoDB
+- Cloudinary
+- Express
 
-### `yarn build`
+**Challenges and Future Plans**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Challenges:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- We were overly ambitious with what we could achieve in 8 days! We were not able to implement all of the ideas that we had for the app.
+- Handling the business information was challenging, the model is very complicated and handling data took some time to figure out.
+- The search bar was difficult to implement as we wanted the user to be able to search using 3 seperate parameters, which we did achieve.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Future Plans:
 
-### `yarn eject`
+- Users will be able to make a food order which will go directly to the restaurant.
+- Restaurants can reply to comments.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Credits**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+David Guardia,
+Carolina Romanos,
+Amy Davies,
+Snehith Reddy.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
