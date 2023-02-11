@@ -766,7 +766,7 @@ hr{
 }
 
 .menuContainer {
-    border: 16px solid #e9eff6;
+  border: 16px solid #e9eff6;
   border-radius: 6px;
   background-color: #e9eff6;
   display: flex;
@@ -774,6 +774,7 @@ hr{
   align-items: center;
   font-size: 1em;
   width: 80%;
+  margin-left: 10%;
   text-align: center;
   margin-top: 10px;
   
