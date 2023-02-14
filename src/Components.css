@@ -969,5 +969,9 @@ hr{
    .restCard__infoBar {
       width: auto;
    }
+   
+   .restCard__bottomContainer {
+      width: 100%;
+   }
 
 }
