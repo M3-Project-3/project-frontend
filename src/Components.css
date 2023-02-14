@@ -447,8 +447,7 @@ hr{
 
 .homepage__container {
   padding-bottom: 80px;
-  width: 90%;  
-  padding-left: 5%;
+  width: 100%;  
   display: flex;
   flex-direction: row;
   align-items: center;
