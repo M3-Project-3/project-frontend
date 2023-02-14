@@ -17,8 +17,13 @@ nav,
 section {
   display: block;
 }
-body {
+html, body {
   line-height: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 a {
   list-style: none;
