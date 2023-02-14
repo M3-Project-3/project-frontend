@@ -950,3 +950,24 @@ hr{
 .not-found{
   width: 80%;
 }
+
+@media (max-width: 435px) { 
+   .restCard__container{
+      width: 90%;
+      margin-left: 5%;
+   }
+   
+   .restCard__img {
+      width: 100%;
+      height: auto;
+   }
+   
+   .restCard__img {
+      width: 100%;
+   }
+   
+   .restCard__infoBar {
+      width: auto;
+   }
+
+}
