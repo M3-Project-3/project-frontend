@@ -4,6 +4,7 @@ import axios from 'axios';
 import React from 'react'
 import RestaurantCard from '../../components/RestaurantCard';
 import NotFoundImg from '../../not-found.jpeg'
+import RestaurantCardLoading from '../../components/RestaurantCardLoading';
 
 const API_URI = process.env.REACT_APP_API_URI;
 
@@ -42,9 +43,11 @@ const FilterRestaurantsPage = () => {
     return (
         <div className="homepage__container">
     
-            <SearchBar filter={handleFilter} />
-
-            {isLoading === true &&<p>Loading...</p>}
+            <SearchBar filter={handleFilter} /> 
+            
+            {isLoading === true && [...Array(10)].map(card => {
+                return <RestaurantCardLoading/>
+            })}
             {isLoading === false && filteredRestaurants.length === 0 && <img className='not-found' src={NotFoundImg} alt='Not found' />}
             {isLoading === false && filteredRestaurants.map((restaurant => {
                 if(restaurant.isProfileComplete === true){
@@ -57,3 +60,4 @@ const FilterRestaurantsPage = () => {
 }
 
 export default FilterRestaurantsPage 
+
