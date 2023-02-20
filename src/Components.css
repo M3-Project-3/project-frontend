@@ -820,7 +820,6 @@ hr{
 }
 
 .menuContainer {
-  border: 16px solid #e9eff6;
   border-radius: 6px;
   background-color: #e9eff6;
   display: flex;
